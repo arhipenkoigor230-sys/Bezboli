@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>БезБоли — 3-дневный бесплатный курс массажа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== TOKENS ===== */
+        :root {
+            --ink: #111111;
+            --paper: #faf8f4;
+            --paper-dim: #f0ebe3;
+            --white: #ffffff;
+            --red: #e31b23;
+            --red-deep: #b01018;
+            --ink-soft: #3a3a3a;
+            --ink-mute: #6e6a63;
+            --hairline: rgba(17, 17, 17, 0.1);
+            --hairline-dark: rgba(255, 255, 255, 0.12);
+            --shadow-soft: 0 1px 2px rgba(17, 17, 17, .05), 0 22px 44px -26px rgba(17, 17, 17, .35);
+            --shadow-dark: 0 1px 2px rgba(0, 0, 0, .3), 0 26px 50px -24px rgba(0, 0, 0, .6);
+            --radius-blob: 28px 28px 28px 6px;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background-image:
+                radial-gradient(circle at 14% 8%, rgba(227, 27, 35, 0.045), transparent 38%),
+                radial-gradient(circle at 86% 64%, rgba(17, 17, 17, 0.035), transparent 42%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--red);
+            outline-offset: 3px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        .section-title {
+            font-size: clamp(30px, 4vw, 42px);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+            line-height: 1.15;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        .section-sub {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--ink-soft);
+            max-width: 660px;
+            margin-bottom: 40px;
+        }
+
+        .section-title.white {
+            color: #ffffff;
+        }
+        .section-sub.white {
+            color: #c9c4ba;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            font-family: 'Inter', sans-serif;
+            background: var(--red);
+            color: #ffffff;
+            border: none;
+            padding: 18px 46px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s cubic-bezier(.2, .8, .2, 1), box-shadow 0.2s ease;
+            box-shadow: 0 16px 32px -12px rgba(227, 27, 35, .6);
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary:hover {
+            background: var(--red-deep);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 36px -10px rgba(227, 27, 35, .65);
+        }
+
+        .btn-primary.large {
+            padding: 20px 54px;
+            font-size: 19px;
+        }
+
+        .btn-secondary {
+            font-family: 'Inter', sans-serif;
+            background: var(--ink);
+            color: #ffffff;
+            border: 2px solid var(--red);
+            padding: 16px 40px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background: var(--red);
+            border-color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--ink);
+            color: #ffffff;
+            padding: 92px 0 76px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--red) 18%, var(--red) 82%, transparent);
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-size: clamp(34px, 4.4vw, 54px);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.14;
+            margin-bottom: 20px;
+        }
+
+        .hero-left h1 .highlight {
+            color: var(--red);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .hero-left .sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 19px;
+            font-weight: 400;
+            opacity: 0.82;
+            margin-bottom: 30px;
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .hero-left .badge {
+            display: inline-block;
+            background: var(--red);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 7px 18px;
+            border-radius: 40px;
+            letter-spacing: 0.6px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-right img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 40px 12px 40px 12px;
+            object-fit: cover;
+            border: none;
+            box-shadow:
+                0 0 0 5px var(--ink),
+                0 0 0 9px var(--red),
+                0 34px 60px -20px rgba(0, 0, 0, .65);
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        section {
+            padding: 96px 0;
+            position: relative;
+        }
+
+        section:not(:last-of-type)::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+        }
+
+        section.dark {
+            background: var(--ink);
+            color: #ffffff;
+        }
+
+        section.dark:not(:last-of-type)::after {
+            background: linear-gradient(90deg, transparent, var(--hairline-dark), transparent);
+        }
+
+        section.dark .section-sub {
+            color: #c2beb5;
+        }
+
+        section.dark .card {
+            background: #1a1a1a;
+            color: #ffffff;
+            border-color: var(--hairline-dark);
+        }
+
+        /* ===== CARDS & GRIDS ===== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 32px 26px;
+            border-radius: var(--radius-blob);
+            border: 1px solid var(--hairline);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.25s cubic-bezier(.2, .8, .2, 1), box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1px 2px rgba(17, 17, 17, .06), 0 32px 52px -22px rgba(17, 17, 17, .4);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: var(--ink-mute);
+            line-height: 1.6;
+        }
+
+        section.dark .card p {
+            color: #c2beb5;
+        }
+
+        .card .icon-wrap {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(227, 27, 35, 0.08);
+            margin-bottom: 16px;
+        }
+
+        .card:nth-child(odd) .icon-wrap {
+            transform: rotate(-5deg);
+        }
+        .card:nth-child(even) .icon-wrap {
+            transform: rotate(5deg);
+        }
+
+        .card.dark-card {
+            background: #1a1a1a;
+            color: #ffffff;
+            border-color: var(--hairline-dark);
+        }
+
+        .card.dark-card .icon-wrap {
+            background: rgba(227, 27, 35, 0.18);
+        }
+
+        .card.dark-card .icon-wrap svg {
+            filter: none;
+        }
+
+        /* ===== PROGRAM TABLE ===== */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .program-item {
+            border-radius: var(--radius-blob) !important;
+            padding: 40px 26px 26px !important;
+            position: relative;
+            box-shadow: var(--shadow-dark);
+            transition: transform 0.25s ease;
+        }
+
+        .program-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .program-item .day-badge {
+            position: absolute;
+            top: -18px;
+            left: 24px;
+            display: inline-flex;
+            align-items: center;
+            background: var(--red);
+            color: #ffffff;
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 14px;
+            padding: 8px 20px;
+            border-radius: 40px;
+            letter-spacing: 0.2px;
+            margin-bottom: 0;
+            box-shadow: 0 12px 22px -8px rgba(227, 27, 35, .65);
+            transform: rotate(-4deg);
+        }
+
+        .program-item:nth-child(2) .day-badge { transform: rotate(3deg); }
+        .program-item:nth-child(3) .day-badge { transform: rotate(-3deg); }
+
+        .program-item h4 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            margin-top: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .program-item .meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #b6b1a7;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .program-item p {
+            font-size: 15px;
+            color: #d9d5cc;
+        }
+
+        .program-item .result {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--hairline-dark);
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* ===== STEPS ===== */
+        .step-card {
+            background: var(--ink);
+            color: #ffffff;
+            padding: 36px 26px;
+            border-radius: 28px 28px 6px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: "";
+            position: absolute;
+            top: -44px;
+            right: -44px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(227, 27, 35, .35), transparent 70%);
+        }
+
+        .step-card:nth-child(2) { border-radius: 6px 28px 28px 28px; }
+        .step-card:nth-child(3) { border-radius: 28px 6px 28px 28px; }
+
+        .step-card .step-num {
+            font-size: 46px;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--red);
+            line-height: 1;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .step-card h4 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        /* ===== REVIEWS (удалены, но стили оставлены на случай) ===== */
+        /* Стили .review не используются, но их можно оставить — они не мешают */
+
+        /* ===== DISCOUNT BLOCK ===== */
+        .discount-box {
+            background: var(--ink);
+            color: #ffffff;
+            padding: 46px 40px;
+            border-radius: 32px 32px 32px 8px;
+            border: none;
+            box-shadow: var(--shadow-dark);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .discount-box::before {
+            content: "";
+            position: absolute;
+            top: -70px;
+            right: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(227, 27, 35, .28), transparent 70%);
+        }
+
+        .discount-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 24px;
+            position: relative;
+        }
+
+        .discount-box ul li {
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: 1px solid var(--hairline-dark);
+        }
+
+        .discount-box ul li::before {
+            content: "✓ ";
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* ===== FORM ===== */
+        .form-block {
+            background: var(--ink);
+            color: #ffffff;
+            padding: 52px 44px;
+            border-radius: 36px 36px 36px 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: none;
+            box-shadow: var(--shadow-dark);
+        }
+
+        .form-block label {
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: block;
+            margin-bottom: 6px;
+            color: #b6b1a7;
+        }
+
+        .form-block input[type="text"],
+        .form-block input[type="tel"],
+        .form-block input[type="email"] {
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid transparent;
+            border-radius: 14px;
+            font-size: 16px;
+            background: #ffffff;
+            margin-bottom: 18px;
+            color: #111;
+            font-family: 'Inter', sans-serif;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .form-block input:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(227, 27, 35, .18);
+        }
+
+        .form-block input::placeholder {
+            color: #999;
+        }
+
+        .form-block .checkbox-wrap {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 10px 0 22px;
+        }
+
+        .form-block .checkbox-wrap input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            accent-color: var(--red);
+        }
+
+        .form-block .checkbox-wrap label {
+            font-size: 14px;
+            color: #bbbbbb;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.4;
+        }
+
+        .form-block .btn-primary {
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-block .form-note {
+            font-size: 13px;
+            opacity: 0.5;
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #000000;
+            color: #aaaaaa;
+            padding: 48px 0 36px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            border-radius: 3px;
+            background: var(--red);
+        }
+
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .footer .brand {
+            font-weight: 600;
+            font-style: italic;
+            font-size: 26px;
+            color: #fbfbfc;
+            letter-spacing: -0.01em;
+        }
+
+        .footer .brand span {
+            color: var(--red);
+        }
+
+        .footer a {
+            color: #19e04b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+
+        .footer a:hover {
+            color: var(--red);
+        }
+
+        .footer .socials a {
+            margin-right: 20px;
+            font-weight: 600;
+        }
+
+        .footer .legal {
+            font-size: 13px;
+            opacity: 0.6;
+            margin-top: 8px;
+            width: 100%;
+        }
+        .hero-right img {
+    height: 800px;
+    width: auto;
+    object-fit: contain; /* или просто уберите object-fit */
+}
+
+        .footer .legal p {
+            margin-bottom: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-left .sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-right img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 56px 0 44px;
+            }
+
+            .btn-primary.large {
+                padding: 17px 32px;
+                font-size: 18px;
+                width: 100%;
+            }
+
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+                padding: 16px 28px;
+                font-size: 17px;
+            }
+
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            section {
+                padding: 56px 0;
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4,
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-block {
+                padding: 34px 22px;
+                border-radius: 26px;
+            }
+
+            .discount-box {
+                padding: 30px 22px;
+                border-radius: 24px;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer .socials a {
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 22px 18px;
+            }
+
+            .program-item {
+                padding: 34px 18px 20px !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-left">
+                <div class="badge">🔥 БЕСПЛАТНЫЙ ИНТЕНСИВ</div>
+                <h1>
+                    3-дневный мини-курс:<br />
+                    <span class="highlight">Базовая связка массажа спины</span>
+                </h1>
+                <p class="sub">
+                    За выполнение всех уроков и домашнего задания —<br />
+                    <strong>скидка на полный курс 20%</strong>
+                </p>
+                <a href="#form" class="btn-primary large">Получить доступ к курсу</a>
+                <p style="font-size: 14px; opacity: 0.5; margin-top: 16px;">
+                    👆 После регистрации вы попадёте в чат-бот и получите первый урок
+                </p>
+            </div>
+            <div class="hero-right">
+                <img
+                src="img/pic1.jpg"
+                alt="Массаж: руки на спине, обучение"
+                />
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HOW IT WORKS (3 шага) ===== -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">Как это работает</h2>
+                <p class="section-sub">3 дня, 3 урока, 3 домашних задания — и скидка на полный курс</p>
+                <div class="grid-3">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h4>Регистрация</h4>
+                        <p>Заполняете форму, попадаете в чат-бот Salebot</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h4>Обучение</h4>
+                        <p>Каждый день или после выполненого задания открывается новый урок с практикой</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h4>ДЗ = Скидка</h4>
+                        <p>Выполняете задания и получаете ПРОМОКОД</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROGRAM (подробно) ===== -->
+        <section class="dark">
+            <div class="container">
+                <h2 class="section-title white">Программа по дням</h2>
+                <p class="section-sub white">Структура курса:</p>
+                <div class="program-grid">
+                    <!-- День 1 -->
+                    <div class="program-item" style="background: #1a1a1a; color: #fff; border-color: #e31b23;">
+                        <span class="day-badge">День 1</span>
+                        <h4>Подготовительные приемы: Поглаживание,выжимание всей спины</h4>
+                        <div class="meta">📹 Видео 15 мин</div>
+                        <p>Поймёте, как просто на самом деле взаимодейтсовать с телом, и научитесь выполнять самые приятные приемы для клиентов.</p>
+                        <div class="result">✅ Результат: Почти PRO массажист</div>
+                        <p style="margin-top: 10px; font-size: 14px; color: #e31b23; font-weight: 600;">
+                            ДЗ: Прислать видео выполненной в Вашем исполнении связки приемов и получить обратную связь от преподавателя
+                        </p>
+                    </div>
+                    <!-- День 2 -->
+                    <div class="program-item" style="background: #1a1a1a; color: #fff; border-color: #e31b23;">
+                        <span class="day-badge">День 2</span>
+                        <h4>Работа с шейно-грудным отделом</h4>
+                        <div class="meta">📹 Видео 11 мин</div>
+                        <p>Научитесь основным приемам массажа (растирание,разминание) </p>
+                        <div class="result">✅ Результат: Уже совсем TopPRO массажист</div>
+                        <p style="margin-top: 10px; font-size: 14px; color: #e31b23; font-weight: 600;">
+                            ДЗ: Видео выполненной связки приемов, получение обратной связи от преподавателя
+                        </p>
+                    </div>
+                    <!-- День 3 -->
+                    <div class="program-item" style="background: #1a1a1a; color: #fff; border-color: #e31b23;">
+                        <span class="day-badge">День 3</span>
+                        <h4>Работа с поясничным отделом спины</h4>
+                        <div class="meta">📹 Видео 11 мин</div>
+                        <p>Соберёте все приёмы в единую связку и сможете применять на практике.</p>
+                        <div class="result">✅ Результат: умеете собирать связку целиком</div>
+                        <p style="margin-top: 10px; font-size: 14px; color: #e31b23; font-weight: 600;">
+                            ДЗ: Видео выполненной связки приемов, получение обратной связи от преподавателя
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DISCOUNT MECHANIC ===== -->
+        <section>
+            <div class="container">
+                <div class="discount-box">
+                    <h3 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">
+                        🎁 Как получить скидку
+                    </h3>
+                    </p>
+                    <ul>
+                        <li><strong>Выполните ДЗ каждого дня</strong> — видео отчет</li>
+                        <li><strong>Отправьте отчёт в диалог с чат-ботом</strong> — это займёт 2 минуты</li>
+                        <li><strong>Получите персональный промокод</strong> на скидку на полный курс</li>
+                    </ul>
+                    <div style="background: #1a1a1a; border-radius: 16px; padding: 16px 20px; border-left: 4px solid #e31b23; margin-top: 8px;">
+                        <p style="font-weight: 700; font-size: 18px; color: #ffffff;">
+                            🔥 Скидка действует 7 дней после выдачи
+                        </p>
+                        <p style="font-size: 14px; color: #aaaaaa;">Успейте применить, пока акция активна</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BENEFITS (4 карточки) ===== -->
+        <section class="dark">
+            <div class="container">
+                <h2 class="section-title white">Что вы получите</h2>
+                <p class="section-sub white">4 результата за прохождение мини-курса</p>
+                <div class="grid-4">
+                    <div class="card dark-card">
+                        <span class="icon-wrap">
+                            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#e31b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </span>
+                        <h3>Научитесь выполнять массаж спины</h3>
+                        <p>По нашей методике, после которого ваша модель/клиент почувствует настоящий профессиональный эффект</p>
+                    </div>
+                    <div class="card dark-card">
+                        <span class="icon-wrap">
+                            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#e31b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        </span>
+                        <h3>Попробуете себя на практике</h3>
+                        <p>У вас появится ответ на вопрос - "моё это или нет?"</p>
+                    </div>
+                    <div class="card dark-card">
+                        <span class="icon-wrap">
+                            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#e31b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </span>
+                        <h3>Узнаете, как избежать ошибок</h3>
+                        <p>Типичные проколы новичков — и как их не допустить</p>
+                    </div>
+                    <div class="card dark-card">
+                        <span class="icon-wrap">
+                            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#e31b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </span>
+                        <h3>Получите скидку</h3>
+                        <p>За выполнение ДЗ — промокод на полный курс</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FORM ===== -->
+        <section id="form" style="background: #f4f4f4; border-bottom: none;">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center;">Запишитесь на 3-дневный мини-курс</h2>
+                <p style="text-align: center; font-size: 18px; color: #3a3a3a; max-width: 600px; margin: 0 auto 32px;">
+                    Заполните форму и получите доступ к первому уроку
+                </p>
+                <div class="form-block">
+                    <form id="leadForm">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" placeholder="Введите ваше имя" required>
+
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" placeholder="+7 (___)-___-__-__" required>
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="example@mail.ru">
+
+                        <div class="checkbox-wrap">
+                            <input type="checkbox" id="agree" required>
+                            <label for="agree">Согласен(на) на обработку персональных данных</label>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Получить доступ</button>
+                        <div class="form-note">
+                            После регистрации вы попадёте в чат-бот и получите первый урок
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+    <div class="container">
+        <!-- Левая колонка: соцсети и юридическая информация -->
+        <div>
+            <div class="socials">
+                <a href="#">VK</a>
+            </div>
+            <div class="legal">
+                <p>Самозанятый Архипенко И.А ИНН 910226347220</p>
+                <p><a href="offer.html">Оферта</a></p>
+                <p>© 2026 Школа НЕклассического массажа. Все права защищены.</p>
+            </div>
+        </div>
+        <!-- Правая колонка: логотип и контакты -->
+        <div style="text-align: right;">
+            <div class="brand">
+                <img src="img/logo.png" alt="БезБоли" style="height: 120px; width: auto; display: block; margin-left: auto;">
+            </div>
+            <p style="font-size: 14px;">📩 <a href="https://vk.ru/bezboli_school">https://vk.ru/bezboli_school</a></p>
+            <p style="font-size: 14px;">📞 +7 (979) 025-83-35</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- ===== JS ===== -->
+    <script>
+    (function() {
+        const form = document.getElementById('leadForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name');
+                const phone = document.getElementById('phone');
+                const agree = document.getElementById('agree');
+
+                // Валидация
+                if (name && phone && agree) {
+                    if (name.value.trim() === '' || phone.value.trim() === '') {
+                        alert('Пожалуйста, заполните имя и телефон.');
+                        return;
+                    }
+                    if (!agree.checked) {
+                        alert('Необходимо согласие на обработку данных.');
+                        return;
+                    }
+
+                    // ✅ УСПЕШНАЯ ОТПРАВКА
+                    alert('Данные отправлены!');  // Сообщение
+
+                    // Открыть группу ВК в новой вкладке (замените ссылку на свою)
+                    window.open('https://vk.com/bezboli_school', '_blank');
+
+                    // Очистить поля
+                    name.value = '';
+                    phone.value = '';
+                    const email = document.getElementById('email');
+                    if (email) email.value = '';
+                    agree.checked = false;
+
+                    // (Опционально) Скрыть форму и показать текст "Спасибо"
+                     form.style.display = 'none';
+                     document.querySelector('.form-block').insertAdjacentHTML('afterend', '<p style="text-align:center;font-size:24px;color:#e31b23;">✅ Спасибо! Данные отправлены.</p>');
+
+                } else {
+                    alert('Пожалуйста, заполните все обязательные поля.');
+                }
+            });
+        }
+    })();
+</script>
+
+
+</body>
+</html>
