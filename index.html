@@ -7,6 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    
+    <!-- VK OpenAPI -->
+    <script type="text/javascript" src="https://vk.ru/js/api/openapi.js?168"></script>
+
     <style>
         /* ===== TOKENS ===== */
         :root {
@@ -473,9 +477,6 @@
             position: relative;
         }
 
-        /* ===== REVIEWS (удалены, но стили оставлены на случай) ===== */
-        /* Стили .review не используются, но их можно оставить — они не мешают */
-
         /* ===== DISCOUNT BLOCK ===== */
         .discount-box {
             background: var(--ink);
@@ -520,7 +521,7 @@
             font-weight: 700;
         }
 
-        /* ===== FORM ===== */
+        /* ===== FORM & SOCIAL SELECT ===== */
         .form-block {
             background: var(--ink);
             color: #ffffff;
@@ -530,6 +531,7 @@
             margin: 0 auto;
             border: none;
             box-shadow: var(--shadow-dark);
+            transition: all 0.3s ease;
         }
 
         .form-block label {
@@ -603,6 +605,58 @@
             text-align: center;
         }
 
+        /* Блок выбора соцсетей */
+        #socialSelect {
+            max-width: 600px;
+            margin: 30px auto 0;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        #socialSelect h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-buttons .btn-primary {
+            min-width: 180px;
+            padding: 16px 24px;
+            font-size: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-vk {
+            background: #4a76a8 !important;
+        }
+        .btn-vk:hover {
+            background: #3b5f8a !important;
+        }
+
+        .btn-max {
+            background: #6c757d !important;
+        }
+        .btn-max:hover {
+            background: #5a6268 !important;
+        }
+
+        #vkWidgetContainer {
+            margin-top: 24px;
+            min-height: 60px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: #000000;
@@ -664,11 +718,12 @@
             margin-top: 8px;
             width: 100%;
         }
+
         .hero-right img {
-    height: 800px;
-    width: auto;
-    object-fit: contain; /* или просто уберите object-fit */
-}
+            height: 800px;
+            width: auto;
+            object-fit: contain;
+        }
 
         .footer .legal p {
             margin-bottom: 2px;
@@ -695,6 +750,8 @@
 
             .hero-right img {
                 max-width: 100%;
+                height: auto;
+                max-height: 500px;
             }
         }
 
@@ -751,6 +808,11 @@
             .footer .socials a {
                 margin: 0 10px;
             }
+
+            .social-buttons .btn-primary {
+                min-width: 140px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -761,8 +823,12 @@
             .program-item {
                 padding: 34px 18px 20px !important;
             }
-        }
 
+            .hero-right img {
+                height: auto;
+                max-height: 350px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -787,7 +853,7 @@
             </div>
             <div class="hero-right">
                 <img
-                src="img/pic1.jpg"
+                src="pic1.jpg"
                 alt="Массаж: руки на спине, обучение"
                 />
             </div>
@@ -870,7 +936,6 @@
                     <h3 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">
                         🎁 Как получить скидку
                     </h3>
-                    </p>
                     <ul>
                         <li><strong>Выполните ДЗ каждого дня</strong> — видео отчет</li>
                         <li><strong>Отправьте отчёт в диалог с чат-ботом</strong> — это займёт 2 минуты</li>
@@ -924,7 +989,7 @@
             </div>
         </section>
 
-        <!-- ===== FORM ===== -->
+        <!-- ===== FORM + SOCIAL SELECT ===== -->
         <section id="form" style="background: #f4f4f4; border-bottom: none;">
             <div class="container">
                 <h2 class="section-title" style="text-align: center;">Запишитесь на 3-дневный мини-курс</h2>
@@ -953,39 +1018,56 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- Блок выбора соцсетей (изначально скрыт) -->
+                <div id="socialSelect" style="display: none;">
+                    <h3 style="color: #111;">Выберите способ получения мини-курса</h3>
+                    <div class="social-buttons">
+                        <button id="vkBtn" class="btn-primary btn-vk">Получить в VK</button>
+                        <button id="maxBtn" class="btn-primary btn-max">Получить в MAX</button>
+                    </div>
+                    <div id="vkWidgetContainer"></div>
+                    <p style="font-size: 13px; color: #555; margin-top: 8px;">
+                        Нажав «Получить в VK», вы дадите разрешение на уведомления
+                    </p>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
-    <div class="container">
-        <!-- Левая колонка: соцсети и юридическая информация -->
-        <div>
-            <div class="socials">
-                <a href="#">VK</a>
+        <div class="container">
+            <div>
+                <div class="socials">
+                    <a href="#">VK</a>
+                </div>
+                <div class="legal">
+                    <p>Самозанятый Архипенко И.А ИНН 910226347220</p>
+                    <p><a href="offer.html">Оферта</a></p>
+                    <p>© 2026 Школа НЕклассического массажа. Все права защищены.</p>
+                </div>
             </div>
-            <div class="legal">
-                <p>Самозанятый Архипенко И.А ИНН 910226347220</p>
-                <p><a href="offer.html">Оферта</a></p>
-                <p>© 2026 Школа НЕклассического массажа. Все права защищены.</p>
+            <div style="text-align: right;">
+                <div class="brand">
+                    <img src="logo.png" alt="БезБоли" style="height: 120px; width: auto; display: block; margin-left: auto;">
+                </div>
+                <p style="font-size: 14px;">📩 <a href="https://vk.ru/bezboli_school">https://vk.ru/bezboli_school</a></p>
+                <p style="font-size: 14px;">📞 +7 (979) 025-83-35</p>
             </div>
         </div>
-        <!-- Правая колонка: логотип и контакты -->
-        <div style="text-align: right;">
-            <div class="brand">
-                <img src="img/logo.png" alt="БезБоли" style="height: 120px; width: auto; display: block; margin-left: auto;">
-            </div>
-            <p style="font-size: 14px;">📩 <a href="https://vk.ru/bezboli_school">https://vk.ru/bezboli_school</a></p>
-            <p style="font-size: 14px;">📞 +7 (979) 025-83-35</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- ===== JS ===== -->
     <script>
     (function() {
         const form = document.getElementById('leadForm');
+        const socialSelect = document.getElementById('socialSelect');
+        const vkBtn = document.getElementById('vkBtn');
+        const maxBtn = document.getElementById('maxBtn');
+        const vkWidgetContainer = document.getElementById('vkWidgetContainer');
+        const formBlock = document.querySelector('.form-block');
+
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -993,7 +1075,6 @@
                 const phone = document.getElementById('phone');
                 const agree = document.getElementById('agree');
 
-                // Валидация
                 if (name && phone && agree) {
                     if (name.value.trim() === '' || phone.value.trim() === '') {
                         alert('Пожалуйста, заполните имя и телефон.');
@@ -1004,26 +1085,80 @@
                         return;
                     }
 
-                    // ✅ УСПЕШНАЯ ОТПРАВКА
-                    alert('Данные отправлены!');  // Сообщение
+                    // Скрываем форму, показываем выбор соцсетей
+                    form.style.display = 'none';
+                    const note = formBlock.querySelector('.form-note');
+                    if (note) note.style.display = 'none';
 
-                    // Открыть группу ВК в новой вкладке (замените ссылку на свою)
-                    window.open('https://vk.com/bezboli_school', '_blank');
+                    socialSelect.style.display = 'block';
 
-                    // Очистить поля
+                    // Очищаем поля
                     name.value = '';
                     phone.value = '';
                     const email = document.getElementById('email');
                     if (email) email.value = '';
                     agree.checked = false;
-
-                    // (Опционально) Скрыть форму и показать текст "Спасибо"
-                     form.style.display = 'none';
-                     document.querySelector('.form-block').insertAdjacentHTML('afterend', '<p style="text-align:center;font-size:24px;color:#e31b23;">✅ Спасибо! Данные отправлены.</p>');
-
                 } else {
                     alert('Пожалуйста, заполните все обязательные поля.');
                 }
+            });
+        }
+
+        // Обработчик для VK
+        if (vkBtn) {
+            vkBtn.addEventListener('click', function() {
+                // Вставляем виджет, если его ещё нет
+                if (!vkWidgetContainer.innerHTML) {
+                    const widgetDiv = document.createElement('div');
+                    widgetDiv.id = 'vk_allow_messages_from_community';
+                    vkWidgetContainer.appendChild(widgetDiv);
+                    if (typeof VK !== 'undefined' && VK.Widgets) {
+                        VK.Widgets.AllowMessagesFromCommunity('vk_allow_messages_from_community', {}, 198807271);
+                    } else {
+                        alert('Ошибка загрузки VK API, попробуйте обновить страницу.');
+                        return;
+                    }
+                }
+
+                // Скрываем кнопки выбора
+                vkBtn.style.display = 'none';
+                if (maxBtn) maxBtn.style.display = 'none';
+
+                // Добавляем инструкцию и кнопку перехода в диалог
+                const container = vkWidgetContainer.parentNode;
+                
+                // Удаляем старые подсказки, если они были
+                const oldInfo = container.querySelector('.vk-info');
+                const oldGoBtn = container.querySelector('.vk-go-btn');
+                if (oldInfo) oldInfo.remove();
+                if (oldGoBtn) oldGoBtn.remove();
+
+                const info = document.createElement('p');
+                info.className = 'vk-info';
+                info.style.marginTop = '12px';
+                info.style.fontSize = '14px';
+                info.style.color = '#ffffff';
+                info.textContent = '✅ Нажмите «Разрешить» в виджете выше, затем перейдите в диалог:';
+
+                const goBtn = document.createElement('button');
+                goBtn.className = 'vk-go-btn btn-primary';
+                goBtn.style.marginTop = '8px';
+                goBtn.style.padding = '10px 24px';
+                goBtn.style.fontSize = '15px';
+                goBtn.textContent = '🚀 Перейти в диалог';
+                goBtn.addEventListener('click', function() {
+                    window.open('https://vk.com/im?sel=-198807271', '_blank');
+                });
+
+                container.appendChild(info);
+                container.appendChild(goBtn);
+            });
+        }
+
+        // Обработчик для MAX (заглушка)
+        if (maxBtn) {
+            maxBtn.addEventListener('click', function() {
+                alert('Функция MAX в разработке. Пока вы можете получить курс в VK.');
             });
         }
     })();
@@ -1031,4 +1166,5 @@
 
 
 </body>
+<!-- rebuild-check-2025 -->
 </html>
