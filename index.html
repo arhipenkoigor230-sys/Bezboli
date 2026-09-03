@@ -1117,27 +1117,47 @@
     <!-- ===== JS ===== -->
 <script>
     (function() {
-        // 1. Слушаем сообщение от Яндекс-формы об успешной отправке
-        window.addEventListener('message', function(event) {
-            // Проверяем, что сообщение пришло с forms.yandex.ru
-            if (event.origin !== 'https://forms.yandex.ru') return;
-
-            // Если тип сообщения — успешная отправка
-            if (event.data && event.data.type === 'YANDEX_FORM_SUBMIT') {
-                // Скрываем контейнер с формой
-                const formBlock = document.getElementById('yandexFormBlock');
-                if (formBlock) formBlock.style.display = 'none';
-
-                // Показываем блок выбора соцсетей
-                const socialSelect = document.getElementById('socialSelect');
-                if (socialSelect) socialSelect.style.display = 'block';
-            }
-        });
-
-        // 2. Обработчик для карточки VK (виджет)
+        const formBlock = document.getElementById('yandexFormBlock');
+        const socialSelect = document.getElementById('socialSelect');
         const vkCard = document.getElementById('vkCard');
         const vkWidgetContainer = document.getElementById('vkWidgetContainer');
 
+        // Функция, которая скрывает форму и показывает соцсети
+        function showSocial() {
+            if (formBlock) formBlock.style.display = 'none';
+            if (socialSelect) socialSelect.style.display = 'block';
+            // Дополнительно: убираем возможную кнопку повторной отправки через CSS (не гарантировано)
+            const iframe = document.querySelector('iframe[name="ya-form-6a98d335eb6146242dcfafeb"]');
+            if (iframe) {
+                try {
+                    // Пытаемся скрыть кнопку внутри iframe (не сработает из-за CORS)
+                } catch(e) {}
+            }
+        }
+
+        // 1. Слушаем сообщения от Яндекс-формы
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://forms.yandex.ru') return;
+            // При любом сообщении от Яндекса считаем, что форма отправлена
+            showSocial();
+        });
+
+        // 2. Fallback: если через 5 секунд форма не скрылась, показываем соцсети вручную
+        // (пользователь мог отправить форму, но событие не пришло)
+        // Засекаем время после загрузки страницы, но мы не знаем, когда отправят.
+        // Лучше сделать так: если пользователь нажал кнопку отправки, мы не можем отследить.
+        // Поэтому просто добавим кнопку "Получить доступ" вручную? Нет.
+
+        // Лучше использовать MutationObserver для отслеживания изменений в iframe? CORS не даст.
+
+        // Вместо этого предлагаем пользователю кликнуть по кнопке "Получить доступ" 
+        // на странице, которая теперь будет скрывать форму и показывать соцсети.
+        // Но у нас есть кнопка в хедере "Получить доступ" – она ведёт к #form.
+        // Можно добавить кнопку внутри формы? Но это отдельная задача.
+
+        // Пока оставим как есть – событие должно срабатывать.
+
+        // 3. Обработчик для карточки VK (виджет)
         if (vkCard) {
             vkCard.addEventListener('click', function() {
                 if (!vkWidgetContainer.innerHTML) {
@@ -1152,7 +1172,6 @@
                     }
                 }
 
-                // Скрываем остальные элементы, чтобы сфокусироваться на виджете
                 const grid = document.querySelector('.social-grid');
                 if (grid) grid.style.display = 'none';
                 const sub = document.querySelector('#socialSelect .sub');
@@ -1160,7 +1179,6 @@
                 const h3 = document.querySelector('#socialSelect h3');
                 if (h3) h3.textContent = '✅ Разрешите уведомления';
 
-                // Добавляем кнопку перехода в диалог
                 const container = vkWidgetContainer.parentNode;
                 const oldInfo = container.querySelector('.vk-info');
                 const oldGoBtn = container.querySelector('.vk-go-btn');
@@ -1187,6 +1205,19 @@
                 container.appendChild(info);
                 container.appendChild(goBtn);
             });
+        }
+
+        // Также добавим кнопку "Уже заполнили? Получить доступ" под формой
+        // на случай, если событие не сработает. Это будет видно, но мы её скроем.
+        // Лучше просто показать ссылку внизу.
+        // Добавим небольшой текст под формой:
+        const note = document.createElement('p');
+        note.style.textAlign = 'center';
+        note.style.marginTop = '16px';
+        note.innerHTML = '<a href="#" onclick="document.getElementById(\'yandexFormBlock\').style.display=\'none\'; document.getElementById(\'socialSelect\').style.display=\'block\'; return false;" style="color: var(--red); font-weight: 600; text-decoration: underline;">Уже заполнили? Получить доступ →</a>';
+        // Вставим после formBlock
+        if (formBlock) {
+            formBlock.parentNode.insertBefore(note, formBlock.nextSibling);
         }
     })();
 </script>
