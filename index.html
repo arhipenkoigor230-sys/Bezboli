@@ -1052,7 +1052,7 @@
                     Заполните форму и получите доступ к первому уроку
                 </p>
 
-                <!-- Контейнер для Яндекс.Формы (всегда видим) -->
+                <!-- Контейнер для Яндекс.Формы -->
                 <div class="form-block" id="yandexFormBlock" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 36px; box-shadow: var(--shadow-dark);">
                     <script src="https://forms.yandex.ru/_static/embed.js"></script>
                     <iframe src="https://forms.yandex.ru/u/6a98d335eb6146242dcfafeb?iframe=1" 
@@ -1064,13 +1064,13 @@
                     </iframe>
                 </div>
 
-                <!-- Кнопка, появляющаяся только после отправки формы (изначально скрыта) -->
+                <!-- Кнопка всегда видна, но с подсказкой -->
                 <div style="text-align: center; margin-top: 20px;">
-                    <button id="showSocialBtn" class="btn-primary" style="display: none; padding: 14px 40px; font-size: 17px;">
+                    <button id="showSocialBtn" class="btn-primary" style="padding: 14px 40px; font-size: 17px;">
                         ✅ Получить доступ
                     </button>
-                    <p id="socialHint" style="font-size: 14px; color: #666; margin-top: 8px; display: none;">
-                        Нажмите сюда, чтобы выбрать способ получения курса
+                    <p style="font-size: 14px; color: #666; margin-top: 8px;">
+                        Нажмите сюда после заполнения формы, чтобы выбрать способ получения курса
                     </p>
                 </div>
 
@@ -1079,13 +1079,11 @@
                     <h3>📲 Выберите способ получения курса</h3>
                     <p class="sub">Нажмите на иконку соцсети, чтобы перейти к боту</p>
                     <div class="social-grid">
-                        <!-- VK -->
                         <div class="social-card vk" id="vkCard">
                             <div class="icon">VK</div>
                             <div class="label">Получить в VK</div>
                             <div class="desc">Разрешите уведомления и перейдите в диалог</div>
                         </div>
-                        <!-- MAX -->
                         <a href="https://max.ru/se14168987_bot" target="_blank" class="social-card max" id="maxCard">
                             <div class="icon">MAX</div>
                             <div class="label">Получить в MAX</div>
@@ -1131,35 +1129,18 @@
         const formBlock = document.getElementById('yandexFormBlock');
         const socialSelect = document.getElementById('socialSelect');
         const showBtn = document.getElementById('showSocialBtn');
-        const socialHint = document.getElementById('socialHint');
         const vkCard = document.getElementById('vkCard');
         const vkWidgetContainer = document.getElementById('vkWidgetContainer');
 
-        // 1. Слушаем сообщения от Яндекс-формы об успешной отправке
-        window.addEventListener('message', function(event) {
-            // Проверяем, что сообщение пришло с forms.yandex.ru
-            if (event.origin !== 'https://forms.yandex.ru') return;
-
-            // Если это сообщение об успешной отправке
-            if (event.data && event.data.type === 'YANDEX_FORM_SUBMIT') {
-                // Показываем кнопку и подсказку
-                if (showBtn) showBtn.style.display = 'inline-block';
-                if (socialHint) socialHint.style.display = 'block';
-            }
-        });
-
-        // 2. При клике на кнопку скрываем форму, показываем соцсети
+        // При клике на кнопку скрываем форму и показываем соцсети
         if (showBtn) {
             showBtn.addEventListener('click', function() {
                 if (formBlock) formBlock.style.display = 'none';
                 if (socialSelect) socialSelect.style.display = 'block';
-                // Прячем саму кнопку и подсказку
-                showBtn.style.display = 'none';
-                if (socialHint) socialHint.style.display = 'none';
             });
         }
 
-        // 3. Обработчик для карточки VK (виджет)
+        // Обработчик для VK-виджета (без изменений)
         if (vkCard) {
             vkCard.addEventListener('click', function() {
                 if (!vkWidgetContainer.innerHTML) {
@@ -1210,6 +1191,7 @@
         }
     })();
 </script>
+
 
 
 </body>
