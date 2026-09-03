@@ -1064,13 +1064,13 @@
                     </iframe>
                 </div>
 
-                <!-- Кнопка всегда видна, но с подсказкой -->
+                <!-- Кнопка для перехода к соцсетям (всегда видна, но с подсказкой) -->
                 <div style="text-align: center; margin-top: 20px;">
                     <button id="showSocialBtn" class="btn-primary" style="padding: 14px 40px; font-size: 17px;">
                         ✅ Получить доступ
                     </button>
                     <p style="font-size: 14px; color: #666; margin-top: 8px;">
-                        Нажмите сюда после заполнения формы, чтобы выбрать способ получения курса
+                        Нажмите после заполнения формы, чтобы выбрать способ получения курса
                     </p>
                 </div>
 
@@ -1079,18 +1079,19 @@
                     <h3>📲 Выберите способ получения курса</h3>
                     <p class="sub">Нажмите на иконку соцсети, чтобы перейти к боту</p>
                     <div class="social-grid">
-                        <div class="social-card vk" id="vkCard">
+                        <!-- VK – теперь просто ссылка на диалог -->
+                        <a href="https://vk.com/im?sel=-198807271" target="_blank" class="social-card vk">
                             <div class="icon">VK</div>
                             <div class="label">Получить в VK</div>
-                            <div class="desc">Разрешите уведомления и перейдите в диалог</div>
-                        </div>
+                            <div class="desc">Напишите «Старт» в диалоге, чтобы начать</div>
+                        </a>
+                        <!-- MAX -->
                         <a href="https://max.ru/se14168987_bot" target="_blank" class="social-card max" id="maxCard">
                             <div class="icon">MAX</div>
                             <div class="label">Получить в MAX</div>
                             <div class="desc">Открыть диалог с ботом в MAX</div>
                         </a>
                     </div>
-                    <div id="vkWidgetContainer" style="margin-top: 20px;"></div>
                     <p style="font-size: 13px; color: #888; margin-top: 12px;">
                         Вы также можете получить доступ в любом из мессенджеров
                     </p>
@@ -1129,64 +1130,12 @@
         const formBlock = document.getElementById('yandexFormBlock');
         const socialSelect = document.getElementById('socialSelect');
         const showBtn = document.getElementById('showSocialBtn');
-        const vkCard = document.getElementById('vkCard');
-        const vkWidgetContainer = document.getElementById('vkWidgetContainer');
 
         // При клике на кнопку скрываем форму и показываем соцсети
         if (showBtn) {
             showBtn.addEventListener('click', function() {
                 if (formBlock) formBlock.style.display = 'none';
                 if (socialSelect) socialSelect.style.display = 'block';
-            });
-        }
-
-        // Обработчик для VK-виджета (без изменений)
-        if (vkCard) {
-            vkCard.addEventListener('click', function() {
-                if (!vkWidgetContainer.innerHTML) {
-                    const widgetDiv = document.createElement('div');
-                    widgetDiv.id = 'vk_allow_messages_from_community';
-                    vkWidgetContainer.appendChild(widgetDiv);
-                    if (typeof VK !== 'undefined' && VK.Widgets) {
-                        VK.Widgets.AllowMessagesFromCommunity('vk_allow_messages_from_community', {}, 198807271);
-                    } else {
-                        alert('Ошибка загрузки VK API, попробуйте обновить страницу.');
-                        return;
-                    }
-                }
-
-                const grid = document.querySelector('.social-grid');
-                if (grid) grid.style.display = 'none';
-                const sub = document.querySelector('#socialSelect .sub');
-                if (sub) sub.style.display = 'none';
-                const h3 = document.querySelector('#socialSelect h3');
-                if (h3) h3.textContent = '✅ Разрешите уведомления';
-
-                const container = vkWidgetContainer.parentNode;
-                const oldInfo = container.querySelector('.vk-info');
-                const oldGoBtn = container.querySelector('.vk-go-btn');
-                if (oldInfo) oldInfo.remove();
-                if (oldGoBtn) oldGoBtn.remove();
-
-                const info = document.createElement('p');
-                info.className = 'vk-info';
-                info.style.marginTop = '12px';
-                info.style.fontSize = '14px';
-                info.style.color = '#111';
-                info.textContent = 'Нажмите «Разрешить» в виджете, затем перейдите в диалог:';
-
-                const goBtn = document.createElement('button');
-                goBtn.className = 'vk-go-btn btn-primary';
-                goBtn.style.marginTop = '8px';
-                goBtn.style.padding = '10px 24px';
-                goBtn.style.fontSize = '15px';
-                goBtn.textContent = '🚀 Перейти в диалог';
-                goBtn.addEventListener('click', function() {
-                    window.open('https://vk.com/im?sel=-198807271', '_blank');
-                });
-
-                container.appendChild(info);
-                container.appendChild(goBtn);
             });
         }
     })();
