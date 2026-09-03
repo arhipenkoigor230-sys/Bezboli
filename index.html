@@ -1134,6 +1134,10 @@
             const vkWidgetContainer = document.getElementById('vkWidgetContainer');
             const formBlock = document.querySelector('.form-block');
 
+            // Telegram bot settings
+            const BOT_TOKEN = '8956320385:AAHCN1FewKut5l1vIkgRjPi7e6nvPO9H310';
+            const CHAT_ID = '2102886839';
+
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -1157,22 +1161,22 @@
                         return;
                     }
 
-                    // Собираем данные для отправки
-                    const formData = new FormData();
-                    formData.append('name', name.value.trim());
-                    formData.append('phone', phone.value.trim());
-                    if (email) formData.append('email', email.value.trim());
+                    // Формируем текст сообщения
+                    const message = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name.value.trim()}\n📞 Телефон: ${phone.value.trim()}\n📧 Email: ${email ? email.value.trim() : 'не указан'}`;
 
-                    // Отправка на Formspree
-                    fetch('https://formspree.io/f/myeyeaab', {
+                    // Отправка в Telegram
+                    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                         method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: CHAT_ID,
+                            text: message,
+                            parse_mode: 'HTML'
+                        })
                     })
-                    .then(response => {
-                        if (response.ok) {
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
                             // Успешно – показываем выбор соцсетей
                             form.style.display = 'none';
                             const note = formBlock.querySelector('.form-note');
@@ -1185,17 +1189,18 @@
                             if (email) email.value = '';
                             agree.checked = false;
                         } else {
-                            alert('Ошибка при отправке данных. Попробуйте позже.');
+                            alert('Ошибка при отправке. Попробуйте позже.');
+                            console.error('Telegram error:', data);
                         }
                     })
                     .catch(error => {
-                        alert('Ошибка соединения. Проверьте интернет и попробуйте снова.');
-                        console.error('Formspree error:', error);
+                        alert('Ошибка соединения. Проверьте интернет.');
+                        console.error('Telegram error:', error);
                     });
                 });
             }
 
-            // Обработчик для карточки VK
+            // Обработчик для карточки VK (без изменений)
             if (vkCard) {
                 vkCard.addEventListener('click', function() {
                     if (!vkWidgetContainer.innerHTML) {
