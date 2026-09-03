@@ -1044,7 +1044,7 @@
             </div>
         </section>
 
-       <!-- ===== FORM + SOCIAL SELECT ===== -->
+<!-- ===== FORM + SOCIAL SELECT ===== -->
         <section id="form" style="background: #f4f4f4; border-bottom: none;">
             <div class="container">
                 <h2 class="section-title" style="text-align: center;">Запишитесь на 3-дневный мини-курс</h2>
@@ -1064,13 +1064,13 @@
                     </iframe>
                 </div>
 
-                <!-- Кнопка, которую пользователь нажмёт после отправки -->
+                <!-- Кнопка, появляющаяся только после отправки формы (изначально скрыта) -->
                 <div style="text-align: center; margin-top: 20px;">
-                    <button id="showSocialBtn" class="btn-primary" style="padding: 14px 40px; font-size: 17px;">
-                        ✅ Я заполнил(а) форму – получить доступ
+                    <button id="showSocialBtn" class="btn-primary" style="display: none; padding: 14px 40px; font-size: 17px;">
+                        ✅ Получить доступ
                     </button>
-                    <p style="font-size: 14px; color: #666; margin-top: 8px;">
-                        Нажмите сюда, когда отправите форму, чтобы выбрать способ получения курса
+                    <p id="socialHint" style="font-size: 14px; color: #666; margin-top: 8px; display: none;">
+                        Нажмите сюда, чтобы выбрать способ получения курса
                     </p>
                 </div>
 
@@ -1099,6 +1099,7 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -1127,24 +1128,38 @@
     <!-- ===== JS ===== -->
 <script>
     (function() {
-        // Элементы
         const formBlock = document.getElementById('yandexFormBlock');
         const socialSelect = document.getElementById('socialSelect');
         const showBtn = document.getElementById('showSocialBtn');
+        const socialHint = document.getElementById('socialHint');
         const vkCard = document.getElementById('vkCard');
         const vkWidgetContainer = document.getElementById('vkWidgetContainer');
 
-        // При клике на кнопку скрываем форму, показываем соцсети
+        // 1. Слушаем сообщения от Яндекс-формы об успешной отправке
+        window.addEventListener('message', function(event) {
+            // Проверяем, что сообщение пришло с forms.yandex.ru
+            if (event.origin !== 'https://forms.yandex.ru') return;
+
+            // Если это сообщение об успешной отправке
+            if (event.data && event.data.type === 'YANDEX_FORM_SUBMIT') {
+                // Показываем кнопку и подсказку
+                if (showBtn) showBtn.style.display = 'inline-block';
+                if (socialHint) socialHint.style.display = 'block';
+            }
+        });
+
+        // 2. При клике на кнопку скрываем форму, показываем соцсети
         if (showBtn) {
             showBtn.addEventListener('click', function() {
                 if (formBlock) formBlock.style.display = 'none';
                 if (socialSelect) socialSelect.style.display = 'block';
-                // Прячем саму кнопку, чтобы не мешала
+                // Прячем саму кнопку и подсказку
                 showBtn.style.display = 'none';
+                if (socialHint) socialHint.style.display = 'none';
             });
         }
 
-        // Обработчик для карточки VK (виджет)
+        // 3. Обработчик для карточки VK (виджет)
         if (vkCard) {
             vkCard.addEventListener('click', function() {
                 if (!vkWidgetContainer.innerHTML) {
