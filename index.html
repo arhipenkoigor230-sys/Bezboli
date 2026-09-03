@@ -1003,7 +1003,7 @@
             </div>
         </section>
 
-        <!-- ===== DISCOUNT MECHANIC ===== -->
+       <!-- ===== DISCOUNT MECHANIC ===== -->
         <section>
             <div class="container">
                 <div class="discount-box">
@@ -1015,11 +1015,16 @@
                         <li><strong>Отправьте отчёт в диалог с чат-ботом</strong> — это займёт 2 минуты</li>
                         <li><strong>Получите персональный промокод</strong> на скидку на полный курс</li>
                     </ul>
-                    <div style="background: #1a1a1a; border-radius: 16px; padding: 16px 20px; border-left: 4px solid #e31b23; margin-top: 8px;">
+                    <div style="background: #1a1a1a; border-radius: 16px; padding: 16px 20px; border-left: 4px solid #e31b23; margin-top: 8px; text-align: center;">
                         <p style="font-weight: 700; font-size: 18px; color: #ffffff;">
-                            🔥 Скидка действует 7 дней после выдачи
+                            🔥 До окончания акции осталось:
                         </p>
-                        <p style="font-size: 14px; color: #aaaaaa;">Успейте применить, пока акция активна</p>
+                        <p id="countdownTimer" style="font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 600; color: #b01018; letter-spacing: 2px; opacity: 0.9; margin-top: 6px;">
+                            7д 00:00:00
+                        </p>
+                        <p style="font-size: 14px; color: #aaaaaa; margin-top: 4px;">
+                            Успейте применить скидку!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1108,7 +1113,7 @@
                         <a href="https://max.ru/se14168987_bot" target="_blank" class="social-card max" id="maxCard">
                             <div class="icon">MAX</div>
                             <div class="label">Получить в MAX</div>
-                            <div class="desc">Открыть диалог с ботом в MAX</div>
+                            <div class="desc">Открыть диалог с ботом в MAX и пиши Начать</div>
                         </a>
                     </div>
                     <p style="font-size: 13px; color: #888; margin-top: 12px;">
@@ -1125,7 +1130,7 @@
         <div class="container">
             <div>
                 <div class="socials">
-                    <a href="#">VK</a>
+                    <a href="https://vk.ru/bezboli_school">VK</a>
                 </div>
                 <div class="legal">
                     <p>Самозанятый Архипенко И.А ИНН 910226347220</p>
@@ -1157,6 +1162,52 @@
                 if (socialSelect) socialSelect.style.display = 'block';
             });
         }
+    })();
+</script>
+
+<script>
+    (function() {
+        // Настройка: через сколько дней заканчивается акция
+        const DAYS_TO_END = 7;
+
+        // Ключ для localStorage
+        const STORAGE_KEY = 'bezboli_offer_end_date';
+
+        // Получаем сохранённую дату или создаём новую
+        let endDate = localStorage.getItem(STORAGE_KEY);
+        if (!endDate) {
+            // Если даты нет – устанавливаем через 7 дней от текущего момента
+            const now = new Date();
+            now.setDate(now.getDate() + DAYS_TO_END);
+            endDate = now.getTime();
+            localStorage.setItem(STORAGE_KEY, String(endDate));
+        } else {
+            endDate = Number(endDate);
+        }
+
+        const timerElement = document.getElementById('countdownTimer');
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = endDate - now;
+
+            if (diff <= 0) {
+                timerElement.textContent = '🎉 Акция завершена';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            timerElement.textContent =
+                `${days}д ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // Обновляем каждую секунду
+        updateTimer();
+        setInterval(updateTimer, 1000);
     })();
 </script>
 
