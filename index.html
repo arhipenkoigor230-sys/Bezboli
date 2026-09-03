@@ -1044,15 +1044,15 @@
             </div>
         </section>
 
-        <!-- ===== FORM + SOCIAL SELECT ===== -->
- <section id="form" style="background: #f4f4f4; border-bottom: none;">
+       <!-- ===== FORM + SOCIAL SELECT ===== -->
+        <section id="form" style="background: #f4f4f4; border-bottom: none;">
             <div class="container">
                 <h2 class="section-title" style="text-align: center;">Запишитесь на 3-дневный мини-курс</h2>
                 <p style="text-align: center; font-size: 18px; color: #3a3a3a; max-width: 600px; margin: 0 auto 32px;">
                     Заполните форму и получите доступ к первому уроку
                 </p>
 
-                <!-- Контейнер для Яндекс.Формы -->
+                <!-- Контейнер для Яндекс.Формы (всегда видим) -->
                 <div class="form-block" id="yandexFormBlock" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 36px; box-shadow: var(--shadow-dark);">
                     <script src="https://forms.yandex.ru/_static/embed.js"></script>
                     <iframe src="https://forms.yandex.ru/u/6a98d335eb6146242dcfafeb?iframe=1" 
@@ -1062,6 +1062,16 @@
                             height="600" 
                             style="border-radius: 20px; display: block;">
                     </iframe>
+                </div>
+
+                <!-- Кнопка, которую пользователь нажмёт после отправки -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="showSocialBtn" class="btn-primary" style="padding: 14px 40px; font-size: 17px;">
+                        ✅ Я заполнил(а) форму – получить доступ
+                    </button>
+                    <p style="font-size: 14px; color: #666; margin-top: 8px;">
+                        Нажмите сюда, когда отправите форму, чтобы выбрать способ получения курса
+                    </p>
                 </div>
 
                 <!-- Блок выбора соцсетей (изначально скрыт) -->
@@ -1117,47 +1127,24 @@
     <!-- ===== JS ===== -->
 <script>
     (function() {
+        // Элементы
         const formBlock = document.getElementById('yandexFormBlock');
         const socialSelect = document.getElementById('socialSelect');
+        const showBtn = document.getElementById('showSocialBtn');
         const vkCard = document.getElementById('vkCard');
         const vkWidgetContainer = document.getElementById('vkWidgetContainer');
 
-        // Функция, которая скрывает форму и показывает соцсети
-        function showSocial() {
-            if (formBlock) formBlock.style.display = 'none';
-            if (socialSelect) socialSelect.style.display = 'block';
-            // Дополнительно: убираем возможную кнопку повторной отправки через CSS (не гарантировано)
-            const iframe = document.querySelector('iframe[name="ya-form-6a98d335eb6146242dcfafeb"]');
-            if (iframe) {
-                try {
-                    // Пытаемся скрыть кнопку внутри iframe (не сработает из-за CORS)
-                } catch(e) {}
-            }
+        // При клике на кнопку скрываем форму, показываем соцсети
+        if (showBtn) {
+            showBtn.addEventListener('click', function() {
+                if (formBlock) formBlock.style.display = 'none';
+                if (socialSelect) socialSelect.style.display = 'block';
+                // Прячем саму кнопку, чтобы не мешала
+                showBtn.style.display = 'none';
+            });
         }
 
-        // 1. Слушаем сообщения от Яндекс-формы
-        window.addEventListener('message', function(event) {
-            if (event.origin !== 'https://forms.yandex.ru') return;
-            // При любом сообщении от Яндекса считаем, что форма отправлена
-            showSocial();
-        });
-
-        // 2. Fallback: если через 5 секунд форма не скрылась, показываем соцсети вручную
-        // (пользователь мог отправить форму, но событие не пришло)
-        // Засекаем время после загрузки страницы, но мы не знаем, когда отправят.
-        // Лучше сделать так: если пользователь нажал кнопку отправки, мы не можем отследить.
-        // Поэтому просто добавим кнопку "Получить доступ" вручную? Нет.
-
-        // Лучше использовать MutationObserver для отслеживания изменений в iframe? CORS не даст.
-
-        // Вместо этого предлагаем пользователю кликнуть по кнопке "Получить доступ" 
-        // на странице, которая теперь будет скрывать форму и показывать соцсети.
-        // Но у нас есть кнопка в хедере "Получить доступ" – она ведёт к #form.
-        // Можно добавить кнопку внутри формы? Но это отдельная задача.
-
-        // Пока оставим как есть – событие должно срабатывать.
-
-        // 3. Обработчик для карточки VK (виджет)
+        // Обработчик для карточки VK (виджет)
         if (vkCard) {
             vkCard.addEventListener('click', function() {
                 if (!vkWidgetContainer.innerHTML) {
@@ -1206,21 +1193,9 @@
                 container.appendChild(goBtn);
             });
         }
-
-        // Также добавим кнопку "Уже заполнили? Получить доступ" под формой
-        // на случай, если событие не сработает. Это будет видно, но мы её скроем.
-        // Лучше просто показать ссылку внизу.
-        // Добавим небольшой текст под формой:
-        const note = document.createElement('p');
-        note.style.textAlign = 'center';
-        note.style.marginTop = '16px';
-        note.innerHTML = '<a href="#" onclick="document.getElementById(\'yandexFormBlock\').style.display=\'none\'; document.getElementById(\'socialSelect\').style.display=\'block\'; return false;" style="color: var(--red); font-weight: 600; text-decoration: underline;">Уже заполнили? Получить доступ →</a>';
-        // Вставим после formBlock
-        if (formBlock) {
-            formBlock.parentNode.insertBefore(note, formBlock.nextSibling);
-        }
     })();
 </script>
+
 
 </body>
 </html>
