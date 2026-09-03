@@ -1125,133 +1125,133 @@
     </footer>
 
     <!-- ===== JS ===== -->
-    <script>
-        (function() {
-            const form = document.getElementById('leadForm');
-            const socialSelect = document.getElementById('socialSelect');
-            const vkCard = document.getElementById('vkCard');
-            const maxCard = document.getElementById('maxCard');
-            const vkWidgetContainer = document.getElementById('vkWidgetContainer');
-            const formBlock = document.querySelector('.form-block');
+<script>
+    (function() {
+        const form = document.getElementById('leadForm');
+        const socialSelect = document.getElementById('socialSelect');
+        const vkCard = document.getElementById('vkCard');
+        const vkWidgetContainer = document.getElementById('vkWidgetContainer');
+        const formBlock = document.querySelector('.form-block');
 
-            // Telegram bot settings
-            const BOT_TOKEN = '8956320385:AAHCN1FewKut5l1vIkgRjPi7e6nvPO9H310';
-            const CHAT_ID = '2102886839';
+        // Настройки бота
+        const BOT_TOKEN = '8956320385:AAHCN1FewKut5l1vIkgRjPi7e6nvPO9H310';
+        const CHAT_ID = '2102886839';
+        // Используем прокси для обхода блокировки Telegram API
+        const TELEGRAM_API_URL = `https://tg.i-i-a.link/bot${BOT_TOKEN}/sendMessage`;
 
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-                    const name = document.getElementById('name');
-                    const phone = document.getElementById('phone');
-                    const email = document.getElementById('email');
-                    const agree = document.getElementById('agree');
+                const name = document.getElementById('name');
+                const phone = document.getElementById('phone');
+                const email = document.getElementById('email');
+                const agree = document.getElementById('agree');
 
-                    // Валидация
-                    if (!name || !phone || !agree) {
-                        alert('Ошибка: не найдены поля формы.');
-                        return;
-                    }
-                    if (name.value.trim() === '' || phone.value.trim() === '') {
-                        alert('Пожалуйста, заполните имя и телефон.');
-                        return;
-                    }
-                    if (!agree.checked) {
-                        alert('Необходимо согласие на обработку данных.');
-                        return;
-                    }
+                // Валидация
+                if (!name || !phone || !agree) {
+                    alert('Ошибка: не найдены поля формы.');
+                    return;
+                }
+                if (name.value.trim() === '' || phone.value.trim() === '') {
+                    alert('Пожалуйста, заполните имя и телефон.');
+                    return;
+                }
+                if (!agree.checked) {
+                    alert('Необходимо согласие на обработку данных.');
+                    return;
+                }
 
-                    // Формируем текст сообщения
-                    const message = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name.value.trim()}\n📞 Телефон: ${phone.value.trim()}\n📧 Email: ${email ? email.value.trim() : 'не указан'}`;
+                // Формируем сообщение
+                const message = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name.value.trim()}\n📞 Телефон: ${phone.value.trim()}\n📧 Email: ${email ? email.value.trim() : 'не указан'}`;
 
-                    // Отправка в Telegram
-                    fetch(`https://tg.i-i-a.link/bot${BOT_TOKEN}/sendMessage`, { ... })
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: CHAT_ID,
-                            text: message,
-                            parse_mode: 'HTML'
-                        })
+                // Отправка через прокси
+                fetch(TELEGRAM_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.ok) {
-                            // Успешно – показываем выбор соцсетей
-                            form.style.display = 'none';
-                            const note = formBlock.querySelector('.form-note');
-                            if (note) note.style.display = 'none';
-                            socialSelect.style.display = 'block';
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        // Успех – показываем выбор соцсетей
+                        form.style.display = 'none';
+                        const note = formBlock.querySelector('.form-note');
+                        if (note) note.style.display = 'none';
+                        socialSelect.style.display = 'block';
 
-                            // Очищаем поля
-                            name.value = '';
-                            phone.value = '';
-                            if (email) email.value = '';
-                            agree.checked = false;
-                        } else {
-                            alert('Ошибка при отправке. Попробуйте позже.');
-                            console.error('Telegram error:', data);
-                        }
-                    })
-                    .catch(error => {
-                        alert('Ошибка соединения. Проверьте интернет.');
-                        console.error('Telegram error:', error);
-                    });
-                });
-            }
-
-            // Обработчик для карточки VK (без изменений)
-            if (vkCard) {
-                vkCard.addEventListener('click', function() {
-                    if (!vkWidgetContainer.innerHTML) {
-                        const widgetDiv = document.createElement('div');
-                        widgetDiv.id = 'vk_allow_messages_from_community';
-                        vkWidgetContainer.appendChild(widgetDiv);
-                        if (typeof VK !== 'undefined' && VK.Widgets) {
-                            VK.Widgets.AllowMessagesFromCommunity('vk_allow_messages_from_community', {}, 198807271);
-                        } else {
-                            alert('Ошибка загрузки VK API, попробуйте обновить страницу.');
-                            return;
-                        }
+                        // Очищаем поля
+                        name.value = '';
+                        phone.value = '';
+                        if (email) email.value = '';
+                        agree.checked = false;
+                    } else {
+                        alert('Ошибка при отправке. Попробуйте позже.');
+                        console.error('Telegram error:', data);
                     }
-
-                    const grid = document.querySelector('.social-grid');
-                    if (grid) grid.style.display = 'none';
-                    const sub = document.querySelector('#socialSelect .sub');
-                    if (sub) sub.style.display = 'none';
-                    const h3 = document.querySelector('#socialSelect h3');
-                    if (h3) h3.textContent = '✅ Разрешите уведомления';
-
-                    const container = vkWidgetContainer.parentNode;
-                    const oldInfo = container.querySelector('.vk-info');
-                    const oldGoBtn = container.querySelector('.vk-go-btn');
-                    if (oldInfo) oldInfo.remove();
-                    if (oldGoBtn) oldGoBtn.remove();
-
-                    const info = document.createElement('p');
-                    info.className = 'vk-info';
-                    info.style.marginTop = '12px';
-                    info.style.fontSize = '14px';
-                    info.style.color = '#111';
-                    info.textContent = 'Нажмите «Разрешить» в виджете, затем перейдите в диалог:';
-
-                    const goBtn = document.createElement('button');
-                    goBtn.className = 'vk-go-btn btn-primary';
-                    goBtn.style.marginTop = '8px';
-                    goBtn.style.padding = '10px 24px';
-                    goBtn.style.fontSize = '15px';
-                    goBtn.textContent = '🚀 Перейти в диалог';
-                    goBtn.addEventListener('click', function() {
-                        window.open('https://vk.com/im?sel=-198807271', '_blank');
-                    });
-
-                    container.appendChild(info);
-                    container.appendChild(goBtn);
+                })
+                .catch(error => {
+                    alert('Ошибка соединения. Проверьте интернет.');
+                    console.error('Telegram error:', error);
                 });
-            }
+            });
+        }
 
-        })();
-    </script>
+        // Обработчик для карточки VK (без изменений)
+        if (vkCard) {
+            vkCard.addEventListener('click', function() {
+                if (!vkWidgetContainer.innerHTML) {
+                    const widgetDiv = document.createElement('div');
+                    widgetDiv.id = 'vk_allow_messages_from_community';
+                    vkWidgetContainer.appendChild(widgetDiv);
+                    if (typeof VK !== 'undefined' && VK.Widgets) {
+                        VK.Widgets.AllowMessagesFromCommunity('vk_allow_messages_from_community', {}, 198807271);
+                    } else {
+                        alert('Ошибка загрузки VK API, попробуйте обновить страницу.');
+                        return;
+                    }
+                }
+
+                const grid = document.querySelector('.social-grid');
+                if (grid) grid.style.display = 'none';
+                const sub = document.querySelector('#socialSelect .sub');
+                if (sub) sub.style.display = 'none';
+                const h3 = document.querySelector('#socialSelect h3');
+                if (h3) h3.textContent = '✅ Разрешите уведомления';
+
+                const container = vkWidgetContainer.parentNode;
+                const oldInfo = container.querySelector('.vk-info');
+                const oldGoBtn = container.querySelector('.vk-go-btn');
+                if (oldInfo) oldInfo.remove();
+                if (oldGoBtn) oldGoBtn.remove();
+
+                const info = document.createElement('p');
+                info.className = 'vk-info';
+                info.style.marginTop = '12px';
+                info.style.fontSize = '14px';
+                info.style.color = '#111';
+                info.textContent = 'Нажмите «Разрешить» в виджете, затем перейдите в диалог:';
+
+                const goBtn = document.createElement('button');
+                goBtn.className = 'vk-go-btn btn-primary';
+                goBtn.style.marginTop = '8px';
+                goBtn.style.padding = '10px 24px';
+                goBtn.style.fontSize = '15px';
+                goBtn.textContent = '🚀 Перейти в диалог';
+                goBtn.addEventListener('click', function() {
+                    window.open('https://vk.com/im?sel=-198807271', '_blank');
+                });
+
+                container.appendChild(info);
+                container.appendChild(goBtn);
+            });
+        }
+    })();
+</script>
 
 </body>
 </html>
