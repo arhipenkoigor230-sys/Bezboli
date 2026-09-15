@@ -925,7 +925,7 @@
     }
     var startDate = getNext19();
     var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
-    var startText = startDate.getDate() + ' ' + months[startDate.getMonth()] + ' в 19:00 МСК';
+    var startText = startDate.getDate() + ' ' + months[startDate.getMonth()] + '';
     var startEl = document.getElementById('start-date-text');
     if (startEl) startEl.textContent = 'Старт ' + startText;
 
