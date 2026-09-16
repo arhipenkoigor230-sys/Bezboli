@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>БезБоли — 3-дневный бесплатный курс массажа спины</title>
+    <meta name="description" content="Бесплатный 3-дневный мини-курс массажа спины. Пройдите обучение, выполняйте задания и получите скидку 10% на полный курс. Записывайтесь сейчас!">
+    <link rel="canonical" href="https://bezbolischool.online/minicourse/">
+
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="БезБоли">
+    <meta property="og:title" content="БезБоли — 3-дневный бесплатный курс массажа спины">
+    <meta property="og:description" content="Бесплатный 3-дневный мини-курс по массажу спины. ДЗ = скидка 10% на полный курс.">
+    <meta property="og:url" content="https://bezbolischool.online/minicourse/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://bezbolischool.online/assets/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="БезБоли — 3-дневный бесплатный курс массажа">
+    <meta name="twitter:description" content="Бесплатный мини-курс по массажу спины. ДЗ = скидка 10% на полный курс.">
+    <meta name="twitter:image" content="https://bezbolischool.online/assets/images/og-cover.jpg">
+
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://bezbolimassage.getcourse.ru">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a26;
+            --bg-card-hover: #222233;
+            --border: #2a2a3a;
+            --border-accent: #e31b23;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b80;
+            --accent: #e31b23;
+            --accent-hover: #b01018;
+            --accent-soft: rgba(227, 27, 35, 0.15);
+            --green: #10b981;
+            --green-soft: rgba(16, 185, 129, 0.15);
+            --orange: #f59e0b;
+            --orange-soft: rgba(245, 158, 11, 0.15);
+            --blue: #3b82f6;
+            --blue-soft: rgba(59, 130, 246, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        h1, h2, h3, h4, h5, h6 { color: var(--text-primary) !important; }
+
+        /* ===== BUTTONS ===== */
+        .btn-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+            color: #fff !important;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(227, 27, 35, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        .btn-light::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transform: skewX(-20deg);
+            animation: btnShine 3s infinite;
+        }
+
+        @keyframes btnShine {
+            0% { left: -60%; }
+            100% { left: 160%; }
+        }
+
+        .btn-light:hover {
+            background: linear-gradient(135deg, #b01018 0%, #8a0c12 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(227, 27, 35, 0.6);
+        }
+
+        .btn-light:disabled,
+        .btn-light[disabled] {
+            background: #4a4a58;
+            color: #c9c4ba !important;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+            opacity: 0.85;
+        }
+        .btn-light:disabled::before { display: none; }
+        .btn-light:disabled:hover { transform: none; background: #4a4a58; }
+
+        /* ===== SECTIONS ===== */
+        .section { padding: 80px 0; position: relative; }
+        .section-dark { background: var(--bg-secondary); }
+
+        /* ===== HERO ===== */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 0;
+            min-height: 90vh;
+            position: relative;
+        }
+        .hero-left { flex: 1; }
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-right img {
+            width: 100%;
+            max-width: 620px;
+            max-height: 780px;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .hero .sub {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+
+        .hero .sub strong { color: var(--accent); }
+
+        /* ===== BADGE ===== */
+        .badge {
+            background: var(--accent-soft);
+            color: var(--accent) !important;
+            border: 1px solid var(--border-accent);
+            border-radius: 40px;
+            padding: 8px 20px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* ===== GRADIENT TEXT ===== */
+        .gradient-text {
+            background: linear-gradient(135deg, #ff5559 0%, #e31b23 50%, #b01018 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== DATE PILL ===== */
+        .date-pill {
+            background: var(--accent-soft);
+            border: 1px solid var(--border-accent);
+            border-radius: 40px;
+            padding: 12px 24px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .date-pill i { color: var(--accent); }
+        .date-pill span { color: #ffffff; font-weight: 600; }
+
+        /* ===== CARDS & GRIDS ===== */
+        .card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .card h3 { color: var(--text-primary) !important; }
+        .card p { color: var(--text-secondary) !important; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .icon-purple { background: var(--accent-soft); color: var(--accent) !important; }
+        .icon-green { background: var(--green-soft); color: var(--green) !important; }
+        .icon-orange { background: var(--orange-soft); color: var(--orange) !important; }
+        .icon-blue { background: var(--blue-soft); color: var(--blue) !important; }
+
+        /* ===== PROGRAM TABLE ===== */
+        .program-table {
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: 24px;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            margin-top: 40px;
+            border: 1px solid var(--border);
+        }
+        .program-table thead { background: var(--bg-secondary); }
+        .program-table th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary) !important;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .program-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary) !important;
+            vertical-align: top;
+        }
+        .program-table tbody tr:hover { background: var(--bg-card-hover); }
+        .program-table tbody tr:last-child td { border-bottom: none; }
+
+        .day-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--accent-soft);
+            color: var(--accent) !important;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .hw-note {
+            display: block;
+            margin-top: 10px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* ===== BONUS BLOCK ===== */
+        .bonus-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+            border-radius: 32px;
+            padding: 50px;
+            border: 1px solid var(--border-accent);
+        }
+
+        /* ===== FAQ ===== */
+        .faq-item {
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-bottom: 12px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary) !important;
+            font-family: inherit;
+        }
+        .faq-question:hover { color: var(--accent) !important; }
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent) !important;
+        }
+        .faq-answer {
+            display: none;
+            padding: 0 24px 20px;
+            color: var(--text-secondary) !important;
+        }
+        .faq-answer.show { display: block !important; }
+
+        /* ===== TIMER ===== */
+        .timer-digits {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .timer-item {
+            background: var(--bg-card);
+            padding: 25px 30px;
+            border-radius: 20px;
+            min-width: 110px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .timer-number {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--accent) !important;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .timer-label {
+            font-size: 14px;
+            color: var(--text-secondary) !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== FORM ===== */
+        .form-section-wrap {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 32px;
+            max-width: 640px;
+            margin: 0 auto;
+            box-shadow: 0 30px 60px rgba(0,0,0,.5);
+        }
+        .form-block {
+            background: #ffffff;
+            color: #111;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .form-fallback {
+            display: none;
+            background: #fff5f5;
+            border: 1px solid #f3c7c9;
+            color: #7a1418;
+            padding: 16px 18px;
+            border-radius: 14px;
+            font-size: 15px;
+            margin-top: 16px;
+        }
+        .form-fallback a { color: var(--accent); font-weight: 600; }
+
+        .form-actions { text-align: center; margin-top: 24px; }
+        .form-actions .hint { font-size: 14px; color: #666; margin-top: 8px; }
+        .form-actions .privacy { font-size: 12px; color: #888; margin-top: 12px; }
+        .form-actions .privacy a { color: #666; }
+
+        /* ===== SOCIAL SELECT ===== */
+        #socialSelect {
+            max-width: 700px;
+            margin: 40px auto 0;
+            text-align: center;
+            animation: fadeIn .6s ease;
+        }
+        #socialSelect[hidden] { display: none; }
+        #socialSelect h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        #socialSelect .sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 30px; }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            justify-items: center;
+        }
+        .social-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 32px 20px;
+            width: 100%;
+            max-width: 260px;
+            border: 2px solid var(--border);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .social-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,.5);
+            border-color: var(--accent);
+        }
+        .social-card .icon { font-size: 44px; font-weight: 800; line-height: 1; }
+        .social-card .label { font-size: 18px; font-weight: 600; color: #fff; }
+        .social-card .desc { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+
+        .social-card.vk .icon { color: #4a76a8; }
+        .social-card.vk:hover { border-color: #4a76a8; }
+        .social-card.max .icon { color: #a0a0b8; }
+        .social-card.max:hover { border-color: #a0a0b8; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 48px 0 36px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+        }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { color: #ffffff; }
+        .footer .brand {
+            font-weight: 700;
+            font-style: italic;
+            font-size: 24px;
+            color: #fbfbfc;
+            margin-bottom: 12px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
+                min-height: auto;
+                gap: 40px;
+            }
+            .hero h1 { font-size: 34px; }
+            .hero .sub { font-size: 17px; }
+            .hero-right img { max-width: 100%; max-height: 420px; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .section { padding: 56px 0; }
+            .timer-item { min-width: 80px; padding: 15px; }
+            .timer-number { font-size: 36px; }
+            .bonus-block { padding: 30px; text-align: center; justify-content: center; }
+            .program-table { display: block; overflow-x: auto; }
+            .program-table th, .program-table td { padding: 14px; font-size: 14px; }
+            .social-grid { grid-template-columns: 1fr; gap: 16px; }
+            .social-card { max-width: 100%; padding: 24px 16px; }
+            .btn-light { width: 100%; justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .hero-right img { max-height: 320px; }
+            .form-section-wrap { padding: 20px; border-radius: 24px; }
+        }
+
+        /* ===== REVIEWS ===== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.review-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    right: 18px;
+    font-size: 120px;
+    font-family: Georgia, serif;
+    color: var(--accent);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-accent);
+    background: var(--bg-card-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.review-stars {
+    display: flex;
+    gap: 4px;
+    color: var(--accent);
+    font-size: 16px;
+}
+
+.review-text {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.65;
+    flex: 1;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.review-author-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.review-author-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.review-author-role {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/* Средний рейтинг сверху */
+.reviews-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-accent);
+    border-radius: 40px;
+    padding: 10px 22px;
+    margin: 20px auto 0;
+    font-size: 15px;
+    color: #fff;
+}
+.reviews-summary i { color: var(--accent); }
+.reviews-summary strong { color: #fff; }
+
+@media (max-width: 900px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+}
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="container">
+    <div class="hero">
+        <div class="hero-left">
+            <div class="badge">🔥 Бесплатный онлайн-интенсив</div>
+            <h1>3-дневный мини-курс: <span class="gradient-text">Базовая связка массажа спины</span></h1>
+            <p class="sub">
+                За выполнение всех уроков и домашнего задания —<br>
+                <strong>скидка 10% на полный курс</strong>
+            </p>
+
+            <div class="date-pill">
+                <i class="fa-regular fa-calendar"></i>
+                <span id="start-date-text">Начни свой путь массажиста с нами!</span>
+            </div>
+
+            <div style="margin-top:25px;">
+                <a href="#form" class="btn-light">
+                    <i class="fa-solid fa-hand-holding-heart"></i> Получить доступ к курсу
+                </a>
+            </div>
+            <p style="font-size:14px; color:var(--text-muted); margin-top:16px;">
+                 После регистрации вы попадёте в чат-бот и получите первый урок
+            </p>
+        </div>
+
+        <div class="hero-right">
+            <img src="../assets/images/pic1.jpg" alt="Массаж спины: руки на спине клиента" />
+        </div>
+    </div>
+</div>
+
+<!-- ===== КАК ЭТО РАБОТАЕТ ===== -->
+<div class="section section-dark">
+    <div class="container">
+        <h2 style="text-align:center; font-size:36px; font-weight:800;">Как это <span class="gradient-text">работает</span></h2>
+        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
+            3 урока, 3 домашних задания — и скидка на полный курс у Вас
+        </p>
+
+        <div class="grid-3" style="margin-top:50px;">
+            <div class="card">
+                <div class="icon-wrapper icon-purple">
+                    <i class="fa-solid fa-user-plus" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0; font-size:20px;">Регистрация</h3>
+                <p>Заполняете форму и получаете доступ к чат-боту с первым уроком.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper icon-green">
+                    <i class="fa-solid fa-graduation-cap" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0; font-size:20px;">Обучение</h3>
+                <p>После выполненного задания открывается новый урок с практикой.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper icon-orange">
+                    <i class="fa-solid fa-gift" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0; font-size:20px;">ДЗ = Скидка</h3>
+                <p>Выполняете задания и получаете персональный промокод на полный курс.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ПРОГРАММА ===== -->
+<div class="section">
+    <div class="container">
+        <h2 style="text-align:center; font-size:36px; font-weight:800;">Программа <span class="gradient-text">3 уроков</span></h2>
+        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
+            Онлайн | Бесплатно
+        </p>
+
+        <table class="program-table">
+            <thead>
+                <tr>
+                    <th>Урок</th>
+                    <th>Тема</th>
+                    <th>Что вы получите</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="day-badge">Урок 1</span></td>
+                    <td>
+                        <strong style="color:#fff;">Подготовительные приёмы: поглаживание и выжимание всей спины</strong>
+                        <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 15 мин</div>
+                    </td>
+                    <td style="color:var(--text-secondary);">
+                        Поймёте, как просто взаимодействовать с телом, и освоите самые приятные приёмы для клиентов.
+                        <strong style="display:block; margin-top:8px; color:#fff;">✅ Результат: освоена базовая связка подготовительных приёмов</strong>
+                        <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="day-badge">Урок 2</span></td>
+                    <td>
+                        <strong style="color:#fff;">Массаж шейно-грудного отдела</strong>
+                        <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 11 мин</div>
+                    </td>
+                    <td style="color:var(--text-secondary);">
+                        Научитесь основным приёмам массажа зоны: растиранию и разминанию.
+                        <strong style="display:block; margin-top:8px; color:#fff;">✅ Результат:Научитесь уверенно работаеть с шейно-грудным отделом</strong>
+                        <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="day-badge">Урок 3</span></td>
+                    <td>
+                        <strong style="color:#fff;">Массаж поясничного отдела</strong>
+                        <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 11 мин</div>
+                    </td>
+                    <td style="color:var(--text-secondary);">
+                        Научитесь основным приемам массажа зоны: растирание, разминание и вибрация
+                        <strong style="display:block; margin-top:8px; color:#fff;">✅ Результат: собираете полную связку массажа спины</strong>
+                        <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align:center; margin-top:40px;">
+            <a href="#form" class="btn-light">
+                <i class="fa-solid fa-rocket"></i> Записаться на интенсив
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ЧТО ВЫ ПОЛУЧИТЕ ===== -->
+<div class="section section-dark">
+    <div class="container">
+        <h2 style="text-align:center; font-size:36px; font-weight:800;">Что вы <span class="gradient-text">получите</span></h2>
+        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
+            4 результата за прохождение мини-курса
+        </p>
+
+        <div class="grid-2" style="margin-top:50px;">
+            <div class="card">
+                <div class="icon-wrapper icon-purple">
+                    <i class="fa-solid fa-hands" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0;">Научитесь выполнять массаж спины</h3>
+                <p>По нашей методике — после неё ваша модель или клиент почувствует настоящий профессиональный массаж.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper icon-green">
+                    <i class="fa-solid fa-user-check" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0;">Попробуете себя на практике</h3>
+                <p>У вас появится ответ на вопрос — «моё это или нет?»</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper icon-orange">
+                    <i class="fa-solid fa-triangle-exclamation" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0;">Узнаете, как избежать ошибок</h3>
+                <p>Типичные промахи новичков — и как их не допустить.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper icon-blue">
+                    <i class="fa-solid fa-tags" style="font-size:28px;"></i>
+                </div>
+                <h3 style="margin:15px 0;">Получите скидку</h3>
+                <p>За выполнение ДЗ — промокод на 10% на полный курс.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ОТЗЫВЫ ===== -->
+<div class="section section-dark">
+    <div class="container">
+        <h2 style="text-align:center; font-size:36px; font-weight:800;">Отзывы <span class="gradient-text">учеников</span></h2>
+        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
+            Что говорят те, кто уже прошёл мини-курс
+        </p>
+
+        <div style="text-align:center;">
+            <div class="reviews-summary">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>5</strong> из 5 — по отзывам участников</span>
+            </div>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars" aria-label="Оценка 5 из 5">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">
+                    Никогда не думала, что смогу сделать полноценный массаж спины после трёх уроков.
+                    Подача очень понятная, каждый приём разобран по шагам. После первого ДЗ получила развёрнутую обратную связь — это очень помогло.
+                </p>
+                <div class="review-author">
+                    <div class="review-avatar">АК</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Анна К.</span>
+                        <span class="review-author-role">Начинающий массажист</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars" aria-label="Оценка 5 из 5">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">
+                    Добрый день, меня зовут Анастасия, с первых минут нас окутала невероятная атмосфера настоящего искусства , через слова , а потом и на действиях было показано , что массаж -это не просто механические воздействие , это целая душа , да есть общий план , но всё остальное творят твои руки по телу словно творец , разобрали связку классического массажа , было очень здорово сразу же после объяснения пробовать всё на деле , было очень интересно и познавательно, теперь самое главное продолжать погружение в это прекрасное искусство , практиковаться и видеть результат в виде улыбки и наслаждение от клиентов &#129392;
+                </p>
+                <div class="review-author">
+                    <div class="review-avatar">А.С</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Анастасия С.</span>
+                        <span class="review-author-role">Сменила профессию</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars" aria-label="Оценка 5 из 5">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">
+                    Прошел мастер класс в этой замечательной школе, благодарю преподавателей за их подход к обучению все было на высшем уровне. 
+                    Рекомендую всем начинающим массажистам обязательно отучится в этой школе.
+                </p>
+                <div class="review-author">
+                    <div class="review-avatar">ПС</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Павел С.</span>
+                        <span class="review-author-role">Начинающий массажист</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== БОНУС / СКИДКА ===== -->
+<div class="section">
+    <div class="container">
+        <div class="bonus-block">
+            <div style="flex:1;">
+                <div class="badge">🎁 Как получить скидку 10%</div>
+                <h2 style="margin:20px 0; font-size:32px; font-weight:800;">Три простых шага к промокоду</h2>
+                <ul style="list-style:none; padding:0; margin:20px 0 0;">
+                    <li style="padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
+                        <span style="color:var(--accent); font-weight:700;">✓</span> Выполните ДЗ каждого дня — видеоотчёт
+                    </li>
+                    <li style="padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
+                        <span style="color:var(--accent); font-weight:700;">✓</span> Отправьте отчёт в диалог с чат-ботом
+                    </li>
+                    <li style="padding:10px 0; color:var(--text-secondary); font-size:16px;">
+                        <span style="color:var(--accent); font-weight:700;">✓</span> Получите персональный промокод
+                    </li>
+                </ul>
+                <a href="#form" class="btn-light" style="margin-top:25px;">
+                    <i class="fa-solid fa-gift"></i> Забрать доступ и скидку
+                </a>
+            </div>
+            <div>
+                <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
+                    <rect width="200" height="200" fill="#1a1a26" rx="20"/>
+                    <circle cx="100" cy="100" r="60" fill="rgba(227, 27, 35, 0.15)" stroke="#e31b23" stroke-width="2"/>
+                    <text x="100" y="120" text-anchor="middle" fill="#e31b23" font-size="52" font-weight="bold" font-family="Inter, sans-serif">10%</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ТАЙМЕР ===== -->
+<div class="section section-dark">
+    <div class="container">
+        <div style="text-align:center; background:var(--bg-card); border-radius:40px; padding:60px 30px; border:1px solid var(--border-accent);">
+            <div class="badge" style="margin-bottom:20px;">⏰ Регистрация закрывается скоро</div>
+            <h2 style="font-size:36px; font-weight:800;">До окончания акции осталось</h2>
+
+            <div class="timer-digits">
+                <div class="timer-item">
+                    <div class="timer-number" id="days">00</div>
+                    <div class="timer-label">дней</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="hours">00</div>
+                    <div class="timer-label">часов</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="minutes">00</div>
+                    <div class="timer-label">минут</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="seconds">00</div>
+                    <div class="timer-label">секунд</div>
+                </div>
+            </div>
+
+            <p style="color:var(--text-secondary); font-size:18px; margin:20px 0;">
+                Успейте занять место, пока бесплатный доступ открыт.
+            </p>
+
+            <a href="#form" class="btn-light" style="margin-top:20px; font-size:20px; padding:18px 40px;">
+                <i class="fa-solid fa-bolt"></i> Зарегистрироваться бесплатно
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ФОРМА + СОЦСЕТИ ===== -->
+<div class="section" id="form">
+    <div class="container">
+        <h2 style="text-align:center; font-size:36px; font-weight:800;">Запишитесь на <span class="gradient-text">3-дневный мини-курс</span></h2>
+        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
+            Заполните форму и получите доступ к первому уроку
+        </p>
+
+        <div class="form-section-wrap" style="margin-top:40px;">
+            <div class="form-block" id="formWidgetBlock">
+                <script id="4c5b37f71d8e7b40cd31e52d87f2e9d2dade2103" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1656185"></script>
+                <noscript>
+                    <p style="padding:16px; color:#111;">Для записи включите JavaScript или напишите нам в мессенджер.</p>
+                </noscript>
+            </div>
+
+            <div class="form-fallback" id="formFallback">
+                Форма не загрузилась. Это может быть из-за блокировщика рекламы — напишите нам напрямую:
+                <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer">VK</a>
+                или
+                <a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener noreferrer">MAX</a>.
+            </div>
+
+            <div class="form-actions">
+                <button
+                    id="showSocialBtn"
+                    type="button"
+                    class="btn-light"
+                    style="padding: 14px 40px; font-size: 17px; width:100%; justify-content:center;"
+                    disabled
+                    aria-disabled="true"
+                >
+                    ⏳ Сначала заполните форму выше
+                </button>
+
+                <p class="hint" id="formHint">Кнопка станет активной после отправки заявки</p>
+
+                <p class="privacy">
+                    Нажимая кнопку, вы соглашаетесь с <a href="offer.html">условиями оферты</a>
+                    и политикой обработки персональных данных.
+                </p>
+
+                <p style="margin-top: 14px;">
+                    <a href="#" id="skipFormBtn" style="font-size: 13px; color: #888; text-decoration: underline;">
+                        Уже зарегистрированы? Получить доступ в мессенджер →
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div id="socialSelect" hidden>
+            <h3>📲 Выберите способ получения курса</h3>
+            <p class="sub">Нажмите на иконку соцсети, чтобы перейти к боту</p>
+            <div class="social-grid">
+                <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer" class="social-card vk">
+                    <div class="icon">VK</div>
+                    <div class="label">Получить в VK</div>
+                    <div class="desc">Напишите «Старт» в диалоге</div>
+                </a>
+                <a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener noreferrer" class="social-card max">
+                    <div class="icon">MAX</div>
+                    <div class="label">Получить в MAX</div>
+                    <div class="desc">Откройте диалог и напишите «Начать»</div>
+                </a>
+            </div>
+            <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">
+                Вы также можете получить доступ в любом из мессенджеров
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="section section-dark">
+    <div class="container">
+        <h2 style="text-align:center; font-size:36px; font-weight:800;">Ответы на <span class="gradient-text">вопросы</span></h2>
+
+        <div style="max-width:700px; margin:40px auto 0;">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Нужно ли платить за участие?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Нет, мини-курс полностью бесплатный. Мы хотим, чтобы как можно больше людей получили качественные знания.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Нужен ли опыт в массаже?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Нет, курс рассчитан на новичков. Все приёмы показываются с нуля, шаг за шагом.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Сколько времени занимает обучение?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Каждый урок — 11–15 минут видео. Плюс время на практику: около часа на один урок.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Как получить скидку на полный курс?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Выполните ДЗ каждого урока, отправьте видеоотчёт в чат-бот и получите персональный промокод на скидку 10%.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Что понадобится для практики?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Кушетка (или стол/диван), любое масло (детское, растительное, массажный крем) удобная одежда и «модель» — человек, на котором будете отрабатывать приёмы.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Будут ли записи уроков?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Да, записи будут доступны участникам в чат-боте навсегда.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="brand">БезБоли</div>
+        <p style="color:var(--text-muted);">
+            Самозанятый Архипенко И.А., ИНН 910226347220
+        </p>
+        <p style="margin-top:10px;">
+            <a href="https://vk.ru/bezboli_school" target="_blank" rel="noopener noreferrer">VK</a>
+            &nbsp;|&nbsp;
+            <a href="offer.html">Оферта</a>
+            &nbsp;|&nbsp;
+            <a href="tel:+79790258335">+7 (979) 025-83-35</a>
+        </p>
+        <p style="color:var(--text-muted); margin-top:14px;">
+            © <span id="year">2026</span> Школа НЕклассического массажа «БезБоли». Все права защищены.
+        </p>
+    </div>
+</footer>
+
+<script>
+(function() {
+    'use strict';
+
+    /* ---------- Год в футере ---------- */
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* ---------- Дата старта (ближайший день в 19:00 МСК) ---------- */
+    function getNext19() {
+        var now = new Date();
+        var today19 = new Date(now);
+        today19.setHours(19, 0, 0, 0);
+        if (now <= today19) return today19;
+        var tomorrow19 = new Date(today19);
+        tomorrow19.setDate(tomorrow19.getDate() + 1);
+        return tomorrow19;
+    }
+    var startDate = getNext19();
+    var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+    var startText = startDate.getDate() + ' ' + months[startDate.getMonth()] + '';
+    var startEl = document.getElementById('start-date-text');
+    if (startEl) startEl.textContent = 'Старт ' + startText;
+
+    /* ---------- Разблокировка кнопки после отправки формы ---------- */
+    var socialSelect = document.getElementById('socialSelect');
+    var showBtn = document.getElementById('showSocialBtn');
+    var formBlock = document.getElementById('formWidgetBlock');
+    var fallback = document.getElementById('formFallback');
+    var formHint = document.getElementById('formHint');
+
+    var UNLOCKED_LABEL = '✅ Я заполнил(а) форму — выбрать мессенджер';
+    var isUnlocked = false;
+
+    function openSocialSelect() {
+        if (!socialSelect) return;
+        socialSelect.hidden = false;
+        socialSelect.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function unlockButton() {
+        if (isUnlocked || !showBtn) return;
+        isUnlocked = true;
+        showBtn.disabled = false;
+        showBtn.removeAttribute('aria-disabled');
+        showBtn.textContent = UNLOCKED_LABEL;
+        if (formHint) {
+            formHint.textContent = 'Отлично! Теперь выберите мессенджер ниже 👇';
+            formHint.style.color = '#10b981';
+        }
+    }
+
+    if (showBtn) {
+        showBtn.addEventListener('click', function() {
+            if (isUnlocked) openSocialSelect();
+        });
+    }
+
+    /* postMessage от GetCourse */
+    window.addEventListener('message', function(e) {
+        if (!e || !e.origin || e.origin.indexOf('getcourse') === -1) return;
+        var payload;
+        try {
+            payload = typeof e.data === 'string' ? e.data : JSON.stringify(e.data || {});
+        } catch (err) { return; }
+        payload = (payload || '').toLowerCase();
+        if (
+            payload.indexOf('success') !== -1 ||
+            payload.indexOf('submitted') !== -1 ||
+            payload.indexOf('submit') !== -1 ||
+            payload.indexOf('sent') !== -1
+        ) unlockButton();
+    }, false);
+
+    /* Редирект на #form-success / ?form=success */
+    function checkUrlForSuccess() {
+        var h = (location.hash || '').toLowerCase();
+        var s = (location.search || '').toLowerCase();
+        if (h.indexOf('form-success') !== -1 || s.indexOf('form=success') !== -1) {
+            unlockButton();
+            openSocialSelect();
+        }
+    }
+    checkUrlForSuccess();
+    window.addEventListener('hashchange', checkUrlForSuccess);
+    window.addEventListener('popstate', checkUrlForSuccess);
+
+    /* Ссылка «Уже зарегистрированы?» */
+    var skipBtn = document.getElementById('skipFormBtn');
+    if (skipBtn) {
+        skipBtn.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            unlockButton();
+            openSocialSelect();
+        });
+    }
+
+    /* Fallback, если виджет GetCourse не загрузился */
+    if (formBlock && fallback) {
+        var widgetLoaded = false;
+        var check = setInterval(function() {
+            if (formBlock.querySelector('iframe') || formBlock.querySelector('form')) {
+                widgetLoaded = true;
+                clearInterval(check);
+            }
+        }, 400);
+        setTimeout(function() {
+            clearInterval(check);
+            if (!widgetLoaded) fallback.style.display = 'block';
+        }, 6000);
+    }
+
+    /* ---------- Таймер акции (7 дней) ---------- */
+    var DAYS_TO_END = 7;
+    var STORAGE_KEY = 'bezboli_offer_end_date';
+    var endDate = localStorage.getItem(STORAGE_KEY);
+
+    if (!endDate) {
+        var n = new Date();
+        n.setDate(n.getDate() + DAYS_TO_END);
+        endDate = n.getTime();
+        try { localStorage.setItem(STORAGE_KEY, String(endDate)); } catch (e) {}
+    } else {
+        endDate = Number(endDate);
+    }
+
+    var dEl = document.getElementById('days');
+    var hEl = document.getElementById('hours');
+    var mEl = document.getElementById('minutes');
+    var sEl = document.getElementById('seconds');
+
+    function pad(v) { return v < 10 ? '0' + v : String(v); }
+
+    function updateTimer() {
+        var diff = endDate - Date.now();
+        if (diff < 0) diff = 0;
+        var totalSeconds = Math.floor(diff / 1000);
+        var d = Math.floor(totalSeconds / 86400);
+        var h = Math.floor((totalSeconds % 86400) / 3600);
+        var m = Math.floor((totalSeconds % 3600) / 60);
+        var s = totalSeconds % 60;
+        if (dEl) dEl.textContent = pad(d);
+        if (hEl) hEl.textContent = pad(h);
+        if (mEl) mEl.textContent = pad(m);
+        if (sEl) sEl.textContent = pad(s);
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    /* ---------- FAQ аккордеон ---------- */
+    window.toggleAnswer = function(btn) {
+        var answer = btn.nextElementSibling;
+        if (!answer) return;
+        answer.classList.toggle('show');
+        var icon = btn.querySelector('i');
+        if (icon) {
+            icon.style.transform = answer.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    };
+})();
+</script>
+
+</body>
+</html>
