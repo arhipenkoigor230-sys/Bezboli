@@ -266,7 +266,450 @@ body {
     50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+/* =====================================================
+   ПЛАВАЮЩАЯ КНОПКА ЗВОНКА + МОДАЛЬНОЕ ОКНО
+   ===================================================== */
 
+/* -------- Плавающая кнопка -------- */
+.call-fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow:
+        0 14px 32px -10px rgba(227, 27, 35, .7),
+        inset 0 1px 1px rgba(255, 255, 255, .4),
+        inset 0 -2px 6px rgba(0, 0, 0, .25);
+    transition: transform .25s ease, box-shadow .25s ease;
+    font-family: inherit;
+}
+
+.call-fab svg {
+    width: 28px;
+    height: 28px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .25s ease;
+}
+
+.call-fab:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 20px 40px -10px rgba(227, 27, 35, .85),
+        inset 0 1px 1px rgba(255, 255, 255, .4),
+        inset 0 -2px 6px rgba(0, 0, 0, .25);
+}
+
+.call-fab:hover svg {
+    transform: rotate(-10deg);
+}
+
+/* Пульсация, чтобы привлекала внимание */
+.call-fab::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(227, 27, 35, .6);
+    animation: callPulse 2.4s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes callPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(227, 27, 35, .55); }
+    70%  { box-shadow: 0 0 0 22px rgba(227, 27, 35, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(227, 27, 35, 0); }
+}
+
+/* Подпись рядом с кнопкой (скрываем на мобильном) */
+.call-fab-label {
+    position: fixed;
+    right: 100px;
+    bottom: 44px;
+    z-index: 998;
+    background: #fff;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 100px;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .25);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: opacity .3s ease, transform .3s ease;
+    white-space: nowrap;
+}
+
+.call-fab:hover + .call-fab-label,
+.call-fab:focus + .call-fab-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* -------- Модальное окно -------- */
+.call-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.call-modal.active {
+    display: flex;
+}
+
+.call-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 8, 5, .55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: fadeIn .25s ease;
+}
+
+.call-modal-window {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 40px 36px;
+    max-width: 460px;
+    width: 100%;
+    box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .5);
+    animation: modalSlide .35s cubic-bezier(.34, 1.3, .64, 1);
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes modalSlide {
+    from { opacity: 0; transform: translateY(20px) scale(.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.call-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(139, 0, 0, .06);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease;
+}
+
+.call-modal-close:hover {
+    background: rgba(227, 27, 35, .15);
+}
+
+.call-modal-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: #8b0000;
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+}
+
+.call-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 14px 32px -10px rgba(227, 27, 35, .6);
+}
+
+.call-modal-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.call-modal-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+}
+
+.call-modal-sub {
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 28px;
+    line-height: 1.5;
+}
+/* -------- Контейнер формы GetCourse в модальном окне -------- */
+.call-gc-form {
+    width: 100%;
+    min-height: 320px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.call-gc-form iframe {
+    width: 100% !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: transparent !important;
+}
+
+.call-gc-form noscript {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.call-gc-form noscript a {
+    color: #e31b23;
+    font-weight: 600;
+}
+/* -------- Форма -------- */
+.call-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.call-form-field {
+    position: relative;
+}
+
+.call-form-field input {
+    width: 100%;
+    padding: 16px 18px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #111;
+    background: #fafafa;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    outline: none;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.call-form-field input::placeholder {
+    color: #999;
+}
+
+.call-form-field input:focus {
+    background: #fff;
+    border-color: #e31b23;
+}
+
+.call-form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.call-form-check input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: #e31b23;
+    cursor: pointer;
+}
+
+.call-form-check a {
+    color: #e31b23;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.call-form-check a:hover {
+    text-decoration: underline;
+}
+
+.call-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 17px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    box-shadow: 0 14px 32px -10px rgba(227, 27, 35, .6);
+    margin-top: 6px;
+}
+
+.call-form-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -10px rgba(227, 27, 35, .8);
+}
+
+.call-form-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.call-form-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .25s ease;
+}
+
+.call-form-btn:hover svg {
+    transform: translateX(4px);
+}
+
+.call-form-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.call-form-success.active {
+    display: block;
+}
+
+.call-form-success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 14px 32px -10px rgba(16, 185, 129, .55);
+}
+
+.call-form-success-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.call-form-success h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.call-form-success p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* -------- Блокируем скролл, когда открыто модальное окно -------- */
+body.call-modal-open {
+    overflow: hidden;
+}
+
+/* -------- Мобильный -------- */
+@media (max-width: 640px) {
+    .call-fab {
+        right: 16px;
+        bottom: 16px;
+        width: 58px;
+        height: 58px;
+    }
+    .call-fab svg {
+        width: 24px;
+        height: 24px;
+    }
+    .call-fab-label {
+        display: none;
+    }
+    .call-modal-window {
+        padding: 32px 24px 28px;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+    .call-modal-title {
+        font-size: 20px;
+    }
+    .call-modal-sub {
+        font-size: 14px;
+        margin-bottom: 22px;
+    }
+    .call-modal-icon {
+        width: 56px;
+        height: 56px;
+    }
+    .call-modal-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+    .call-form-field input {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+    .call-form-btn {
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+}
 /* =====================================================
    КОМПАКТНЫЙ СПИСОК ПРЕИМУЩЕСТВ В HERO
    ===================================================== */
@@ -2729,7 +3172,43 @@ body {
             </div>
             <div class="reviews-dots"></div>
         </div>
+<!-- ============ ПЛАВАЮЩАЯ КНОПКА ЗВОНКА ============ -->
+<button class="call-fab" type="button" id="callFab" aria-label="Заказать звонок">
+    <svg viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+</button>
+<span class="call-fab-label">Заказать звонок</span>
 
+<!-- ============ МОДАЛЬНОЕ ОКНО ============ -->
+<div class="call-modal" id="callModal" role="dialog" aria-modal="true" aria-labelledby="callModalTitle">
+    <div class="call-modal-overlay" data-call-close></div>
+    <div class="call-modal-window">
+
+        <button class="call-modal-close" type="button" aria-label="Закрыть" data-call-close>
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+
+        <!-- Форма GetCourse -->
+<div class="call-form-wrap">
+    <div class="call-modal-icon">
+        <svg viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </div>
+
+
+    <div class="call-gc-form">
+        <!-- ВСТАВЬ СЮДА СВОЙ СКРИПТ GETCOURSE -->
+        <script id="5f11893ba72c57ae671fcca3c26a87e5be7872c0" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657609"></script>
+    </div>
+</div>
+
+    </div>
+</div>
         <!-- ===== КАРУСЕЛЬ 2: ОТЗЫВЫ КЛИЕНТОВ УЧЕНИКОВ ===== -->
         <div class="reviews-sub">
             <h3 class="reviews-subtitle">Такие отзывы получают наши выпускники</h3>
@@ -2901,6 +3380,36 @@ body {
     });
 })();
 </script>
+<script>
+(function () {
+    const fab = document.getElementById('callFab');
+    const modal = document.getElementById('callModal');
 
+    if (!fab || !modal) return;
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.classList.add('call-modal-open');
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('call-modal-open');
+    }
+
+    fab.addEventListener('click', openModal);
+
+    modal.querySelectorAll('[data-call-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+})();
+
+</script>
 </body>
 </html>
