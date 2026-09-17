@@ -2582,14 +2582,25 @@ body {
         min-height: auto;
     }
     .hero-right {
-        justify-content: center;
-        min-height: 420px;
-        margin-top: 20px;
-        order: 2;
-    }
-    .hero-left { order: 1; }
-    .hero-photo { transform: scale(1); max-width: 620px; }
-    .hero-photo img { max-height: 480px; }
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    margin-top: 30px;
+    order: 2;
+}
+.hero-left { order: 1; }
+.hero-photo {
+    transform: scale(1);
+    max-width: 420px;
+    align-items: center;
+    padding: 0;
+}
+.hero-photo img {
+    max-height: 420px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
     .hero-info { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 100%; }
     .hero-author-pill { position: static; margin-top: 16px; display: inline-block; }
     .hero-top { gap: 14px; margin-bottom: 26px; }
@@ -2781,7 +2792,16 @@ body {
     .hero-buttons { flex-direction: column; align-items: stretch; }
     .hero-cta, .hero-cta-outline { width: 100%; padding: 16px 24px; font-size: 15px; }
     .hero-photo img { max-height: 380px; }
-    .hero-right { min-height: 320px; }
+    .hero-right {
+    min-height: auto;
+    margin-top: 20px;
+}
+.hero-photo {
+    max-width: 340px;
+}
+.hero-photo img {
+    max-height: 340px;
+}
 
     .for-you { padding: 50px 0 60px; }
     .for-you .container { padding: 0 20px; }
