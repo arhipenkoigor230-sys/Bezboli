@@ -1960,7 +1960,12 @@ body {
 }
 
 @media (max-width: 640px) {
-    .hero-main { padding: 40px 0 0; }
+    .hero-main {
+    min-height: 92vh;
+    min-height: 92dvh;
+    padding: 40px 0 60px;
+    align-items: center;
+}
     .hero-main-inner { padding: 0 20px; }
 
     .hero-main-badge {
@@ -1999,8 +2004,8 @@ body {
     }
 
     .hero-bg img {
-        filter: brightness(.75) contrast(1.1) saturate(1.1);
-    }
+    filter: brightness(.9) contrast(1.05) saturate(1.05);
+}
 
     .hero-overlay {
         background:
