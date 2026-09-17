@@ -2580,29 +2580,31 @@ body {
         grid-template-columns: 1fr;
         padding: 32px 24px 40px;
         min-height: auto;
+        align-items: start;
     }
     .hero-right {
-    justify-content: center;
-    align-items: center;
-    min-height: auto;
-    margin-top: 30px;
-    order: 2;
-}
-.hero-left { order: 1; }
-.hero-photo {
-    transform: scale(1);
-    max-width: 420px;
-    align-items: center;
-    padding: 0;
-}
-.hero-photo img {
-    max-height: 420px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
+        justify-content: center;
+        align-items: center;
+        min-height: auto;
+        margin-top: 20px;
+        order: 2;
+    }
+    .hero-left { order: 1; }
+    .hero-photo {
+        transform: none;
+        max-width: 100%;
+        width: 100%;
+        align-items: center;
+    }
+    .hero-photo img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 340px;
+        object-fit: contain;
+    }
     .hero-info { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 100%; }
-    .hero-author-pill { position: static; margin-top: 16px; display: inline-block; }
+    .hero-author-pill { position: static; margin-top: 12px; display: inline-block; }
     .hero-top { gap: 14px; margin-bottom: 26px; }
     .hero-school-name { font-size: 15px; max-width: 200px; }
 
@@ -2793,15 +2795,23 @@ body {
     .hero-cta, .hero-cta-outline { width: 100%; padding: 16px 24px; font-size: 15px; }
     .hero-photo img { max-height: 380px; }
     .hero-right {
-    min-height: auto;
-    margin-top: 20px;
-}
-.hero-photo {
-    max-width: 340px;
-}
-.hero-photo img {
-    max-height: 340px;
-}
+        min-height: auto;
+        margin-top: 16px;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-photo {
+        max-width: 340px;
+        width: 100%;
+        transform: none;
+        transform-origin: center;
+    }
+    .hero-photo img {
+        width: auto;
+        max-width: 100%;
+        max-height: 340px;
+        object-fit: contain;
+    }
 
     .for-you { padding: 50px 0 60px; }
     .for-you .container { padding: 0 20px; }
