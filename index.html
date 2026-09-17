@@ -1960,14 +1960,11 @@ body {
 }
 
 @media (max-width: 640px) {
-    .hero-main { padding: 40px 0 60px; }
+    .hero-main { padding: 40px 0 0; }
     .hero-main-inner { padding: 0 20px; }
 
     .hero-main-badge {
-        padding: 8px 16px;
-        font-size: 10px;
-        letter-spacing: 1.2px;
-        margin-bottom: 26px;
+        display: none;
     }
 
     .hero-main-title {
@@ -2002,27 +1999,27 @@ body {
     }
 
     .hero-bg img {
-        filter: brightness(.55) contrast(1.15) saturate(1.1);
+        filter: brightness(.75) contrast(1.1) saturate(1.1);
     }
 
     .hero-overlay {
         background:
             radial-gradient(
-                ellipse 85% 60% at 50% 50%,
-                rgba(250, 243, 234, .99) 0%,
-                rgba(250, 243, 234, .92) 45%,
-                rgba(250, 243, 234, .55) 75%,
+                ellipse 90% 70% at 50% 50%,
+                rgba(250, 243, 234, .88) 0%,
+                rgba(250, 243, 234, .78) 45%,
+                rgba(250, 243, 234, .45) 75%,
                 rgba(250, 243, 234, 0) 100%
             ),
             linear-gradient(
                 180deg,
-                rgba(20, 8, 5, .55) 0%,
-                rgba(30, 12, 8, .35) 50%,
-                rgba(20, 8, 5, .60) 100%
+                rgba(20, 8, 5, .45) 0%,
+                rgba(30, 12, 8, .30) 50%,
+                rgba(20, 8, 5, .50) 100%
             );
     }
 
-    .mission { padding: 70px 0 80px; }
+    .mission { padding: 1px 0 80px; }
     .mission-container { padding: 0 20px; }
     .mission-title { font-size: 30px; margin-bottom: 10px; }
     .mission-sub { font-size: 15px; margin-bottom: 40px; }
@@ -2056,12 +2053,18 @@ body {
     .stats-item:nth-child(2)::before {
         display: none;
     }
-    .stats-value,
-    .stats-value-yandex {
-        font-size: 34px;
-        width: 38px;
-        height: 38px;
-    }
+    .stats-value {
+    font-size: 34px;
+    flex-shrink: 0;
+    min-width: 65px;
+}
+
+.stats-value-yandex {
+    font-size: 34px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+}
     .stats-text-main { font-size: 10.5px; }
     .stats-text-sub { font-size: 13.5px; }
 
@@ -2357,9 +2360,10 @@ body {
                         <li>Практика на моделях у себя дома</li>
                         <li>Проверка ДЗ и обратная связь</li>
                     </ul>
-                    <a href="course/" class="formats-card-btn">Выбрать онлайн</a>
-                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-                    </a>
+                    <a href="course/" class="formats-card-btn">
+    Выбрать онлайн
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+</a>
                 </div>
             </div>
 
@@ -2385,10 +2389,10 @@ body {
                         <li>Отработка на реальных моделях</li>
                         <li>Разбор кейсов и ошибок сразу</li>
                     </ul>
-                    <a href="course/" class="formats-card-btn">Выбрать офлайн</a>
-                        Выбрать офлайн
-                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-                    </a>
+                    <a href="course/" class="formats-card-btn">
+    Выбрать офлайн
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+</a>
                 </div>
             </div>
 
