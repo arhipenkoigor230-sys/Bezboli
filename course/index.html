@@ -2575,34 +2575,52 @@ body {
 }
 
 @media (max-width: 992px) {
-    .hero { min-height: auto; }
     .hero-inner {
-        grid-template-columns: 1fr;
-        padding: 32px 24px 40px;
-        min-height: auto;
-        align-items: start;
-    }
-    .hero-right {
-        justify-content: center;
-        align-items: center;
-        min-height: auto;
-        margin-top: 20px;
-        order: 2;
-    }
-    .hero-left { order: 1; }
-    .hero-photo {
-        transform: none;
-        max-width: 100%;
-        width: 100%;
-        align-items: center;
-    }
-    .hero-photo img {
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 340px;
-        object-fit: contain;
-    }
+    grid-template-columns: 1fr 130px;
+    gap: 16px;
+    padding: 32px 24px 40px;
+    min-height: auto;
+    align-items: start;
+}
+.hero-right {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+    align-items: flex-start;
+    min-height: auto;
+    margin-top: 0;
+    order: 0;
+}
+.hero-left {
+    grid-column: 1;
+    grid-row: 1;
+    order: 0;
+}
+.hero-photo {
+    transform: none;
+    max-width: 130px;
+    width: 100%;
+    align-items: flex-start;
+}
+.hero-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 170px;
+    object-fit: contain;
+    display: block;
+}
+.hero-author-pill {
+    position: static;
+    margin-top: 8px;
+    padding: 8px 14px;
+    font-size: 11px;
+    white-space: normal;
+    text-align: center;
+    width: 130px;
+    border-radius: 16px;
+}
+.hero-author-pill .label { font-size: 10px; }
+.hero-author-pill .name { font-size: 12px; }
     .hero-info { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 100%; }
     .hero-author-pill { position: static; margin-top: 12px; display: inline-block; }
     .hero-top { gap: 14px; margin-bottom: 26px; }
@@ -2773,7 +2791,53 @@ body {
 }
 
 @media (max-width: 640px) {
-    .hero-inner { padding: 24px 20px 36px; }
+    .hero-inner {
+        padding: 24px 20px 36px;
+        grid-template-columns: 1fr 110px;
+        gap: 16px;
+        align-items: start;
+    }
+    .hero-left {
+        grid-column: 1;
+        grid-row: 1;
+        order: 0;
+    }
+    .hero-right {
+        grid-column: 2;
+        grid-row: 1;
+        order: 0;
+        min-height: auto;
+        margin-top: 0;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+    .hero-photo {
+        max-width: 110px;
+        width: 100%;
+        transform: none;
+        transform-origin: center;
+        align-items: flex-start;
+    }
+    .hero-photo img {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        object-fit: contain;
+        display: block;
+    }
+    .hero-author-pill {
+        position: static;
+        width: 110px;
+        margin-top: 8px;
+        padding: 6px 10px;
+        font-size: 10px;
+        border-radius: 16px;
+        white-space: normal;
+        text-align: center;
+    }
+    .hero-author-pill .label { font-size: 9px; }
+    .hero-author-pill .name { font-size: 11px; }
+
     .hero-logo img { height: 64px; }
     .hero-top {
         gap: 12px;
@@ -2788,29 +2852,19 @@ body {
     .hero-label { font-size: 18px; margin-bottom: 26px; }
     .hero h1 { margin-bottom: 26px; font-size: 32px; }
     .hero-sub { font-size: 17px; margin-bottom: 30px; }
-    .hero-info { grid-template-columns: 1fr 1fr; gap: 16px; padding-bottom: 20px; margin-bottom: 26px; }
+    .hero-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        padding-bottom: 20px;
+        margin-bottom: 26px;
+    }
     .hero-info-col .hero-info-label { font-size: 10px; }
     .hero-info-col .hero-info-value { font-size: 13px; }
     .hero-buttons { flex-direction: column; align-items: stretch; }
-    .hero-cta, .hero-cta-outline { width: 100%; padding: 16px 24px; font-size: 15px; }
-    .hero-photo img { max-height: 380px; }
-    .hero-right {
-        min-height: auto;
-        margin-top: 16px;
-        align-items: center;
-        justify-content: center;
-    }
-    .hero-photo {
-        max-width: 340px;
+    .hero-cta, .hero-cta-outline {
         width: 100%;
-        transform: none;
-        transform-origin: center;
-    }
-    .hero-photo img {
-        width: auto;
-        max-width: 100%;
-        max-height: 340px;
-        object-fit: contain;
+        padding: 16px 24px;
+        font-size: 15px;
     }
 
     .for-you { padding: 50px 0 60px; }
