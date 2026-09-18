@@ -3356,7 +3356,62 @@ body.call-modal-open { overflow: hidden; }
                 <p>Для отправки заявки включите JavaScript или позвоните: <a href="tel:+79790258335">+7 (979) 025-83-35</a></p>
             </noscript>
         </div>
+<!-- ============ МОДАЛЬНОЕ ОКНО ОПЛАТЫ: ПРАКТИК ============ -->
+<div class="call-modal" id="payModalBasic" role="dialog" aria-modal="true">
+    <div class="call-modal-overlay" data-pay-close></div>
+    <div class="call-modal-window">
+        <button class="call-modal-close" type="button" aria-label="Закрыть" data-pay-close>
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="call-gc-form">
+            <script id="fa1b845caae352c61a894ebc257962bd82bfca79" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657824"></script>
+            <noscript>
+                <p>Для оплаты включите JavaScript или позвоните: <a href="tel:+79790258335">+7 (979) 025-83-35</a></p>
+            </noscript>
+        </div>
+    </div>
+</div>
 
+<!-- ============ МОДАЛЬНОЕ ОКНО ОПЛАТЫ: ПРАКТИК+ ============ -->
+<div class="call-modal" id="payModalPro" role="dialog" aria-modal="true">
+    <div class="call-modal-overlay" data-pay-close></div>
+    <div class="call-modal-window">
+        <button class="call-modal-close" type="button" aria-label="Закрыть" data-pay-close>
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="call-gc-form">
+            <script id="9dc82f6bac6da772984cf9281d8cc28e34dd76ff" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657827"></script>
+            <noscript>
+                <p>Для оплаты включите JavaScript или позвоните: <a href="tel:+79790258335">+7 (979) 025-83-35</a></p>
+            </noscript>
+        </div>
+    </div>
+</div>
+
+<!-- ============ МОДАЛЬНОЕ ОКНО ОПЛАТЫ: VIP ============ -->
+<div class="call-modal" id="payModalVip" role="dialog" aria-modal="true">
+    <div class="call-modal-overlay" data-pay-close></div>
+    <div class="call-modal-window">
+        <button class="call-modal-close" type="button" aria-label="Закрыть" data-pay-close>
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="call-gc-form">
+            <script id="f27755137d4c60a8956aa05f8d81f48f7db92a6c" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657829"></script>
+            <noscript>
+                <p>Для оплаты включите JavaScript или позвоните: <a href="tel:+79790258335">+7 (979) 025-83-35</a></p>
+            </noscript>
+        </div>
+    </div>
+</div>
     </div>
 </div>
 <!-- ============ ЭТОТ КУРС ДЛЯ ВАС ============ -->
@@ -3786,9 +3841,9 @@ body.call-modal-open { overflow: hidden; }
                         <li class="off">Диплом установленного образца</li>
                     </ul>
                     <div class="tariff-actions">
-                        <a href="<script id="fa1b845caae352c61a894ebc257962bd82bfca79" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657824"></script>" class="tariff-btn-primary">Оплатить сейчас</a>
-                        <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
-                    </div>
+    <a href="#" data-pay-modal="payModalBasic" class="tariff-btn-primary">Оплатить сейчас</a>
+    <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
+</div>
                 </div>
             </div>
 
@@ -3819,9 +3874,9 @@ body.call-modal-open { overflow: hidden; }
                         <li><strong>Диплом установленного образца</strong></li>
                     </ul>
                     <div class="tariff-actions">
-                        <a href="<script id="9dc82f6bac6da772984cf9281d8cc28e34dd76ff" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657827"></script>" class="tariff-btn-primary">Оплатить сейчас</a>
-                        <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
-                    </div>
+    <a href="#" data-pay-modal="payModalPro" class="tariff-btn-primary">Оплатить сейчас</a>
+    <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
+</div>
                 </div>
             </div>
 
@@ -3855,9 +3910,9 @@ body.call-modal-open { overflow: hidden; }
                         <li><strong>Диплом установленного образца</strong></li>
                     </ul>
                     <div class="tariff-actions">
-                        <a href="<script id="f27755137d4c60a8956aa05f8d81f48f7db92a6c" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657829"></script>" class="tariff-btn-primary">Оплатить сейчас</a>
-                        <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
-                    </div>
+    <a href="#" data-pay-modal="payModalVip" class="tariff-btn-primary">Оплатить сейчас</a>
+    <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
+</div>
                 </div>
             </div>
 
@@ -4516,6 +4571,44 @@ body.call-modal-open { overflow: hidden; }
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+})();
+</script>
+<script>
+(function () {
+    // Открытие окна оплаты
+    function openPayModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.classList.add('active');
+        document.body.classList.add('call-modal-open');
+    }
+
+    // Закрытие окна оплаты
+    function closePayModal(modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('call-modal-open');
+    }
+
+    // Клики по кнопкам «Оплатить сейчас»
+    document.querySelectorAll('[data-pay-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openPayModal(btn.getAttribute('data-pay-modal'));
+        });
+    });
+
+    // Клики по крестику и оверлею во всех окнах оплаты
+    document.querySelectorAll('#payModalBasic, #payModalPro, #payModalVip').forEach(function (modal) {
+        modal.querySelectorAll('[data-pay-close]').forEach(function (el) {
+            el.addEventListener('click', function () { closePayModal(modal); });
+        });
+    });
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        document.querySelectorAll('#payModalBasic.active, #payModalPro.active, #payModalVip.active').forEach(closePayModal);
     });
 })();
 </script>
