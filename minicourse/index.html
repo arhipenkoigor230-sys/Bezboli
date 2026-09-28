@@ -623,41 +623,213 @@
         @media (max-width: 900px) {
             .reviews-grid { grid-template-columns: 1fr; }
         }
+
+        /* ===== NEW HERO (light, Yudaev-style) ===== */
+.hero-new {
+    background: #EAEAEA;
+    padding: 32px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-logo {
+    height: 34px;
+    display: block;
+    margin-bottom: 56px;
+}
+
+.hero-new-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* --- Заголовок --- */
+.hero-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(38px, 6.4vw, 82px);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    color: #111118;
+    margin: 0;
+}
+
+.hero-title .hero-mark {
+    background: #EE0519;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0 18px 6px;
+    border-radius: 14px;
+    line-height: 1;
+    -webkit-text-fill-color: #ffffff;
+}
+
+/* --- Подзаголовок --- */
+.hero-sub {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #55555f;
+    margin-top: 32px;
+    max-width: 520px;
+}
+
+.hero-sub strong {
+    color: #111118;
+    font-weight: 700;
+}
+
+/* --- CTA-блок с таймером (как в референсе 3) --- */
+.hero-cta {
+    background: #111118;
+    border-radius: 40px;
+    padding: 6px;
+    max-width: 520px;
+    margin-top: 40px;
+}
+
+.hero-cta-btn {
+    display: block;
+    text-align: center;
+    background: #EE0519;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 24px 40px;
+    border-radius: 34px;
+    transition: background 0.2s ease;
+}
+
+.hero-cta-btn:hover { background: #c40415; }
+
+.hero-cta-timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+}
+
+.hero-cta-timer .timer-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a8a8b3;
+    font-size: 14px;
+}
+
+.hero-cta-timer .timer-label i {
+    color: #EE0519;
+    font-size: 16px;
+}
+
+.hero-cta-timer .timer-value {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+}
+
+.hero-cta-hint {
+    margin-top: 20px;
+    font-size: 15px;
+    color: #55555f;
+    line-height: 1.5;
+}
+
+.hero-cta-hint strong { color: #111118; font-weight: 700; }
+
+/* --- Фото справа, сглажено с фоном --- */
+.hero-new-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-new-right img {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    object-fit: contain;
+    /* Убираем все рамки/тени и мягко вписываем в фон #EAEAEA */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    mix-blend-mode: multiply;
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, #000 70%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, #000 70%, transparent 100%);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+    .hero-new { padding: 24px 0 56px; }
+    .hero-logo { margin-bottom: 32px; height: 28px; }
+    .hero-new-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: left;
+    }
+    .hero-sub { font-size: 17px; }
+    .hero-cta { max-width: 100%; }
+    .hero-new-right { order: -1; }
+    .hero-new-right img { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .hero-cta-btn { padding: 20px 24px; font-size: 16px; }
+    .hero-cta-timer { padding: 12px 18px; font-size: 13px; }
+    .hero-cta-timer .timer-value { font-size: 14px; }
+}
     </style>
 </head>
 <body>
 
 <!-- ===== HERO ===== -->
-<div class="container">
-    <div class="hero">
-        <div class="hero-left">
-            <div class="badge">🔥 Бесплатный онлайн-интенсив</div>
-            <h1>3-дневный мини-курс: <span class="gradient-text">Базовая связка массажа спины</span></h1>
-            <p class="sub">
-                За выполнение всех уроков и домашнего задания —<br>
-                <strong>скидка 10% на полный курс</strong>
-            </p>
+<section class="hero-new">
+    <div class="container">
+        <img src="../assets/images/logomini.jpg" alt="БезБоли" class="hero-logo">
 
-            <div class="date-pill">
-                <i class="fa-regular fa-calendar"></i>
-                <span id="start-date-text">Начни свой путь массажиста с нами!</span>
+        <div class="hero-new-inner">
+            <div class="hero-new-left">
+                <h1 class="hero-title">
+                    <span class="hero-mark">БЕСПЛАТНЫЙ</span><br>
+                    КУРС ПО МАССАЖУ<br>
+                    С ЛИЧНЫМ<br>
+                    НАСТАВНИКОМ
+                </h1>
+
+                <p class="hero-sub">
+                    С нуля сделаете <strong>профессиональный массаж спины</strong>
+                    и узнаете все о профессии
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#form" class="hero-cta-btn">Начать обучение</a>
+                    <div class="hero-cta-timer">
+                        <span class="timer-label">
+                            <i class="fa-solid fa-clock"></i> До закрытия набора:
+                        </span>
+                        <span class="timer-value" id="heroTimer">00 : 11 : 09 : 21</span>
+                    </div>
+                </div>
+
+                <p class="hero-cta-hint">
+                    Жмите на кнопку и получите доступ к 1-му уроку в <strong>чат-боте</strong>!
+                </p>
             </div>
 
-            <div style="margin-top:25px;">
-                <a href="#form" class="btn-light">
-                    <i class="fa-solid fa-hand-holding-heart"></i> Получить доступ к курсу
-                </a>
+            <div class="hero-new-right">
+                <img src="../assets/images/pic1mini.jpg" alt="Массаж спины">
             </div>
-            <p style="font-size:14px; color:var(--text-muted); margin-top:16px;">
-                После регистрации вы попадёте в чат-бот и получите первый урок
-            </p>
-        </div>
-
-        <div class="hero-right">
-            <img src="../assets/images/pic1.jpg" alt="Массаж спины: руки на спине клиента" />
         </div>
     </div>
-</div>
+</section>
 
 <!-- ===== КАК ЭТО РАБОТАЕТ ===== -->
 <div class="section section-dark">
