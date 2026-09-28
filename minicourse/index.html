@@ -772,6 +772,7 @@
 }
 
 /* ===== HOW IT WORKS ===== */
+/* ===== HOW IT WORKS ===== */
 .how-section {
     background: #ffffff;
     padding: 96px 0;
@@ -782,12 +783,12 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 40px;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
     flex-wrap: wrap;
 }
 
 .how-title {
-    font-size: clamp(34px, 5vw, 62px);
+    font-size: clamp(28px, 3.6vw, 48px);
     font-weight: 800;
     letter-spacing: -0.03em;
     text-transform: uppercase;
@@ -798,27 +799,29 @@
 
 .how-title-accent { color: #EE0519; }
 
+/* --- Сетка 4 колонки --- */
 .how-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: 1fr 1.15fr 1.15fr 1fr;
+    gap: 20px;
+    align-items: start;
 }
 
 .how-col {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 /* --- Карточка --- */
 .how-card {
     background: #ececec;
     color: #111118;
-    border-radius: 28px;
-    padding: 26px;
+    border-radius: 24px;
+    padding: 22px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     position: relative;
     overflow: hidden;
     transition: transform .3s ease, background .3s ease, color .3s ease;
@@ -826,126 +829,108 @@
 }
 
 .how-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     background: #111118;
     color: #ffffff;
 }
 
-.how-card-dark {
-    background: #111118;
-    color: #ffffff;
-}
+.how-card--tall   { height: 620px; }
+.how-card--medium { height: 400px; }
+.how-card--short  { height: 200px; }
 
 /* --- Номер --- */
 .how-num {
-    font-size: 34px;
+    font-size: 26px;
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.04em;
-    color: rgba(17, 17, 24, 0.30);
+    color: #111118;
     transition: color .3s ease;
+    flex-shrink: 0;
 }
-.how-card:hover .how-num,
-.how-card-dark .how-num { color: rgba(255, 255, 255, 0.35); }
+.how-card:hover .how-num { color: #ffffff; }
 
-/* --- Картинка внутри карточки --- */
+/* --- Картинка --- */
 .how-img {
     width: 100%;
-    border-radius: 18px;
+    border-radius: 14px;
     overflow: hidden;
     background: #d9d9d9;
     flex: 1 1 auto;
-    min-height: 120px;
+    min-height: 0;
     display: flex;
-    transition: filter .3s ease;
 }
 .how-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: filter .3s ease;
 }
-.how-card:hover .how-img { filter: brightness(0.9); }
+.how-card:hover .how-img img { filter: brightness(0.85); }
 
-/* --- Текстовая часть внизу --- */
+/* --- Текст --- */
 .how-body {
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .how-desc {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.45;
     color: #55555f;
     margin: 0;
     transition: color .3s ease;
 }
-.how-card:hover .how-desc,
-.how-card-dark .how-desc { color: rgba(255, 255, 255, 0.85); }
+.how-card:hover .how-desc { color: rgba(255, 255, 255, 0.8); }
 
 .how-name {
-    font-size: clamp(24px, 2.6vw, 34px);
+    font-size: clamp(20px, 1.8vw, 26px);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    line-height: 1;
+    line-height: 1.05;
     color: #111118;
     margin: 0;
     transition: color .3s ease;
     word-break: break-word;
 }
-.how-card:hover .how-name,
-.how-card-dark .how-name { color: #ffffff; }
+.how-card:hover .how-name { color: #ffffff; }
 
-/* --- Кнопка под сеткой --- */
+/* --- Кнопка --- */
 .how-cta {
-    margin-top: 48px;
+    margin-top: 40px;
     display: flex;
     justify-content: flex-start;
 }
 
 /* --- Адаптив --- */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+    .how-grid { grid-template-columns: 1fr 1fr; }
+    .how-card--tall { height: 480px; }
+    .how-card--medium { height: 320px; }
+}
+
+@media (max-width: 700px) {
     .how-section { padding: 64px 0; }
     .how-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
-        margin-bottom: 32px;
+        gap: 4px;
+        margin-bottom: 28px;
     }
-    .how-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+    .how-grid { grid-template-columns: 1fr; gap: 16px; }
     .how-col { gap: 16px; }
-    .how-card {
-        min-height: auto !important;
-        padding: 22px;
-    }
-    .how-num { font-size: 26px; }
-}
-
-/* --- Адаптив --- */
-@media (max-width: 900px) {
-    .hero-new { padding: 24px 0 56px; }
-    .hero-logo { margin-bottom: 32px; height: 22px; }
-    .hero-new-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-    .hero-sub { font-size: 16px; }
-    .hero-new-right { align-items: center; }
-    .hero-right-note { text-align: center; max-width: 100%; }
-    .hero-new-right img { max-width: 100%; }
-    .hero-cta-row { flex-direction: column; align-items: flex-start; gap: 14px; }
-    .hero-cta-note { max-width: 100%; }
-}
-
-@media (max-width: 480px) {
-    .hero-cta-btn { padding: 16px 28px; font-size: 14px; width: 100%; }
-    .hero-cta-note { font-size: 10px; }
+    .how-card--tall,
+    .how-card--medium,
+    .how-card--short { height: auto; min-height: 180px; }
+    .how-card--tall { min-height: 380px; }
+    .how-card { padding: 20px; border-radius: 20px; }
+    .how-num { font-size: 22px; }
+    .how-cta { justify-content: stretch; }
+    .how-cta .hero-cta-btn { width: 100%; }
 }
     </style>
 </head>
@@ -990,6 +975,7 @@
 </section>
 
 <!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
+<!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
 <section class="how-section">
     <div class="container">
 
@@ -1000,9 +986,9 @@
 
         <div class="how-grid">
 
-            <!-- Колонка 1 -->
+            <!-- ===== Колонка 1 ===== -->
             <div class="how-col">
-                <article class="how-card how-card-dark" style="min-height: 700px;">
+                <article class="how-card how-card--tall">
                     <div class="how-num">01</div>
                     <div class="how-img">
                         <img src="../assets/images/mini-how-01.jpg" alt="Платформа с уроками">
@@ -1014,56 +1000,50 @@
                 </article>
             </div>
 
-            <!-- Колонка 2 -->
+            <!-- ===== Колонка 2 ===== -->
             <div class="how-col">
-                <article class="how-card" style="min-height: 260px;">
+                <article class="how-card how-card--short">
                     <div class="how-num">02</div>
-                    <div class="how-img">
-                        <img src="../assets/images/mini-how-02.jpg" alt="Чат единомышленников">
-                    </div>
                     <div class="how-body">
                         <p class="how-desc">Вас добавляют в чат, в котором вы находите единомышленников</p>
                         <h3 class="how-name">Чат</h3>
                     </div>
                 </article>
 
-                <article class="how-card" style="min-height: 420px;">
+                <article class="how-card how-card--medium">
                     <div class="how-num">03</div>
-                    <div class="how-img">
-                        <img src="../assets/images/mini-how-03.jpg" alt="Выполнение заданий">
-                    </div>
                     <div class="how-body">
                         <p class="how-desc">Выполняете задания и сдаёте на проверку куратору группы</p>
                         <h3 class="how-name">Задания</h3>
                     </div>
                 </article>
-
-                <article class="how-card" style="min-height: 260px;">
-                    <div class="how-num">05</div>
-                    <div class="how-img">
-                        <img src="../assets/images/mini-how-05.jpg" alt="Полученные знания">
-                    </div>
-                    <div class="how-body">
-                        <p class="how-desc">Полученные знания можете смело использовать на своих близких и в работе</p>
-                        <h3 class="how-name">Результат</h3>
-                    </div>
-                </article>
             </div>
 
-            <!-- Колонка 3 -->
+            <!-- ===== Колонка 3 ===== -->
             <div class="how-col">
-                <article class="how-card" style="min-height: 260px;">
+                <article class="how-card how-card--medium">
                     <div class="how-num">04</div>
                     <div class="how-img">
                         <img src="../assets/images/mini-how-04.jpg" alt="Разбор работ">
                     </div>
                     <div class="how-body">
-                        <p class="how-desc">Разбор вашего выполнения массажа. исправляете ошибки, повышаете качество</p>
+                        <p class="how-desc">Разбор вашего выполнения массажа: исправляете ошибки, повышаете качество</p>
                         <h3 class="how-name">Чекинг</h3>
                     </div>
                 </article>
 
-                <article class="how-card how-card-dark" style="min-height: 700px;">
+                <article class="how-card how-card--short">
+                    <div class="how-num">05</div>
+                    <div class="how-body">
+                        <p class="how-desc">Полученные знания можете смело использовать на близких и в работе</p>
+                        <h3 class="how-name">Результат</h3>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ===== Колонка 4 ===== -->
+            <div class="how-col">
+                <article class="how-card how-card--tall">
                     <div class="how-num">06</div>
                     <div class="how-img">
                         <img src="../assets/images/mini-how-06.jpg" alt="Сертификат">
