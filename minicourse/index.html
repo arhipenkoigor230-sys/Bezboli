@@ -771,6 +771,162 @@
     box-shadow: none;
 }
 
+/* ===== HOW IT WORKS ===== */
+.how-section {
+    background: #ffffff;
+    padding: 96px 0;
+}
+
+.how-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+}
+
+.how-title {
+    font-size: clamp(34px, 5vw, 62px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: #111118;
+}
+
+.how-title-accent { color: #EE0519; }
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.how-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* --- Карточка --- */
+.how-card {
+    background: #ececec;
+    color: #111118;
+    border-radius: 28px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+    cursor: pointer;
+}
+
+.how-card:hover {
+    transform: translateY(-8px);
+    background: #111118;
+    color: #ffffff;
+}
+
+.how-card-dark {
+    background: #111118;
+    color: #ffffff;
+}
+
+/* --- Номер --- */
+.how-num {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: rgba(17, 17, 24, 0.30);
+    transition: color .3s ease;
+}
+.how-card:hover .how-num,
+.how-card-dark .how-num { color: rgba(255, 255, 255, 0.35); }
+
+/* --- Картинка внутри карточки --- */
+.how-img {
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #d9d9d9;
+    flex: 1 1 auto;
+    min-height: 120px;
+    display: flex;
+    transition: filter .3s ease;
+}
+.how-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.how-card:hover .how-img { filter: brightness(0.9); }
+
+/* --- Текстовая часть внизу --- */
+.how-body {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.how-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #55555f;
+    margin: 0;
+    transition: color .3s ease;
+}
+.how-card:hover .how-desc,
+.how-card-dark .how-desc { color: rgba(255, 255, 255, 0.85); }
+
+.how-name {
+    font-size: clamp(24px, 2.6vw, 34px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: #111118;
+    margin: 0;
+    transition: color .3s ease;
+    word-break: break-word;
+}
+.how-card:hover .how-name,
+.how-card-dark .how-name { color: #ffffff; }
+
+/* --- Кнопка под сеткой --- */
+.how-cta {
+    margin-top: 48px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+    .how-section { padding: 64px 0; }
+    .how-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+    .how-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .how-col { gap: 16px; }
+    .how-card {
+        min-height: auto !important;
+        padding: 22px;
+    }
+    .how-num { font-size: 26px; }
+}
+
 /* --- Адаптив --- */
 @media (max-width: 900px) {
     .hero-new { padding: 24px 0 56px; }
@@ -833,41 +989,99 @@
     </div>
 </section>
 
-<!-- ===== КАК ЭТО РАБОТАЕТ ===== -->
-<div class="section section-dark">
+<!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
+<section class="how-section">
     <div class="container">
-        <h2 style="text-align:center; font-size:38px; font-weight:800;">Как это <span class="gradient-text">работает</span></h2>
-        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
-            3 урока, 3 домашних задания — и скидка на полный курс у Вас
-        </p>
 
-        <div class="grid-3" style="margin-top:50px;">
-            <div class="card">
-                <div class="icon-wrapper icon-purple">
-                    <i class="fa-solid fa-user-plus" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0; font-size:20px;">Регистрация</h3>
-                <p>Заполняете форму и получаете доступ к чат-боту с первым уроком.</p>
+        <header class="how-header">
+            <h2 class="how-title">Как проходит</h2>
+            <h2 class="how-title how-title-accent">Обучение</h2>
+        </header>
+
+        <div class="how-grid">
+
+            <!-- Колонка 1 -->
+            <div class="how-col">
+                <article class="how-card how-card-dark" style="min-height: 700px;">
+                    <div class="how-num">01</div>
+                    <div class="how-img">
+                        <img src="../assets/images/mini-how-01.jpg" alt="Платформа с уроками">
+                    </div>
+                    <div class="how-body">
+                        <p class="how-desc">Открываем вам доступ к платформе с уроками и заданиями</p>
+                        <h3 class="how-name">Платформа</h3>
+                    </div>
+                </article>
             </div>
 
-            <div class="card">
-                <div class="icon-wrapper icon-green">
-                    <i class="fa-solid fa-graduation-cap" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0; font-size:20px;">Обучение</h3>
-                <p>После выполненного задания открывается новый урок с практикой.</p>
+            <!-- Колонка 2 -->
+            <div class="how-col">
+                <article class="how-card" style="min-height: 260px;">
+                    <div class="how-num">02</div>
+                    <div class="how-img">
+                        <img src="../assets/images/mini-how-02.jpg" alt="Чат единомышленников">
+                    </div>
+                    <div class="how-body">
+                        <p class="how-desc">Вас добавляют в чат, в котором вы находите единомышленников</p>
+                        <h3 class="how-name">Чат</h3>
+                    </div>
+                </article>
+
+                <article class="how-card" style="min-height: 420px;">
+                    <div class="how-num">03</div>
+                    <div class="how-img">
+                        <img src="../assets/images/mini-how-03.jpg" alt="Выполнение заданий">
+                    </div>
+                    <div class="how-body">
+                        <p class="how-desc">Выполняете задания и сдаёте на проверку куратору группы</p>
+                        <h3 class="how-name">Задания</h3>
+                    </div>
+                </article>
+
+                <article class="how-card" style="min-height: 260px;">
+                    <div class="how-num">05</div>
+                    <div class="how-img">
+                        <img src="../assets/images/mini-how-05.jpg" alt="Полученные знания">
+                    </div>
+                    <div class="how-body">
+                        <p class="how-desc">Полученные знания можете смело использовать на своих близких и в работе</p>
+                        <h3 class="how-name">Результат</h3>
+                    </div>
+                </article>
             </div>
 
-            <div class="card">
-                <div class="icon-wrapper icon-orange">
-                    <i class="fa-solid fa-gift" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0; font-size:20px;">ДЗ = Скидка</h3>
-                <p>Выполняете задания и получаете персональный промокод на полный курс.</p>
+            <!-- Колонка 3 -->
+            <div class="how-col">
+                <article class="how-card" style="min-height: 260px;">
+                    <div class="how-num">04</div>
+                    <div class="how-img">
+                        <img src="../assets/images/mini-how-04.jpg" alt="Разбор работ">
+                    </div>
+                    <div class="how-body">
+                        <p class="how-desc">Разбор вашего выполнения массажа. исправляете ошибки, повышаете качество</p>
+                        <h3 class="how-name">Чекинг</h3>
+                    </div>
+                </article>
+
+                <article class="how-card how-card-dark" style="min-height: 700px;">
+                    <div class="how-num">06</div>
+                    <div class="how-img">
+                        <img src="../assets/images/mini-how-06.jpg" alt="Сертификат">
+                    </div>
+                    <div class="how-body">
+                        <p class="how-desc">Получение сертификата о прохождении программы</p>
+                        <h3 class="how-name">Сертификат</h3>
+                    </div>
+                </article>
             </div>
+
+        </div>
+
+        <div class="how-cta">
+            <a href="#form" class="hero-cta-btn">Начать обучение</a>
         </div>
     </div>
-</div>
+</section>
 
 <!-- ===== ПРОГРАММА ===== -->
 <div class="section">
