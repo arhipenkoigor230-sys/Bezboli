@@ -38,24 +38,33 @@
 
     <style>
         :root {
-            --bg: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a26;
-            --bg-card-hover: #222233;
-            --border: #2a2a3a;
+            /* ===== СВЕТЛАЯ ПАЛИТРА ===== */
+            --bg: #ffffff;
+            --bg-secondary: #f7f7f9;
+            --bg-card: #ffffff;
+            --bg-card-hover: #ffffff;
+            --border: #ebebf0;
+            --border-strong: #dcdce4;
             --border-accent: #e31b23;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6b6b80;
+
+            --text-primary: #111118;
+            --text-secondary: #55555f;
+            --text-muted: #8a8a99;
+
             --accent: #e31b23;
             --accent-hover: #b01018;
-            --accent-soft: rgba(227, 27, 35, 0.15);
+            --accent-soft: rgba(227, 27, 35, 0.08);
+
             --green: #10b981;
-            --green-soft: rgba(16, 185, 129, 0.15);
+            --green-soft: rgba(16, 185, 129, 0.10);
             --orange: #f59e0b;
-            --orange-soft: rgba(245, 158, 11, 0.15);
+            --orange-soft: rgba(245, 158, 11, 0.10);
             --blue: #3b82f6;
-            --blue-soft: rgba(59, 130, 246, 0.15);
+            --blue-soft: rgba(59, 130, 246, 0.10);
+
+            --shadow-sm: 0 1px 2px rgba(17, 17, 24, 0.04);
+            --shadow-md: 0 4px 16px rgba(17, 17, 24, 0.06);
+            --shadow-lg: 0 12px 32px rgba(17, 17, 24, 0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,70 +75,50 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        h1, h2, h3, h4, h5, h6 { color: var(--text-primary) !important; }
+        h1, h2, h3, h4, h5, h6 { color: var(--text-primary) !important; letter-spacing: -0.02em; }
 
         /* ===== BUTTONS ===== */
         .btn-light {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+            background: var(--accent);
             color: #fff !important;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 17px;
             padding: 16px 36px;
             border-radius: 50px;
             text-decoration: none !important;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(227, 27, 35, 0.4);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(227, 27, 35, 0.22);
             font-family: inherit;
         }
 
-        .btn-light::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 40%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-            transform: skewX(-20deg);
-            animation: btnShine 3s infinite;
-        }
-
-        @keyframes btnShine {
-            0% { left: -60%; }
-            100% { left: 160%; }
-        }
-
         .btn-light:hover {
-            background: linear-gradient(135deg, #b01018 0%, #8a0c12 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(227, 27, 35, 0.6);
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(227, 27, 35, 0.30);
         }
 
         .btn-light:disabled,
         .btn-light[disabled] {
-            background: #4a4a58;
-            color: #c9c4ba !important;
+            background: #d5d5dc;
+            color: #7a7a88 !important;
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
-            opacity: 0.85;
         }
-        .btn-light:disabled::before { display: none; }
-        .btn-light:disabled:hover { transform: none; background: #4a4a58; }
+        .btn-light:disabled:hover { transform: none; background: #d5d5dc; }
 
         /* ===== SECTIONS ===== */
-        .section { padding: 80px 0; position: relative; }
+        .section { padding: 96px 0; position: relative; }
         .section-dark { background: var(--bg-secondary); }
 
         /* ===== HERO ===== */
@@ -137,9 +126,8 @@
             display: flex;
             align-items: center;
             gap: 60px;
-            padding: 80px 0;
-            min-height: 90vh;
-            position: relative;
+            padding: 72px 0 96px;
+            min-height: 88vh;
         }
         .hero-left { flex: 1; }
         .hero-right {
@@ -151,34 +139,34 @@
         .hero-right img {
             width: 100%;
             max-width: 620px;
-            max-height: 780px;
+            max-height: 760px;
             object-fit: cover;
             border-radius: 32px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
         }
 
         .hero h1 {
-            font-size: 48px;
-            line-height: 1.2;
+            font-size: 52px;
+            line-height: 1.15;
             font-weight: 900;
-            color: #ffffff;
+            letter-spacing: -0.03em;
         }
 
         .hero .sub {
-            font-size: 20px;
+            font-size: 19px;
             color: var(--text-secondary);
-            margin: 25px 0;
+            margin: 24px 0;
             line-height: 1.6;
         }
 
-        .hero .sub strong { color: var(--accent); }
+        .hero .sub strong { color: var(--accent); font-weight: 700; }
 
         /* ===== BADGE ===== */
         .badge {
-            background: var(--accent-soft);
-            color: var(--accent) !important;
-            border: 1px solid var(--border-accent);
+            background: #ffffff;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-strong);
             border-radius: 40px;
             padding: 8px 20px;
             display: inline-block;
@@ -187,47 +175,45 @@
             margin-bottom: 20px;
         }
 
-        /* ===== GRADIENT TEXT ===== */
+        /* ===== GRADIENT TEXT (теперь просто красный акцент) ===== */
         .gradient-text {
-            background: linear-gradient(135deg, #ff5559 0%, #e31b23 50%, #b01018 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
+            background: none;
+            -webkit-text-fill-color: currentColor;
         }
 
         /* ===== DATE PILL ===== */
         .date-pill {
-            background: var(--accent-soft);
-            border: 1px solid var(--border-accent);
+            background: #ffffff;
+            border: 1px solid var(--border-strong);
             border-radius: 40px;
             padding: 12px 24px;
             display: inline-block;
             margin-bottom: 15px;
         }
         .date-pill i { color: var(--accent); }
-        .date-pill span { color: #ffffff; font-weight: 600; }
+        .date-pill span { color: var(--text-primary); font-weight: 600; }
 
-        /* ===== CARDS & GRIDS ===== */
+        /* ===== CARDS ===== */
         .card {
             background: var(--bg-card);
             border-radius: 24px;
             padding: 32px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            border-color: var(--accent);
             background: var(--bg-card-hover);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--shadow-lg);
         }
         .card h3 { color: var(--text-primary) !important; }
         .card p { color: var(--text-secondary) !important; }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
         .icon-wrapper {
             width: 60px;
@@ -239,22 +225,23 @@
             margin-bottom: 20px;
         }
         .icon-purple { background: var(--accent-soft); color: var(--accent) !important; }
-        .icon-green { background: var(--green-soft); color: var(--green) !important; }
+        .icon-green  { background: var(--green-soft);  color: var(--green) !important; }
         .icon-orange { background: var(--orange-soft); color: var(--orange) !important; }
-        .icon-blue { background: var(--blue-soft); color: var(--blue) !important; }
+        .icon-blue   { background: var(--blue-soft);   color: var(--blue) !important; }
 
         /* ===== PROGRAM TABLE ===== */
         .program-table {
             width: 100%;
-            background: var(--bg-card);
+            background: #ffffff;
             border-radius: 24px;
             border-collapse: separate;
             border-spacing: 0;
             overflow: hidden;
             margin-top: 40px;
             border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
         }
-        .program-table thead { background: var(--bg-secondary); }
+        .program-table thead { background: #fafafb; }
         .program-table th {
             padding: 20px;
             text-align: left;
@@ -262,15 +249,16 @@
             color: var(--text-secondary) !important;
             border-bottom: 1px solid var(--border);
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 13px;
+            letter-spacing: 0.06em;
         }
         .program-table td {
-            padding: 20px;
+            padding: 22px 20px;
             border-bottom: 1px solid var(--border);
             color: var(--text-primary) !important;
             vertical-align: top;
         }
-        .program-table tbody tr:hover { background: var(--bg-card-hover); }
+        .program-table tbody tr:hover { background: #fafafb; }
         .program-table tbody tr:last-child td { border-bottom: none; }
 
         .day-badge {
@@ -298,26 +286,29 @@
             align-items: center;
             gap: 50px;
             flex-wrap: wrap;
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+            background: var(--bg-secondary);
             border-radius: 32px;
-            padding: 50px;
-            border: 1px solid var(--border-accent);
+            padding: 56px;
+            border: 1px solid var(--border);
         }
 
         /* ===== FAQ ===== */
         .faq-item {
             border: 1px solid var(--border);
-            background: var(--bg-card);
+            background: #ffffff;
             margin-bottom: 12px;
             border-radius: 16px;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: border-color 0.2s ease;
         }
+        .faq-item:hover { border-color: var(--border-strong); }
         .faq-question {
             width: 100%;
             background: none;
             border: none;
             text-align: left;
-            padding: 20px 24px;
+            padding: 22px 24px;
             font-weight: 600;
             font-size: 16px;
             cursor: pointer;
@@ -334,7 +325,7 @@
         }
         .faq-answer {
             display: none;
-            padding: 0 24px 20px;
+            padding: 0 24px 22px;
             color: var(--text-secondary) !important;
         }
         .faq-answer.show { display: block !important; }
@@ -348,12 +339,13 @@
             flex-wrap: wrap;
         }
         .timer-item {
-            background: var(--bg-card);
-            padding: 25px 30px;
+            background: #ffffff;
+            padding: 26px 30px;
             border-radius: 20px;
-            min-width: 110px;
+            min-width: 112px;
             border: 1px solid var(--border);
             text-align: center;
+            box-shadow: var(--shadow-sm);
         }
         .timer-number {
             font-size: 52px;
@@ -361,12 +353,13 @@
             color: var(--accent) !important;
             line-height: 1;
             margin-bottom: 8px;
+            letter-spacing: -0.03em;
         }
         .timer-label {
-            font-size: 14px;
-            color: var(--text-secondary) !important;
+            font-size: 13px;
+            color: var(--text-muted) !important;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
         }
 
         /* ===== FORM ===== */
@@ -376,7 +369,8 @@
             padding: 32px;
             max-width: 640px;
             margin: 0 auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,.5);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
         }
         .form-block {
             background: #ffffff;
@@ -412,7 +406,7 @@
         #socialSelect h3 {
             font-size: 26px;
             font-weight: 700;
-            color: #fff;
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
         #socialSelect .sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 30px; }
@@ -420,16 +414,16 @@
         .social-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 20px;
             justify-items: center;
         }
         .social-card {
-            background: var(--bg-card);
+            background: #ffffff;
             border-radius: 24px;
             padding: 32px 20px;
             width: 100%;
             max-width: 260px;
-            border: 2px solid var(--border);
+            border: 1px solid var(--border);
             transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
             cursor: pointer;
             text-decoration: none;
@@ -438,36 +432,39 @@
             flex-direction: column;
             align-items: center;
             gap: 12px;
+            box-shadow: var(--shadow-sm);
         }
         .social-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,.5);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--accent);
         }
         .social-card .icon { font-size: 44px; font-weight: 800; line-height: 1; }
-        .social-card .label { font-size: 18px; font-weight: 600; color: #fff; }
+        .social-card .label { font-size: 18px; font-weight: 600; color: var(--text-primary); }
         .social-card .desc { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
 
         .social-card.vk .icon { color: #4a76a8; }
         .social-card.vk:hover { border-color: #4a76a8; }
-        .social-card.max .icon { color: #a0a0b8; }
-        .social-card.max:hover { border-color: #a0a0b8; }
+        .social-card.max .icon { color: #7b61ff; }
+        .social-card.max:hover { border-color: #7b61ff; }
 
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            padding: 48px 0 36px;
+            padding: 56px 0 40px;
             border-top: 1px solid var(--border);
             font-size: 13px;
+            background: #ffffff;
         }
-        .footer a { color: var(--accent); text-decoration: none; }
-        .footer a:hover { color: #ffffff; }
+        .footer a { color: var(--text-secondary); text-decoration: none; }
+        .footer a:hover { color: var(--accent); }
         .footer .brand {
-            font-weight: 700;
+            font-weight: 800;
             font-style: italic;
             font-size: 24px;
-            color: #fbfbfc;
+            color: var(--text-primary);
             margin-bottom: 12px;
+            letter-spacing: -0.02em;
         }
 
         @keyframes fadeIn {
@@ -484,7 +481,7 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding: 40px 0;
+                padding: 40px 0 60px;
                 min-height: auto;
                 gap: 40px;
             }
@@ -495,10 +492,10 @@
 
         @media (max-width: 768px) {
             .grid-3, .grid-2 { grid-template-columns: 1fr; }
-            .section { padding: 56px 0; }
-            .timer-item { min-width: 80px; padding: 15px; }
-            .timer-number { font-size: 36px; }
-            .bonus-block { padding: 30px; text-align: center; justify-content: center; }
+            .section { padding: 64px 0; }
+            .timer-item { min-width: 80px; padding: 16px; }
+            .timer-number { font-size: 34px; }
+            .bonus-block { padding: 32px; text-align: center; justify-content: center; }
             .program-table { display: block; overflow-x: auto; }
             .program-table th, .program-table td { padding: 14px; font-size: 14px; }
             .social-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -513,120 +510,119 @@
         }
 
         /* ===== REVIEWS ===== */
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 50px;
-}
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
 
-.review-card {
-    background: var(--bg-card);
-    border-radius: 24px;
-    padding: 32px 28px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    overflow: hidden;
-}
+        .review-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 32px 28px;
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
 
-.review-card::before {
-    content: '"';
-    position: absolute;
-    top: -30px;
-    right: 18px;
-    font-size: 120px;
-    font-family: Georgia, serif;
-    color: var(--accent);
-    opacity: 0.12;
-    line-height: 1;
-    pointer-events: none;
-}
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            right: 18px;
+            font-size: 120px;
+            font-family: Georgia, serif;
+            color: var(--accent);
+            opacity: 0.08;
+            line-height: 1;
+            pointer-events: none;
+        }
 
-.review-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--border-accent);
-    background: var(--bg-card-hover);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
+        .review-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
 
-.review-stars {
-    display: flex;
-    gap: 4px;
-    color: var(--accent);
-    font-size: 16px;
-}
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            color: var(--accent);
+            font-size: 16px;
+        }
 
-.review-text {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.65;
-    flex: 1;
-}
+        .review-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.65;
+            flex: 1;
+        }
 
-.review-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-}
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
 
-.review-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    flex-shrink: 0;
-    letter-spacing: 0.5px;
-}
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
 
-.review-author-info {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.3;
-}
+        .review-author-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
 
-.review-author-name {
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-}
+        .review-author-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 15px;
+        }
 
-.review-author-role {
-    color: var(--text-muted);
-    font-size: 13px;
-    margin-top: 2px;
-}
+        .review-author-role {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 2px;
+        }
 
-/* Средний рейтинг сверху */
-.reviews-summary {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--accent-soft);
-    border: 1px solid var(--border-accent);
-    border-radius: 40px;
-    padding: 10px 22px;
-    margin: 20px auto 0;
-    font-size: 15px;
-    color: #fff;
-}
-.reviews-summary i { color: var(--accent); }
-.reviews-summary strong { color: #fff; }
+        .reviews-summary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-strong);
+            border-radius: 40px;
+            padding: 10px 22px;
+            margin: 20px auto 0;
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+        .reviews-summary i { color: var(--accent); }
+        .reviews-summary strong { color: var(--text-primary); }
 
-@media (max-width: 900px) {
-    .reviews-grid { grid-template-columns: 1fr; }
-}
+        @media (max-width: 900px) {
+            .reviews-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -653,7 +649,7 @@
                 </a>
             </div>
             <p style="font-size:14px; color:var(--text-muted); margin-top:16px;">
-                 После регистрации вы попадёте в чат-бот и получите первый урок
+                После регистрации вы попадёте в чат-бот и получите первый урок
             </p>
         </div>
 
@@ -666,7 +662,7 @@
 <!-- ===== КАК ЭТО РАБОТАЕТ ===== -->
 <div class="section section-dark">
     <div class="container">
-        <h2 style="text-align:center; font-size:36px; font-weight:800;">Как это <span class="gradient-text">работает</span></h2>
+        <h2 style="text-align:center; font-size:38px; font-weight:800;">Как это <span class="gradient-text">работает</span></h2>
         <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
             3 урока, 3 домашних задания — и скидка на полный курс у Вас
         </p>
@@ -702,7 +698,7 @@
 <!-- ===== ПРОГРАММА ===== -->
 <div class="section">
     <div class="container">
-        <h2 style="text-align:center; font-size:36px; font-weight:800;">Программа <span class="gradient-text">3 уроков</span></h2>
+        <h2 style="text-align:center; font-size:38px; font-weight:800;">Программа <span class="gradient-text">3 уроков</span></h2>
         <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
             Онлайн | Бесплатно
         </p>
@@ -719,36 +715,36 @@
                 <tr>
                     <td><span class="day-badge">Урок 1</span></td>
                     <td>
-                        <strong style="color:#fff;">Подготовительные приёмы: поглаживание и выжимание всей спины</strong>
+                        <strong style="color:var(--text-primary);">Подготовительные приёмы: поглаживание и выжимание всей спины</strong>
                         <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 15 мин</div>
                     </td>
                     <td style="color:var(--text-secondary);">
                         Поймёте, как просто взаимодействовать с телом, и освоите самые приятные приёмы для клиентов.
-                        <strong style="display:block; margin-top:8px; color:#fff;">✅ Результат: освоена базовая связка подготовительных приёмов</strong>
+                        <strong style="display:block; margin-top:8px; color:var(--text-primary);">✅ Результат: освоена базовая связка подготовительных приёмов</strong>
                         <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
                     </td>
                 </tr>
                 <tr>
                     <td><span class="day-badge">Урок 2</span></td>
                     <td>
-                        <strong style="color:#fff;">Массаж шейно-грудного отдела</strong>
+                        <strong style="color:var(--text-primary);">Массаж шейно-грудного отдела</strong>
                         <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 11 мин</div>
                     </td>
                     <td style="color:var(--text-secondary);">
                         Научитесь основным приёмам массажа зоны: растиранию и разминанию.
-                        <strong style="display:block; margin-top:8px; color:#fff;">✅ Результат:Научитесь уверенно работаеть с шейно-грудным отделом</strong>
+                        <strong style="display:block; margin-top:8px; color:var(--text-primary);">✅ Результат: научитесь уверенно работать с шейно-грудным отделом</strong>
                         <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
                     </td>
                 </tr>
                 <tr>
                     <td><span class="day-badge">Урок 3</span></td>
                     <td>
-                        <strong style="color:#fff;">Массаж поясничного отдела</strong>
+                        <strong style="color:var(--text-primary);">Массаж поясничного отдела</strong>
                         <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 11 мин</div>
                     </td>
                     <td style="color:var(--text-secondary);">
-                        Научитесь основным приемам массажа зоны: растирание, разминание и вибрация
-                        <strong style="display:block; margin-top:8px; color:#fff;">✅ Результат: собираете полную связку массажа спины</strong>
+                        Научитесь основным приемам массажа зоны: растирание, разминание и вибрация.
+                        <strong style="display:block; margin-top:8px; color:var(--text-primary);">✅ Результат: собираете полную связку массажа спины</strong>
                         <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
                     </td>
                 </tr>
@@ -766,7 +762,7 @@
 <!-- ===== ЧТО ВЫ ПОЛУЧИТЕ ===== -->
 <div class="section section-dark">
     <div class="container">
-        <h2 style="text-align:center; font-size:36px; font-weight:800;">Что вы <span class="gradient-text">получите</span></h2>
+        <h2 style="text-align:center; font-size:38px; font-weight:800;">Что вы <span class="gradient-text">получите</span></h2>
         <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
             4 результата за прохождение мини-курса
         </p>
@@ -808,9 +804,9 @@
 </div>
 
 <!-- ===== ОТЗЫВЫ ===== -->
-<div class="section section-dark">
+<div class="section">
     <div class="container">
-        <h2 style="text-align:center; font-size:36px; font-weight:800;">Отзывы <span class="gradient-text">учеников</span></h2>
+        <h2 style="text-align:center; font-size:38px; font-weight:800;">Отзывы <span class="gradient-text">учеников</span></h2>
         <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
             Что говорят те, кто уже прошёл мини-курс
         </p>
@@ -853,10 +849,10 @@
                     <i class="fa-solid fa-star"></i>
                 </div>
                 <p class="review-text">
-                    Добрый день, меня зовут Анастасия, с первых минут нас окутала невероятная атмосфера настоящего искусства , через слова , а потом и на действиях было показано , что массаж -это не просто механические воздействие , это целая душа , да есть общий план , но всё остальное творят твои руки по телу словно творец , разобрали связку классического массажа , было очень здорово сразу же после объяснения пробовать всё на деле , было очень интересно и познавательно, теперь самое главное продолжать погружение в это прекрасное искусство , практиковаться и видеть результат в виде улыбки и наслаждение от клиентов &#129392;
+                    Добрый день, меня зовут Анастасия, с первых минут нас окутала невероятная атмосфера настоящего искусства, через слова, а потом и на действиях было показано, что массаж — это не просто механическое воздействие, это целая душа. Есть общий план, но всё остальное творят твои руки. Разобрали связку классического массажа — было здорово сразу после объяснения пробовать всё на деле. Теперь главное — продолжать погружение в это прекрасное искусство, практиковаться и видеть результат в виде улыбки и наслаждения от клиентов 🤗
                 </p>
                 <div class="review-author">
-                    <div class="review-avatar">А.С</div>
+                    <div class="review-avatar">АС</div>
                     <div class="review-author-info">
                         <span class="review-author-name">Анастасия С.</span>
                         <span class="review-author-role">Сменила профессию</span>
@@ -873,8 +869,8 @@
                     <i class="fa-solid fa-star"></i>
                 </div>
                 <p class="review-text">
-                    Прошел мастер класс в этой замечательной школе, благодарю преподавателей за их подход к обучению все было на высшем уровне. 
-                    Рекомендую всем начинающим массажистам обязательно отучится в этой школе.
+                    Прошёл мастер-класс в этой замечательной школе, благодарю преподавателей за их подход к обучению — всё было на высшем уровне.
+                    Рекомендую всем начинающим массажистам обязательно отучиться в этой школе.
                 </p>
                 <div class="review-author">
                     <div class="review-avatar">ПС</div>
@@ -889,20 +885,20 @@
 </div>
 
 <!-- ===== БОНУС / СКИДКА ===== -->
-<div class="section">
+<div class="section section-dark">
     <div class="container">
         <div class="bonus-block">
             <div style="flex:1;">
                 <div class="badge">🎁 Как получить скидку 10%</div>
                 <h2 style="margin:20px 0; font-size:32px; font-weight:800;">Три простых шага к промокоду</h2>
                 <ul style="list-style:none; padding:0; margin:20px 0 0;">
-                    <li style="padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
+                    <li style="padding:12px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
                         <span style="color:var(--accent); font-weight:700;">✓</span> Выполните ДЗ каждого дня — видеоотчёт
                     </li>
-                    <li style="padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
+                    <li style="padding:12px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
                         <span style="color:var(--accent); font-weight:700;">✓</span> Отправьте отчёт в диалог с чат-ботом
                     </li>
-                    <li style="padding:10px 0; color:var(--text-secondary); font-size:16px;">
+                    <li style="padding:12px 0; color:var(--text-secondary); font-size:16px;">
                         <span style="color:var(--accent); font-weight:700;">✓</span> Получите персональный промокод
                     </li>
                 </ul>
@@ -912,8 +908,8 @@
             </div>
             <div>
                 <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
-                    <rect width="200" height="200" fill="#1a1a26" rx="20"/>
-                    <circle cx="100" cy="100" r="60" fill="rgba(227, 27, 35, 0.15)" stroke="#e31b23" stroke-width="2"/>
+                    <rect width="200" height="200" fill="#ffffff" rx="20" stroke="#ebebf0"/>
+                    <circle cx="100" cy="100" r="60" fill="rgba(227, 27, 35, 0.08)" stroke="#e31b23" stroke-width="2"/>
                     <text x="100" y="120" text-anchor="middle" fill="#e31b23" font-size="52" font-weight="bold" font-family="Inter, sans-serif">10%</text>
                 </svg>
             </div>
@@ -922,11 +918,11 @@
 </div>
 
 <!-- ===== ТАЙМЕР ===== -->
-<div class="section section-dark">
+<div class="section">
     <div class="container">
-        <div style="text-align:center; background:var(--bg-card); border-radius:40px; padding:60px 30px; border:1px solid var(--border-accent);">
-            <div class="badge" style="margin-bottom:20px;">⏰ Регистрация закрывается скоро</div>
-            <h2 style="font-size:36px; font-weight:800;">До окончания акции осталось</h2>
+        <div style="text-align:center; background:#f7f7f9; border-radius:40px; padding:64px 30px; border:1px solid var(--border);">
+            <div class="badge" style="margin-bottom:20px; background:#fff;">⏰ Регистрация закрывается скоро</div>
+            <h2 style="font-size:38px; font-weight:800;">До окончания акции осталось</h2>
 
             <div class="timer-digits">
                 <div class="timer-item">
@@ -951,7 +947,7 @@
                 Успейте занять место, пока бесплатный доступ открыт.
             </p>
 
-            <a href="#form" class="btn-light" style="margin-top:20px; font-size:20px; padding:18px 40px;">
+            <a href="#form" class="btn-light" style="margin-top:20px; font-size:19px; padding:18px 40px;">
                 <i class="fa-solid fa-bolt"></i> Зарегистрироваться бесплатно
             </a>
         </div>
@@ -959,9 +955,9 @@
 </div>
 
 <!-- ===== ФОРМА + СОЦСЕТИ ===== -->
-<div class="section" id="form">
+<div class="section section-dark" id="form">
     <div class="container">
-        <h2 style="text-align:center; font-size:36px; font-weight:800;">Запишитесь на <span class="gradient-text">3-дневный мини-курс</span></h2>
+        <h2 style="text-align:center; font-size:38px; font-weight:800;">Запишитесь на <span class="gradient-text">3-дневный мини-курс</span></h2>
         <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
             Заполните форму и получите доступ к первому уроку
         </p>
@@ -1031,9 +1027,9 @@
 </div>
 
 <!-- ===== FAQ ===== -->
-<div class="section section-dark">
+<div class="section">
     <div class="container">
-        <h2 style="text-align:center; font-size:36px; font-weight:800;">Ответы на <span class="gradient-text">вопросы</span></h2>
+        <h2 style="text-align:center; font-size:38px; font-weight:800;">Ответы на <span class="gradient-text">вопросы</span></h2>
 
         <div style="max-width:700px; margin:40px auto 0;">
             <div class="faq-item">
@@ -1073,7 +1069,7 @@
                     Что понадобится для практики?
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">Кушетка (или стол/диван), любое масло (детское, растительное, массажный крем) удобная одежда и «модель» — человек, на котором будете отрабатывать приёмы.</div>
+                <div class="faq-answer">Кушетка (или стол/диван), любое масло (детское, растительное, массажный крем), удобная одежда и «модель» — человек, на котором будете отрабатывать приёмы.</div>
             </div>
 
             <div class="faq-item">
@@ -1127,7 +1123,7 @@
     }
     var startDate = getNext19();
     var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
-    var startText = startDate.getDate() + ' ' + months[startDate.getMonth()] + '';
+    var startText = startDate.getDate() + ' ' + months[startDate.getMonth()];
     var startEl = document.getElementById('start-date-text');
     if (startEl) startEl.textContent = 'Старт ' + startText;
 
