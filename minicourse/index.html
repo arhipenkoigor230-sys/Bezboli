@@ -743,11 +743,12 @@
 
 /* --- Фото справа: скруглённый прямоугольник, верх выровнен с текстом --- */
 /* --- Правая колонка: подпись сверху + фото --- */
+/* --- Правая колонка: подпись сверху + фото --- */
 .hero-new-right {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;        /* прижать подпись к правому краю */
-    gap: 18px;                    /* отступ между текстом и фото */
+    align-items: flex-end;
+    gap: 18px;
     width: 100%;
 }
 
@@ -769,6 +770,54 @@
     border: none;
     border-radius: 28px;
     box-shadow: none;
+    /* никаких mix-blend-mode и масок */
+}
+
+/* ===== HERO — МОБИЛЬНЫЙ ===== */
+@media (max-width: 900px) {
+    .hero-new { padding: 24px 0 56px; }
+    .hero-logo { margin-bottom: 28px; height: 22px; }
+
+    .hero-new-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hero-title { font-size: clamp(28px, 7vw, 40px); }
+    .hero-sub { font-size: 16px; max-width: 100%; }
+
+    /* Фото ПЕРВЫМ сверху, во всю ширину */
+    .hero-new-right {
+        order: -1;
+        align-items: stretch;
+        gap: 14px;
+    }
+    .hero-right-note {
+        text-align: left;
+        max-width: 100%;
+        font-size: 12px;
+    }
+    .hero-new-right img {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    /* Кнопка и подпись — в столбик, во всю ширину */
+    .hero-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-top: 28px;
+    }
+    .hero-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-cta-note {
+        max-width: 100%;
+        font-size: 11px;
+    }
 }
 
 /* ===== HOW IT WORKS ===== */
@@ -932,6 +981,206 @@
     .how-cta { justify-content: stretch; }
     .how-cta .hero-cta-btn { width: 100%; }
 }
+
+/* ===== PROGRAM / 3 УРОКА ===== */
+.program-section {
+    background: #f7f7f9;
+    padding: 96px 0;
+}
+
+.program-head {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.program-title {
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #111118;
+    margin: 0;
+}
+.program-accent { color: #EE0519; }
+
+.program-sub {
+    margin-top: 14px;
+    font-size: 16px;
+    color: #8a8a99;
+    letter-spacing: 0.02em;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* --- Карточка урока --- */
+.lesson-card {
+    background: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid #ebebf0;
+    box-shadow: 0 2px 8px rgba(17,17,24,.04);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.lesson-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(17,17,24,.10);
+    border-color: #EE0519;
+}
+
+/* --- Медиа (фото + бейджи + play) --- */
+.lesson-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #111118;
+}
+.lesson-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+.lesson-card:hover .lesson-media img {
+    transform: scale(1.06);
+}
+.lesson-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.55) 100%);
+    pointer-events: none;
+}
+
+/* Play-кнопка по центру */
+.lesson-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.95);
+    color: #EE0519;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding-left: 4px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+}
+.lesson-card:hover .lesson-play {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #EE0519;
+    color: #ffffff;
+}
+
+/* Бейдж «Урок N» */
+.lesson-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: #EE0519;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+/* Длительность */
+.lesson-time {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(17,17,24,.75);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* --- Тело карточки --- */
+.lesson-body {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.lesson-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #111118;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.lesson-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #55555f;
+    margin: 0;
+}
+
+.lesson-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #111118;
+    font-weight: 600;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid #ebebf0;
+}
+.lesson-result i {
+    color: #10b981;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.lesson-hw {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #8a8a99;
+    margin: 0;
+}
+.lesson-hw span {
+    color: #EE0519;
+    font-weight: 700;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+    .program-section { padding: 64px 0; }
+    .program-head { margin-bottom: 32px; }
+    .program-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .lesson-body { padding: 20px; }
+    .lesson-title { font-size: 17px; }
+}
     </style>
 </head>
 <body>
@@ -1023,9 +1272,6 @@
             <div class="how-col">
                 <article class="how-card how-card--medium">
                     <div class="how-num">04</div>
-                    <div class="how-img">
-                        <img src="../assets/images/mini-how-04.jpg" alt="Разбор работ">
-                    </div>
                     <div class="how-body">
                         <p class="how-desc">Разбор вашего выполнения массажа: исправляете ошибки, повышаете качество</p>
                         <h3 class="how-name">Чекинг</h3>
@@ -1035,7 +1281,7 @@
                 <article class="how-card how-card--short">
                     <div class="how-num">05</div>
                     <div class="how-body">
-                        <p class="how-desc">Полученные знания можете смело использовать на близких и в работе</p>
+                        <p class="how-desc">Полученные знания можете использовать на близких и в работе</p>
                         <h3 class="how-name">Результат</h3>
                     </div>
                 </article>
@@ -1063,69 +1309,85 @@
     </div>
 </section>
 
-<!-- ===== ПРОГРАММА ===== -->
-<div class="section">
+<!-- ===== ПРОГРАММА 3 УРОКОВ ===== -->
+<section class="program-section">
     <div class="container">
-        <h2 style="text-align:center; font-size:38px; font-weight:800;">Программа <span class="gradient-text">3 уроков</span></h2>
-        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
-            Онлайн | Бесплатно
-        </p>
+        <header class="program-head">
+            <h2 class="program-title">Программа <span class="program-accent">3 уроков</span></h2>
+            <p class="program-sub">Онлайн · Бесплатно</p>
+        </header>
 
-        <table class="program-table">
-            <thead>
-                <tr>
-                    <th>Урок</th>
-                    <th>Тема</th>
-                    <th>Что вы получите</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="day-badge">Урок 1</span></td>
-                    <td>
-                        <strong style="color:var(--text-primary);">Подготовительные приёмы: поглаживание и выжимание всей спины</strong>
-                        <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 15 мин</div>
-                    </td>
-                    <td style="color:var(--text-secondary);">
-                        Поймёте, как просто взаимодействовать с телом, и освоите самые приятные приёмы для клиентов.
-                        <strong style="display:block; margin-top:8px; color:var(--text-primary);">✅ Результат: освоена базовая связка подготовительных приёмов</strong>
-                        <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="day-badge">Урок 2</span></td>
-                    <td>
-                        <strong style="color:var(--text-primary);">Массаж шейно-грудного отдела</strong>
-                        <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 11 мин</div>
-                    </td>
-                    <td style="color:var(--text-secondary);">
-                        Научитесь основным приёмам массажа зоны: растиранию и разминанию.
-                        <strong style="display:block; margin-top:8px; color:var(--text-primary);">✅ Результат: научитесь уверенно работать с шейно-грудным отделом</strong>
-                        <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="day-badge">Урок 3</span></td>
-                    <td>
-                        <strong style="color:var(--text-primary);">Массаж поясничного отдела</strong>
-                        <div style="color:var(--text-muted); font-size:13px; margin-top:6px;">📹 Видео 11 мин</div>
-                    </td>
-                    <td style="color:var(--text-secondary);">
-                        Научитесь основным приемам массажа зоны: растирание, разминание и вибрация.
-                        <strong style="display:block; margin-top:8px; color:var(--text-primary);">✅ Результат: собираете полную связку массажа спины</strong>
-                        <span class="hw-note">ДЗ: видео выполненной связки + обратная связь от преподавателя</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="program-grid">
 
-        <div style="text-align:center; margin-top:40px;">
-            <a href="#form" class="btn-light">
-                <i class="fa-solid fa-rocket"></i> Записаться на интенсив
-            </a>
+            <!-- Урок 1 -->
+            <article class="lesson-card">
+                <div class="lesson-media">
+                    <img src="../assets/images/welcome.jpg" alt="Урок 1 — подготовительные приёмы">
+                    <div class="lesson-overlay"></div>
+                    <div class="lesson-play"><i class="fa-solid fa-play"></i></div>
+                    <span class="lesson-badge">Урок 1</span>
+                    <span class="lesson-time"><i class="fa-regular fa-clock"></i> 15 мин</span>
+                </div>
+                <div class="lesson-body">
+                    <h3 class="lesson-title">Подготовительные приёмы: поглаживание и выжимание всей спины</h3>
+                    <p class="lesson-text">Поймёте, как просто взаимодействовать с телом, и освоите самые приятные приёмы для клиентов.</p>
+                    <p class="lesson-result">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Освоена базовая связка подготовительных приёмов
+                    </p>
+                    <p class="lesson-hw">
+                        <span>ДЗ:</span> видео выполненной связки + обратная связь от преподавателя
+                    </p>
+                </div>
+            </article>
+
+            <!-- Урок 2 -->
+            <article class="lesson-card">
+                <div class="lesson-media">
+                    <img src="../assets/images/lesson2.jpg" alt="Урок 2 — массаж шейно-грудного отдела">
+                    <div class="lesson-overlay"></div>
+                    <div class="lesson-play"><i class="fa-solid fa-play"></i></div>
+                    <span class="lesson-badge">Урок 2</span>
+                    <span class="lesson-time"><i class="fa-regular fa-clock"></i> 11 мин</span>
+                </div>
+                <div class="lesson-body">
+                    <h3 class="lesson-title">Массаж шейно-грудного отдела</h3>
+                    <p class="lesson-text">Научитесь основным приёмам массажа зоны: растиранию и разминанию.</p>
+                    <p class="lesson-result">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Уверенно работаете с шейно-грудным отделом
+                    </p>
+                    <p class="lesson-hw">
+                        <span>ДЗ:</span> видео выполненной связки + обратная связь от преподавателя
+                    </p>
+                </div>
+            </article>
+
+            <!-- Урок 3 -->
+            <article class="lesson-card">
+                <div class="lesson-media">
+                    <img src="../assets/images/lesson3.jpg" alt="Урок 3 — массаж поясничного отдела">
+                    <div class="lesson-overlay"></div>
+                    <div class="lesson-play"><i class="fa-solid fa-play"></i></div>
+                    <span class="lesson-badge">Урок 3</span>
+                    <span class="lesson-time"><i class="fa-regular fa-clock"></i> 11 мин</span>
+                </div>
+                <div class="lesson-body">
+                    <h3 class="lesson-title">Массаж поясничного отдела</h3>
+                    <p class="lesson-text">Освоите растирание, разминание и вибрацию — финальные приёмы полной связки спины.</p>
+                    <p class="lesson-result">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Собираете полную связку массажа спины
+                    </p>
+                    <p class="lesson-hw">
+                        <span>ДЗ:</span> видео выполненной связки + обратная связь от преподавателя
+                    </p>
+                </div>
+            </article>
+
         </div>
     </div>
-</div>
+</section>
 
 <!-- ===== ЧТО ВЫ ПОЛУЧИТЕ ===== -->
 <div class="section section-dark">
