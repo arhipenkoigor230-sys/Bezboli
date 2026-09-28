@@ -626,6 +626,7 @@
 
         /* ===== NEW HERO (light, Yudaev-style) ===== */
 /* ===== NEW HERO (light, Yudaev-style) ===== */
+/* ===== NEW HERO (light, Yudaev-style) ===== */
 .hero-new {
     background: #EAEAEA;
     padding: 32px 0 80px;
@@ -633,21 +634,21 @@
     overflow: hidden;
 }
 
-/* Логотип — мягко вписан в фон */
+/* Логотип: тёмный фон исходника превращаем в прозрачный,
+   белый текст → тёмный. Красный сохраняем через hue-rotate. */
 .hero-logo {
-    height: 30px;
+    height: 26px;
     display: block;
-    margin-bottom: 56px;
-    opacity: 0.85;
+    margin-bottom: 48px;
+    filter: invert(1) hue-rotate(180deg) contrast(1.15) saturate(1.1);
     mix-blend-mode: multiply;
-    filter: grayscale(100%) contrast(0.9);
 }
 
 .hero-new-inner {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 48px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;           /* выравнивание по верху, как в референсе 1 */
 }
 
 /* --- Заголовок --- */
@@ -678,7 +679,7 @@
     line-height: 1.55;
     color: #55555f;
     margin-top: 26px;
-    max-width: 480px;
+    max-width: 460px;
 }
 
 .hero-sub strong {
@@ -686,13 +687,12 @@
     font-weight: 600;
 }
 
-/* --- CTA: кнопка + текст справа (как референс 1) --- */
+/* --- CTA: кнопка + подпись справа, в одну строку --- */
 .hero-cta-row {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-top: 40px;
-    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 36px;
 }
 
 .hero-cta-btn {
@@ -703,12 +703,13 @@
     color: #ffffff !important;
     text-decoration: none !important;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 20px 44px;
+    padding: 18px 36px;
     border-radius: 999px;
     white-space: nowrap;
+    flex-shrink: 0;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -720,64 +721,75 @@
 .hero-cta-note {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    max-width: 320px;
-    font-size: 12px;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
+    gap: 10px;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #8a8a99;
+    max-width: 250px;
 }
 
 .hero-cta-note::before {
     content: '';
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #EE0519;
     flex-shrink: 0;
     margin-top: 4px;
 }
 
-/* --- Фото справа, сглажено с фоном --- */
+/* --- Фото справа: скруглённый прямоугольник, верх выровнен с текстом --- */
+/* --- Правая колонка: подпись сверху + фото --- */
 .hero-new-right {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;        /* прижать подпись к правому краю */
+    gap: 18px;                    /* отступ между текстом и фото */
+    width: 100%;
+}
+
+.hero-right-note {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #8a8a99;
+    text-align: right;
+    max-width: 340px;
+    letter-spacing: 0.01em;
 }
 
 .hero-new-right img {
     width: 100%;
-    max-width: 580px;
+    max-width: 620px;
     height: auto;
-    object-fit: contain;
+    display: block;
+    object-fit: cover;
     border: none;
-    border-radius: 0;
+    border-radius: 28px;
     box-shadow: none;
-    mix-blend-mode: multiply;
-    -webkit-mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 72%, transparent 100%);
-    mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 72%, transparent 100%);
 }
 
 /* --- Адаптив --- */
 @media (max-width: 900px) {
     .hero-new { padding: 24px 0 56px; }
-    .hero-logo { margin-bottom: 32px; height: 24px; }
+    .hero-logo { margin-bottom: 32px; height: 22px; }
     .hero-new-inner {
         grid-template-columns: 1fr;
         gap: 32px;
-        text-align: left;
     }
     .hero-sub { font-size: 16px; }
-    .hero-new-right { order: -1; }
+    .hero-new-right { align-items: center; }
+    .hero-right-note { text-align: center; max-width: 100%; }
     .hero-new-right img { max-width: 100%; }
-    .hero-cta-row { flex-direction: column; align-items: flex-start; }
+    .hero-cta-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .hero-cta-note { max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-    .hero-cta-btn { padding: 18px 32px; font-size: 15px; }
-    .hero-cta-note { font-size: 11px; }
+    .hero-cta-btn { padding: 16px 28px; font-size: 14px; width: 100%; }
+    .hero-cta-note { font-size: 10px; }
 }
     </style>
 </head>
@@ -811,6 +823,10 @@
             </div>
 
             <div class="hero-new-right">
+                <p class="hero-right-note">
+                    Формат обучения: в чат-боте.<br>
+                    Переходите в него сразу после регистрации
+                </p>
                 <img src="../assets/images/pic1mini.jpg" alt="Массаж спины">
             </div>
         </div>
