@@ -1184,8 +1184,8 @@
 
 /* ===== FINAL CTA — ДОСТУП БЕСПЛАТНЫЙ ===== */
 .final-cta {
-    background: #EAEAEA;
-    padding: 120px 0;
+    background: #ffffff;      /* как предыдущий блок — белый, а не серый */
+    padding: 96px 0;
 }
 
 .final-cta-inner {
@@ -1194,24 +1194,25 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 48px;
+    gap: 32px;
 }
 
 .final-cta-title {
-    font-size: clamp(40px, 7vw, 96px);
+    font-size: clamp(28px, 3.6vw, 48px);   /* уменьшено, влезает в одну строку */
     font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
     text-transform: uppercase;
     color: #111118;
     margin: 0;
+    white-space: nowrap;                    /* одна строка */
 }
 
 .final-cta-row {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;                 /* кнопка сверху, текст под ней */
+    align-items: flex-start;
+    gap: 18px;
 }
 
 .final-cta-note {
@@ -1223,7 +1224,7 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #8a8a99;
-    max-width: 480px;
+    max-width: 520px;
 }
 
 .final-cta-note::before {
@@ -1238,14 +1239,10 @@
 }
 
 @media (max-width: 700px) {
-    .final-cta { padding: 72px 0; }
-    .final-cta-inner { gap: 32px; }
-    .final-cta-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-    }
+    .final-cta { padding: 64px 0; }
+    .final-cta-title { white-space: normal; }  /* на мобильном пусть переносится */
+    .final-cta-inner { gap: 24px; }
+    .final-cta-row { width: 100%; }
     .final-cta-row .hero-cta-btn {
         width: 100%;
         justify-content: center;
@@ -1255,7 +1252,7 @@
 
 /* ===== FOOTER (light) ===== */
 .footer {
-    background: #EAEAEA;
+    background: #EAEAEA;      /* серый подвал */
     padding: 72px 0 40px;
     font-size: 14px;
     color: #111118;
@@ -1273,9 +1270,9 @@
 }
 
 .footer-brand img {
-    height: 44px;
+    height: 60px;             /* было 44 — крупнее */
     display: block;
-    /* убираем тёмный фон исходника, как в хиро */
+    /* убираем тёмный фон исходника и подгоняем под фон подвала */
     filter: invert(1) hue-rotate(180deg) contrast(1.15) saturate(1.1);
     mix-blend-mode: multiply;
 }
@@ -1616,8 +1613,8 @@
 .bot-btn-vk  { background: #07f; color: #fff; }
 .bot-btn-vk:hover  { background: #0066e0; }
 
-.bot-btn-max { background: #111118; color: #fff; }
-.bot-btn-max:hover { background: #2a2a3a; }
+.bot-btn-tg  { background: #229ED9; color: #fff; }
+.bot-btn-tg:hover  { background: #1a7fb0; }
 
 @media (max-width: 520px) {
     .modal { padding: 40px 22px 28px; border-radius: 22px; }
@@ -1837,16 +1834,16 @@
 <section class="final-cta">
     <div class="container">
         <div class="final-cta-inner">
-            <h2 class="final-cta-title">Доступ бесплатный</h2>
+        <h2 class="final-cta-title">Доступ бесплатный</h2>
 
-            <div class="final-cta-row">
-                <a href="#form" class="hero-cta-btn">Начать обучение</a>
+        <div class="final-cta-row">
+        <a href="#form" class="hero-cta-btn">Начать обучение</a>
 
-                <p class="final-cta-note">
-                    Оставляйте верные контакты — на ваш номер и почту придут доступы к курсу
-                </p>
-            </div>
-        </div>
+         <p class="final-cta-note">
+            Оставляйте верные контакты — на ваш номер и почту придут доступы к курсу
+            </p>
+          </div>
+       </div>
     </div>
 </section>
 
@@ -1893,16 +1890,15 @@
         <h3 class="modal-title" id="modalBotsTitle">Выберите удобный мессенджер<br>для прохождения курса</h3>
 
         <div class="bot-list">
-            <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-vk">
-                <span>Перейти в ВКонтакте</span>
-                <span class="bot-icon">VK</span>
-            </a>
-            <a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-max">
-                <span>Перейти в MAX</span>
-                <span class="bot-icon">M</span>
-            </a>
-        </div>
-    </div>
+    <a href="https://t.me/Bezbolimassage_bot" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-tg">
+        <span>Перейти в Telegram</span>
+        <span class="bot-icon">TG</span>
+    </a>
+    <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-vk">
+        <span>Перейти в ВКонтакте</span>
+        <span class="bot-icon">VK</span>
+    </a>
+</div>
 </div>
 
 
@@ -1934,19 +1930,19 @@
 
             <!-- Соцсети -->
             <div class="footer-col">
-                <h4>Мы в соцсетях</h4>
-                <ul>
-                    <li><a href="https://vk.ru/bezboli_school" target="_blank" rel="noopener">VKontakte</a></li>
-                    <li><a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener">VK-бот</a></li>
-                    <li><a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener">MAX-бот</a></li>
-                </ul>
-            </div>
+    <h4>Мы в соцсетях</h4>
+    <ul>
+        <li><a href="https://vk.ru/bezboli_school" target="_blank" rel="noopener">VKontakte</a></li>
+        <li><a href="https://t.me/bezboli_school" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href="https://bezbolischool.online/" target="_blank" rel="noopener">Сайт школы</a></li>
+    </ul>
+</div>
 
             <!-- Контакты -->
             <div class="footer-col">
                 <h4>Контакты</h4>
                 <ul>
-                    <li><a href="tel:+79790258335">+7 (979) 025-83-35</a></li>
+                    <li><a href="tel:+79780548058">+7 (978) 054-80-58</a></li>
                     <li class="muted">Вопросы по курсам, оплате и обучению</li>
                 </ul>
             </div>
