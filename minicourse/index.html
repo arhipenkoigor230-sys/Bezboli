@@ -1256,30 +1256,16 @@
 </section>
 
 <!-- ===== MODAL: ФОРМА ДОСТУПА ===== -->
-<!-- ===== MODAL: ВЫБОР МЕССЕНДЖЕРА ===== -->
-<div class="modal-overlay" id="modalBots" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalBotsTitle">
+<div class="modal-overlay" id="modalForm" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalFormTitle">
         <button class="modal-close" type="button" aria-label="Закрыть">×</button>
-        <h3 class="modal-title" id="modalBotsTitle">Выберите удобный мессенджер<br>для прохождения курса</h3>
-        <div class="bot-list">
-            <!-- Ссылки остаются веб-адресами, но с атрибутом data-deep-link для схемы -->
-            <a href="https://t.me/Bezbolimassage_bot"
-               data-deep-link="tg://resolve?domain=Bezbolimassage_bot"
-               target="_blank" rel="noopener noreferrer"
-               class="bot-btn bot-btn-tg">
-                <span>Перейти в Telegram</span>
-                <span class="bot-icon">TG</span>
-            </a>
-            <a href="https://vk.com/im?sel=-198807271"
-               data-deep-link="vk://vk.com/im?sel=-198807271"
-               target="_blank" rel="noopener noreferrer"
-               class="bot-btn bot-btn-vk">
-                <span>Перейти в ВКонтакте</span>
-                <span class="bot-icon">VK</span>
-            </a>
+
+        <h3 class="modal-title" id="modalFormTitle">Получить доступ<br>к курсу бесплатно:</h3>
+
+        <div class="modal-alert">
+            <span class="modal-alert-icon">!</span>
+            <p>После нажатия на кнопку, <strong>НЕ ЗАКРЫВАЙТЕ ОКНО</strong> — появится кнопка с доступом в бота с уроками и бонусами</p>
         </div>
-    </div>
-</div>
 
         <form class="modal-form" id="accessForm" novalidate>
             <input class="modal-input" type="text"  name="name"  placeholder="Имя" required>
@@ -1311,11 +1297,17 @@
         <h3 class="modal-title" id="modalBotsTitle">Выберите удобный мессенджер<br>для прохождения курса</h3>
 
         <div class="bot-list">
-            <a href="https://t.me/Bezbolimassage_bot" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-tg">
+            <a href="https://t.me/Bezbolimassage_bot"
+               data-deep-link="tg://resolve?domain=Bezbolimassage_bot"
+               target="_blank" rel="noopener noreferrer"
+               class="bot-btn bot-btn-tg">
                 <span>Перейти в Telegram</span>
                 <span class="bot-icon">TG</span>
             </a>
-            <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-vk">
+            <a href="https://vk.com/im?sel=-198807271"
+               data-deep-link="vk://vk.com/im?sel=-198807271"
+               target="_blank" rel="noopener noreferrer"
+               class="bot-btn bot-btn-vk">
                 <span>Перейти в ВКонтакте</span>
                 <span class="bot-icon">VK</span>
             </a>
@@ -1329,11 +1321,12 @@
 
         <div class="footer-top">
             <a href="/" class="footer-brand">
-                <img src="../assets/images/logo.png" alt="БезБоли — Школа массажа">
+                <img src="../assets/images/logomini.jpg" alt="БезБоли — Школа массажа">
             </a>
 
             <div class="footer-tag">
                 <span class="footer-tag-label">Школа НЕклассического массажа</span>
+                <span class="footer-tag-brand">Без<span>Боли</span></span>
             </div>
         </div>
 
@@ -1454,27 +1447,25 @@
             openModal(modalBots);
         });
     }
+
     /* ===== DEEP LINKS ===== */
-document.querySelectorAll('[data-deep-link]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        // Проверяем, мобильное ли устройство
-        var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-        if (!isMobile) return; // На десктопе оставляем как есть
+    document.querySelectorAll('[data-deep-link]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+            if (!isMobile) return;
 
-        e.preventDefault(); // Отменяем обычный переход
+            e.preventDefault();
 
-        var deepLink = this.dataset.deepLink;
-        var webLink = this.href;
+            var deepLink = this.dataset.deepLink;
+            var webLink = this.href;
 
-        // Пытаемся открыть приложение
-        window.location.href = deepLink;
+            window.location.href = deepLink;
 
-        // Если приложение не открылось, через 1.5 секунды возвращаем в браузер
-        setTimeout(function() {
-            window.location.href = webLink;
-        }, 1500);
+            setTimeout(function() {
+                window.location.href = webLink;
+            }, 1500);
+        });
     });
-});
 })();
 </script>
 
