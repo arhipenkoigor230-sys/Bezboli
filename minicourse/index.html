@@ -1181,6 +1181,450 @@
     .lesson-body { padding: 20px; }
     .lesson-title { font-size: 17px; }
 }
+
+/* ===== FINAL CTA — ДОСТУП БЕСПЛАТНЫЙ ===== */
+.final-cta {
+    background: #EAEAEA;
+    padding: 120px 0;
+}
+
+.final-cta-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+.final-cta-title {
+    font-size: clamp(40px, 7vw, 96px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #111118;
+    margin: 0;
+}
+
+.final-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.final-cta-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #8a8a99;
+    max-width: 480px;
+}
+
+.final-cta-note::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #EE0519;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+    .final-cta { padding: 72px 0; }
+    .final-cta-inner { gap: 32px; }
+    .final-cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+    }
+    .final-cta-row .hero-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .final-cta-note { max-width: 100%; font-size: 11px; }
+}
+
+/* ===== FOOTER (light) ===== */
+.footer {
+    background: #EAEAEA;
+    padding: 72px 0 40px;
+    font-size: 14px;
+    color: #111118;
+    text-align: left;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #d8d8dc;
+    flex-wrap: wrap;
+}
+
+.footer-brand img {
+    height: 44px;
+    display: block;
+    /* убираем тёмный фон исходника, как в хиро */
+    filter: invert(1) hue-rotate(180deg) contrast(1.15) saturate(1.1);
+    mix-blend-mode: multiply;
+}
+
+.footer-tag {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-end;
+}
+
+.footer-tag-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a8a99;
+}
+
+.footer-tag-brand {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #111118;
+}
+
+.footer-tag-brand span { color: #EE0519; }
+
+/* --- Основная сетка: юр.инфо | ссылки | контакты --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 40px;
+    padding: 48px 0;
+}
+
+.footer-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a8a99;
+    margin: 0 0 18px;
+}
+
+.footer-col p,
+.footer-col li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #111118;
+    margin: 0;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col a {
+    color: #111118;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+.footer-col a:hover { color: #EE0519; }
+
+.footer-col .muted {
+    color: #8a8a99;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* --- Нижняя строка --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 28px;
+    border-top: 1px solid #d8d8dc;
+    font-size: 13px;
+    color: #8a8a99;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom a {
+    color: #8a8a99;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+.footer-bottom a:hover { color: #EE0519; }
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+    .footer { padding: 56px 0 32px; }
+    .footer-top { flex-direction: column; gap: 24px; padding-bottom: 32px; }
+    .footer-tag { text-align: left; align-items: flex-start; }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 0;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .footer-bottom-links { gap: 20px; }
+}
+
+/* ===== MODALS ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 17, 24, 0.55);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: modalFadeIn .25s ease;
+}
+.modal-overlay[hidden] { display: none; }
+
+@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    position: relative;
+    padding: 44px 40px 36px;
+    box-shadow: 0 40px 80px rgba(0,0,0,.30);
+    animation: modalSlideIn .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f0f3;
+    color: #55555f;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease, color .2s ease;
+}
+.modal-close:hover { background: #111118; color: #fff; }
+
+.modal-title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #111118;
+    margin: 0 0 24px;
+}
+
+/* Предупреждение */
+.modal-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fdecec;
+    border: 1px solid #f9c5c8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #7a1418;
+}
+.modal-alert-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #EE0519;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+    margin-top: 1px;
+}
+.modal-alert strong { font-weight: 700; }
+
+/* Форма */
+.modal-form { display: flex; flex-direction: column; gap: 14px; }
+
+.modal-input {
+    width: 100%;
+    padding: 18px 22px;
+    border: 1px solid #dcdce4;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #111118;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    outline: none;
+}
+.modal-input::placeholder { color: #a8a8b3; }
+.modal-input:focus {
+    border-color: #EE0519;
+    box-shadow: 0 0 0 3px rgba(238, 5, 25, 0.10);
+}
+
+.modal-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #55555f;
+    cursor: pointer;
+    user-select: none;
+}
+.modal-check input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dcdce4;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .2s ease, background .2s ease;
+    margin-top: 1px;
+}
+.modal-check input[type="checkbox"]:checked {
+    background: #EE0519;
+    border-color: #EE0519;
+}
+.modal-check input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 11px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.modal-check a { color: #EE0519; text-decoration: underline; }
+
+.modal-submit {
+    margin-top: 6px;
+    width: 100%;
+    padding: 20px 24px;
+    background: #EE0519;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+.modal-submit:hover { background: #c40415; transform: translateY(-2px); }
+
+.modal-legal {
+    text-align: center;
+    font-size: 12px;
+    color: #8a8a99;
+    margin: 4px 0 0;
+}
+.modal-legal a { color: #EE0519; }
+
+/* Список ботов */
+.bot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.bot-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform .2s ease, background .2s ease;
+    border: none;
+}
+.bot-btn:hover { transform: translateY(-2px); }
+
+.bot-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.bot-btn-vk  { background: #07f; color: #fff; }
+.bot-btn-vk:hover  { background: #0066e0; }
+
+.bot-btn-max { background: #111118; color: #fff; }
+.bot-btn-max:hover { background: #2a2a3a; }
+
+@media (max-width: 520px) {
+    .modal { padding: 40px 22px 28px; border-radius: 22px; }
+    .modal-title { font-size: 22px; }
+    .modal-input { padding: 16px 18px; font-size: 14px; }
+    .modal-submit { padding: 18px 20px; font-size: 15px; }
+}
     </style>
 </head>
 <body>
@@ -1389,347 +1833,135 @@
     </div>
 </section>
 
-<!-- ===== ЧТО ВЫ ПОЛУЧИТЕ ===== -->
-<div class="section section-dark">
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
     <div class="container">
-        <h2 style="text-align:center; font-size:38px; font-weight:800;">Что вы <span class="gradient-text">получите</span></h2>
-        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
-            4 результата за прохождение мини-курса
-        </p>
+        <div class="final-cta-inner">
+            <h2 class="final-cta-title">Доступ бесплатный</h2>
 
-        <div class="grid-2" style="margin-top:50px;">
-            <div class="card">
-                <div class="icon-wrapper icon-purple">
-                    <i class="fa-solid fa-hands" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0;">Научитесь выполнять массаж спины</h3>
-                <p>По нашей методике — после неё ваша модель или клиент почувствует настоящий профессиональный массаж.</p>
-            </div>
+            <div class="final-cta-row">
+                <a href="#form" class="hero-cta-btn">Начать обучение</a>
 
-            <div class="card">
-                <div class="icon-wrapper icon-green">
-                    <i class="fa-solid fa-user-check" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0;">Попробуете себя на практике</h3>
-                <p>У вас появится ответ на вопрос — «моё это или нет?»</p>
-            </div>
-
-            <div class="card">
-                <div class="icon-wrapper icon-orange">
-                    <i class="fa-solid fa-triangle-exclamation" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0;">Узнаете, как избежать ошибок</h3>
-                <p>Типичные промахи новичков — и как их не допустить.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon-wrapper icon-blue">
-                    <i class="fa-solid fa-tags" style="font-size:28px;"></i>
-                </div>
-                <h3 style="margin:15px 0;">Получите скидку</h3>
-                <p>За выполнение ДЗ — промокод на 10% на полный курс.</p>
+                <p class="final-cta-note">
+                    Оставляйте верные контакты — на ваш номер и почту придут доступы к курсу
+                </p>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ===== ОТЗЫВЫ ===== -->
-<div class="section">
-    <div class="container">
-        <h2 style="text-align:center; font-size:38px; font-weight:800;">Отзывы <span class="gradient-text">учеников</span></h2>
-        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
-            Что говорят те, кто уже прошёл мини-курс
-        </p>
 
-        <div style="text-align:center;">
-            <div class="reviews-summary">
-                <i class="fa-solid fa-star"></i>
-                <span><strong>5</strong> из 5 — по отзывам участников</span>
-            </div>
+<!-- ===== MODAL: ФОРМА ДОСТУПА ===== -->
+<div class="modal-overlay" id="modalForm" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalFormTitle">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+
+        <h3 class="modal-title" id="modalFormTitle">Получить доступ<br>к курсу бесплатно:</h3>
+
+        <div class="modal-alert">
+            <span class="modal-alert-icon">!</span>
+            <p>После нажатия на кнопку, <strong>НЕ ЗАКРЫВАЙТЕ ОКНО</strong> — появится кнопка с доступом в бота с уроками и бонусами</p>
         </div>
 
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars" aria-label="Оценка 5 из 5">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">
-                    Никогда не думала, что смогу сделать полноценный массаж спины после трёх уроков.
-                    Подача очень понятная, каждый приём разобран по шагам. После первого ДЗ получила развёрнутую обратную связь — это очень помогло.
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">АК</div>
-                    <div class="review-author-info">
-                        <span class="review-author-name">Анна К.</span>
-                        <span class="review-author-role">Начинающий массажист</span>
-                    </div>
-                </div>
-            </div>
+        <form class="modal-form" id="accessForm" novalidate>
+            <input class="modal-input" type="text"  name="name"  placeholder="Имя" required>
+            <input class="modal-input" type="tel"   name="phone" placeholder="+7 ___ ___ __ __" required>
+            <input class="modal-input" type="email" name="email" placeholder="Почта" required>
 
-            <div class="review-card">
-                <div class="review-stars" aria-label="Оценка 5 из 5">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">
-                    Добрый день, меня зовут Анастасия, с первых минут нас окутала невероятная атмосфера настоящего искусства, через слова, а потом и на действиях было показано, что массаж — это не просто механическое воздействие, это целая душа. Есть общий план, но всё остальное творят твои руки. Разобрали связку классического массажа — было здорово сразу после объяснения пробовать всё на деле. Теперь главное — продолжать погружение в это прекрасное искусство, практиковаться и видеть результат в виде улыбки и наслаждения от клиентов 🤗
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">АС</div>
-                    <div class="review-author-info">
-                        <span class="review-author-name">Анастасия С.</span>
-                        <span class="review-author-role">Сменила профессию</span>
-                    </div>
-                </div>
-            </div>
+            <label class="modal-check">
+                <input type="checkbox" required>
+                <span>Я даю согласие на <a href="privacy.html">обработку персональных данных</a> в соответствии с <a href="privacy.html">политикой защиты</a> и обработки персональных данных</span>
+            </label>
 
-            <div class="review-card">
-                <div class="review-stars" aria-label="Оценка 5 из 5">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">
-                    Прошёл мастер-класс в этой замечательной школе, благодарю преподавателей за их подход к обучению — всё было на высшем уровне.
-                    Рекомендую всем начинающим массажистам обязательно отучиться в этой школе.
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">ПС</div>
-                    <div class="review-author-info">
-                        <span class="review-author-name">Павел С.</span>
-                        <span class="review-author-role">Начинающий массажист</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <label class="modal-check">
+                <input type="checkbox">
+                <span>Я даю согласие на получение рекламных материалов</span>
+            </label>
+
+            <button type="submit" class="modal-submit">Начать обучение</button>
+
+            <p class="modal-legal">Нажимая на кнопку «Начать обучение», я соглашаюсь с <a href="offer.html">публичной офертой</a></p>
+        </form>
     </div>
 </div>
 
-<!-- ===== БОНУС / СКИДКА ===== -->
-<div class="section section-dark">
-    <div class="container">
-        <div class="bonus-block">
-            <div style="flex:1;">
-                <div class="badge">🎁 Как получить скидку 10%</div>
-                <h2 style="margin:20px 0; font-size:32px; font-weight:800;">Три простых шага к промокоду</h2>
-                <ul style="list-style:none; padding:0; margin:20px 0 0;">
-                    <li style="padding:12px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
-                        <span style="color:var(--accent); font-weight:700;">✓</span> Выполните ДЗ каждого дня — видеоотчёт
-                    </li>
-                    <li style="padding:12px 0; border-bottom:1px solid var(--border); color:var(--text-secondary); font-size:16px;">
-                        <span style="color:var(--accent); font-weight:700;">✓</span> Отправьте отчёт в диалог с чат-ботом
-                    </li>
-                    <li style="padding:12px 0; color:var(--text-secondary); font-size:16px;">
-                        <span style="color:var(--accent); font-weight:700;">✓</span> Получите персональный промокод
-                    </li>
-                </ul>
-                <a href="#form" class="btn-light" style="margin-top:25px;">
-                    <i class="fa-solid fa-gift"></i> Забрать доступ и скидку
-                </a>
-            </div>
-            <div>
-                <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
-                    <rect width="200" height="200" fill="#ffffff" rx="20" stroke="#ebebf0"/>
-                    <circle cx="100" cy="100" r="60" fill="rgba(227, 27, 35, 0.08)" stroke="#e31b23" stroke-width="2"/>
-                    <text x="100" y="120" text-anchor="middle" fill="#e31b23" font-size="52" font-weight="bold" font-family="Inter, sans-serif">10%</text>
-                </svg>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- ===== MODAL: ВЫБОР МЕССЕНДЖЕРА ===== -->
+<div class="modal-overlay" id="modalBots" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalBotsTitle">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
 
-<!-- ===== ТАЙМЕР ===== -->
-<div class="section">
-    <div class="container">
-        <div style="text-align:center; background:#f7f7f9; border-radius:40px; padding:64px 30px; border:1px solid var(--border);">
-            <div class="badge" style="margin-bottom:20px; background:#fff;">⏰ Регистрация закрывается скоро</div>
-            <h2 style="font-size:38px; font-weight:800;">До окончания акции осталось</h2>
+        <h3 class="modal-title" id="modalBotsTitle">Выберите удобный мессенджер<br>для прохождения курса</h3>
 
-            <div class="timer-digits">
-                <div class="timer-item">
-                    <div class="timer-number" id="days">00</div>
-                    <div class="timer-label">дней</div>
-                </div>
-                <div class="timer-item">
-                    <div class="timer-number" id="hours">00</div>
-                    <div class="timer-label">часов</div>
-                </div>
-                <div class="timer-item">
-                    <div class="timer-number" id="minutes">00</div>
-                    <div class="timer-label">минут</div>
-                </div>
-                <div class="timer-item">
-                    <div class="timer-number" id="seconds">00</div>
-                    <div class="timer-label">секунд</div>
-                </div>
-            </div>
-
-            <p style="color:var(--text-secondary); font-size:18px; margin:20px 0;">
-                Успейте занять место, пока бесплатный доступ открыт.
-            </p>
-
-            <a href="#form" class="btn-light" style="margin-top:20px; font-size:19px; padding:18px 40px;">
-                <i class="fa-solid fa-bolt"></i> Зарегистрироваться бесплатно
+        <div class="bot-list">
+            <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-vk">
+                <span>Перейти в ВКонтакте</span>
+                <span class="bot-icon">VK</span>
+            </a>
+            <a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener noreferrer" class="bot-btn bot-btn-max">
+                <span>Перейти в MAX</span>
+                <span class="bot-icon">M</span>
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===== ФОРМА + СОЦСЕТИ ===== -->
-<div class="section section-dark" id="form">
-    <div class="container">
-        <h2 style="text-align:center; font-size:38px; font-weight:800;">Запишитесь на <span class="gradient-text">3-дневный мини-курс</span></h2>
-        <p style="text-align:center; color:var(--text-secondary); margin-top:15px; font-size:18px;">
-            Заполните форму и получите доступ к первому уроку
-        </p>
 
-        <div class="form-section-wrap" style="margin-top:40px;">
-            <div class="form-block" id="formWidgetBlock">
-                <script id="4c5b37f71d8e7b40cd31e52d87f2e9d2dade2103" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1656185"></script>
-                <noscript>
-                    <p style="padding:16px; color:#111;">Для записи включите JavaScript или напишите нам в мессенджер.</p>
-                </noscript>
-            </div>
-
-            <div class="form-fallback" id="formFallback">
-                Форма не загрузилась. Это может быть из-за блокировщика рекламы — напишите нам напрямую:
-                <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer">VK</a>
-                или
-                <a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener noreferrer">MAX</a>.
-            </div>
-
-            <div class="form-actions">
-                <button
-                    id="showSocialBtn"
-                    type="button"
-                    class="btn-light"
-                    style="padding: 14px 40px; font-size: 17px; width:100%; justify-content:center;"
-                    disabled
-                    aria-disabled="true"
-                >
-                    ⏳ Сначала заполните форму выше
-                </button>
-
-                <p class="hint" id="formHint">Кнопка станет активной после отправки заявки</p>
-
-                <p class="privacy">
-                    Нажимая кнопку, вы соглашаетесь с <a href="offer.html">условиями оферты</a>
-                    и политикой обработки персональных данных.
-                </p>
-
-                <p style="margin-top: 14px;">
-                    <a href="#" id="skipFormBtn" style="font-size: 13px; color: #888; text-decoration: underline;">
-                        Уже зарегистрированы? Получить доступ в мессенджер →
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div id="socialSelect" hidden>
-            <h3>📲 Выберите способ получения курса</h3>
-            <p class="sub">Нажмите на иконку соцсети, чтобы перейти к боту</p>
-            <div class="social-grid">
-                <a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener noreferrer" class="social-card vk">
-                    <div class="icon">VK</div>
-                    <div class="label">Получить в VK</div>
-                    <div class="desc">Напишите «Старт» в диалоге</div>
-                </a>
-                <a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener noreferrer" class="social-card max">
-                    <div class="icon">MAX</div>
-                    <div class="label">Получить в MAX</div>
-                    <div class="desc">Откройте диалог и напишите «Начать»</div>
-                </a>
-            </div>
-            <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">
-                Вы также можете получить доступ в любом из мессенджеров
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- ===== FAQ ===== -->
-<div class="section">
-    <div class="container">
-        <h2 style="text-align:center; font-size:38px; font-weight:800;">Ответы на <span class="gradient-text">вопросы</span></h2>
-
-        <div style="max-width:700px; margin:40px auto 0;">
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Нужно ли платить за участие?
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">Нет, мини-курс полностью бесплатный. Мы хотим, чтобы как можно больше людей получили качественные знания.</div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Нужен ли опыт в массаже?
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">Нет, курс рассчитан на новичков. Все приёмы показываются с нуля, шаг за шагом.</div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Сколько времени занимает обучение?
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">Каждый урок — 11–15 минут видео. Плюс время на практику: около часа на один урок.</div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Как получить скидку на полный курс?
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">Выполните ДЗ каждого урока, отправьте видеоотчёт в чат-бот и получите персональный промокод на скидку 10%.</div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Что понадобится для практики?
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">Кушетка (или стол/диван), любое масло (детское, растительное, массажный крем), удобная одежда и «модель» — человек, на котором будете отрабатывать приёмы.</div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Будут ли записи уроков?
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">Да, записи будут доступны участникам в чат-боте навсегда.</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="container">
-        <div class="brand">БезБоли</div>
-        <p style="color:var(--text-muted);">
-            Самозанятый Архипенко И.А., ИНН 910226347220
-        </p>
-        <p style="margin-top:10px;">
-            <a href="https://vk.ru/bezboli_school" target="_blank" rel="noopener noreferrer">VK</a>
-            &nbsp;|&nbsp;
-            <a href="offer.html">Оферта</a>
-            &nbsp;|&nbsp;
-            <a href="tel:+79790258335">+7 (979) 025-83-35</a>
-        </p>
-        <p style="color:var(--text-muted); margin-top:14px;">
-            © <span id="year">2026</span> Школа НЕклассического массажа «БезБоли». Все права защищены.
-        </p>
+
+        <!-- Верх: логотип + бренд-строка -->
+        <div class="footer-top">
+            <a href="/" class="footer-brand">
+                <img src="../assets/images/logomini.jpg" alt="БезБоли — Школа массажа">
+            </a>
+
+            <div class="footer-tag">
+                <span class="footer-tag-label">Школа НЕклассического массажа</span>
+                <span class="footer-tag-brand">Без<span>Боли</span></span>
+            </div>
+        </div>
+
+        <!-- Основная сетка -->
+        <div class="footer-grid">
+
+            <!-- Юр. инфо -->
+            <div class="footer-col">
+                <h4>Реквизиты</h4>
+                <p>Самозанятый Архипенко И.А.</p>
+                <p>ИНН 910226347220</p>
+                <p class="muted">© Все права защищены</p>
+            </div>
+
+            <!-- Соцсети -->
+            <div class="footer-col">
+                <h4>Мы в соцсетях</h4>
+                <ul>
+                    <li><a href="https://vk.ru/bezboli_school" target="_blank" rel="noopener">VKontakte</a></li>
+                    <li><a href="https://vk.com/im?sel=-198807271" target="_blank" rel="noopener">VK-бот</a></li>
+                    <li><a href="https://max.ru/se14168987_bot" target="_blank" rel="noopener">MAX-бот</a></li>
+                </ul>
+            </div>
+
+            <!-- Контакты -->
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="tel:+79790258335">+7 (979) 025-83-35</a></li>
+                    <li class="muted">Вопросы по курсам, оплате и обучению</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Нижняя строка -->
+        <div class="footer-bottom">
+            <span>© <span id="year">2026</span> БезБоли</span>
+
+            <div class="footer-bottom-links">
+                <a href="offer.html">Договор оферты</a>
+                <a href="privacy.html">Политика конфиденциальности</a>
+            </div>
+        </div>
+
     </div>
 </footer>
 
@@ -1892,6 +2124,79 @@
             icon.style.transform = answer.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
     };
+    /* ===== MODALS ===== */
+var modalForm = document.getElementById('modalForm');
+var modalBots = document.getElementById('modalBots');
+var accessForm = document.getElementById('accessForm');
+
+function openModal(el) {
+    if (!el) return;
+    el.hidden = false;
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(el) {
+    if (!el) return;
+    el.hidden = true;
+    document.body.style.overflow = '';
+}
+
+/* Открытие на любой CTA-кнопке */
+document.querySelectorAll('.hero-cta-btn, .btn-light').forEach(function (btn) {
+    if (btn.id === 'showSocialBtn') return; // страховка, если осталась
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal(modalForm);
+    });
+});
+
+/* Закрытие: крестик, клик по оверлею, ESC */
+[modalForm, modalBots].forEach(function (overlay) {
+    if (!overlay) return;
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal(overlay);
+    });
+    var closeBtn = overlay.querySelector('.modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', function () { closeModal(overlay); });
+});
+
+document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (modalForm && !modalForm.hidden) closeModal(modalForm);
+    if (modalBots && !modalBots.hidden) closeModal(modalBots);
+});
+
+/* Отправка формы → модалка выбора бота */
+if (accessForm) {
+    accessForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Базовая валидация
+        var name  = accessForm.querySelector('[name="name"]');
+        var phone = accessForm.querySelector('[name="phone"]');
+        var email = accessForm.querySelector('[name="email"]');
+        var pd    = accessForm.querySelector('input[type="checkbox"][required]');
+
+        if (!name.value.trim() || !phone.value.trim() || !email.value.trim() || (pd && !pd.checked)) {
+            alert('Заполните все поля и подтвердите согласие на обработку данных');
+            return;
+        }
+
+        // TODO: здесь отправка данных на бэкенд / GetCourse.
+        // Например:
+        // fetch('https://ваш-эндпоинт/lead', {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify({
+        //         name: name.value,
+        //         phone: phone.value,
+        //         email: email.value
+        //     })
+        // });
+
+        closeModal(modalForm);
+        openModal(modalBots);
+    });
+}
 })();
 </script>
 
