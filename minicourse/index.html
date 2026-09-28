@@ -625,6 +625,7 @@
         }
 
         /* ===== NEW HERO (light, Yudaev-style) ===== */
+/* ===== NEW HERO (light, Yudaev-style) ===== */
 .hero-new {
     background: #EAEAEA;
     padding: 32px 0 80px;
@@ -632,26 +633,30 @@
     overflow: hidden;
 }
 
+/* Логотип — мягко вписан в фон */
 .hero-logo {
-    height: 34px;
+    height: 30px;
     display: block;
     margin-bottom: 56px;
+    opacity: 0.85;
+    mix-blend-mode: multiply;
+    filter: grayscale(100%) contrast(0.9);
 }
 
 .hero-new-inner {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
     align-items: center;
 }
 
 /* --- Заголовок --- */
 .hero-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(38px, 6.4vw, 82px);
-    line-height: 1.02;
-    font-weight: 900;
-    letter-spacing: -0.035em;
+    font-size: clamp(30px, 4.2vw, 54px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
     color: #111118;
     margin: 0;
@@ -661,89 +666,79 @@
     background: #EE0519;
     color: #ffffff;
     display: inline-block;
-    padding: 0 18px 6px;
-    border-radius: 14px;
+    padding: 2px 16px 6px;
+    border-radius: 12px;
     line-height: 1;
     -webkit-text-fill-color: #ffffff;
 }
 
 /* --- Подзаголовок --- */
 .hero-sub {
-    font-size: 20px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.55;
     color: #55555f;
-    margin-top: 32px;
-    max-width: 520px;
+    margin-top: 26px;
+    max-width: 480px;
 }
 
 .hero-sub strong {
     color: #111118;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-/* --- CTA-блок с таймером (как в референсе 3) --- */
-.hero-cta {
-    background: #111118;
-    border-radius: 40px;
-    padding: 6px;
-    max-width: 520px;
+/* --- CTA: кнопка + текст справа (как референс 1) --- */
+.hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .hero-cta-btn {
-    display: block;
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #EE0519;
     color: #ffffff !important;
     text-decoration: none !important;
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    padding: 24px 40px;
-    border-radius: 34px;
-    transition: background 0.2s ease;
-}
-
-.hero-cta-btn:hover { background: #c40415; }
-
-.hero-cta-timer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 24px;
-    color: #ffffff;
-    font-variant-numeric: tabular-nums;
-}
-
-.hero-cta-timer .timer-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #a8a8b3;
-    font-size: 14px;
-}
-
-.hero-cta-timer .timer-label i {
-    color: #EE0519;
-    font-size: 16px;
-}
-
-.hero-cta-timer .timer-value {
     font-weight: 700;
-    color: #ffffff;
     font-size: 16px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 20px 44px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.hero-cta-hint {
-    margin-top: 20px;
-    font-size: 15px;
-    color: #55555f;
+.hero-cta-btn:hover {
+    background: #c40415;
+    transform: translateY(-2px);
+}
+
+.hero-cta-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 320px;
+    font-size: 12px;
     line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8a8a99;
 }
 
-.hero-cta-hint strong { color: #111118; font-weight: 700; }
+.hero-cta-note::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #EE0519;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
 
 /* --- Фото справа, сглажено с фоном --- */
 .hero-new-right {
@@ -754,37 +749,35 @@
 
 .hero-new-right img {
     width: 100%;
-    max-width: 620px;
+    max-width: 580px;
     height: auto;
     object-fit: contain;
-    /* Убираем все рамки/тени и мягко вписываем в фон #EAEAEA */
     border: none;
     border-radius: 0;
     box-shadow: none;
     mix-blend-mode: multiply;
-    -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, #000 70%, transparent 100%);
-    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, #000 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 72%, transparent 100%);
+    mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 72%, transparent 100%);
 }
 
 /* --- Адаптив --- */
 @media (max-width: 900px) {
     .hero-new { padding: 24px 0 56px; }
-    .hero-logo { margin-bottom: 32px; height: 28px; }
+    .hero-logo { margin-bottom: 32px; height: 24px; }
     .hero-new-inner {
         grid-template-columns: 1fr;
         gap: 32px;
         text-align: left;
     }
-    .hero-sub { font-size: 17px; }
-    .hero-cta { max-width: 100%; }
+    .hero-sub { font-size: 16px; }
     .hero-new-right { order: -1; }
     .hero-new-right img { max-width: 100%; }
+    .hero-cta-row { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
-    .hero-cta-btn { padding: 20px 24px; font-size: 16px; }
-    .hero-cta-timer { padding: 12px 18px; font-size: 13px; }
-    .hero-cta-timer .timer-value { font-size: 14px; }
+    .hero-cta-btn { padding: 18px 32px; font-size: 15px; }
+    .hero-cta-note { font-size: 11px; }
 }
     </style>
 </head>
@@ -809,19 +802,12 @@
                     и узнаете все о профессии
                 </p>
 
-                <div class="hero-cta">
+                <div class="hero-cta-row">
                     <a href="#form" class="hero-cta-btn">Начать обучение</a>
-                    <div class="hero-cta-timer">
-                        <span class="timer-label">
-                            <i class="fa-solid fa-clock"></i> До закрытия набора:
-                        </span>
-                        <span class="timer-value" id="heroTimer">00 : 11 : 09 : 21</span>
-                    </div>
+                    <p class="hero-cta-note">
+                        Оставляйте верные контакты — на ваш номер и почту придут доступы к курсу
+                    </p>
                 </div>
-
-                <p class="hero-cta-hint">
-                    Жмите на кнопку и получите доступ к 1-му уроку в <strong>чат-боте</strong>!
-                </p>
             </div>
 
             <div class="hero-new-right">
