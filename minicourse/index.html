@@ -438,20 +438,37 @@
 
 .how-title-accent { color: #EE0519; }
 
-/* === БОЛЬШАЯ КАРТИНКА 2×2 === */
-.how-image-wrap {
-    width: 100%;
-    border-radius: 24px;
-    overflow: hidden;
-    background: #f2f2f2;
+/* === КОНТЕЙНЕР С КАРТОЧКАМИ === */
+.how-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;          /* desktop: 2×2 */
+    gap: 20px;
 }
 
-.how-image-wrap img {
+/* === КАЖДАЯ КАРТОЧКА — это часть спрайта === */
+.how-card {
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
+    aspect-ratio: 1 / 1;                     /* квадрат, как четверть спрайта */
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url('../assets/images/cards.jpg');
+    background-repeat: no-repeat;
+    background-size: 200% 200%;              /* спрайт 2×2 */
+    box-shadow: 0 4px 16px rgba(17, 17, 24, 0.06);
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
 }
+
+.how-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(17, 17, 24, 0.12);
+}
+
+/* Позиции четвертей */
+.how-card--01 { background-position: 0% 0%; }
+.how-card--02 { background-position: 100% 0%; }
+.how-card--03 { background-position: 0% 100%; }
+.how-card--04 { background-position: 100% 100%; }
 
 /* === КНОПКА === */
 .how-cta {
@@ -459,13 +476,12 @@
     display: flex;
     justify-content: flex-start;
 }
-
 .how-cta .hero-cta-btn {
     padding: 20px 48px;
     font-size: 16px;
 }
 
-/* === АДАПТИВ === */
+/* === МОБИЛЬНЫЙ — карточки в столбик, крупные === */
 @media (max-width: 900px) {
     .how-section { padding: 64px 0; }
 
@@ -473,14 +489,23 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
-        margin-bottom: 32px;
+        margin-bottom: 28px;
     }
 
-    .how-image-wrap {
-        border-radius: 16px;
+    .how-cards {
+        grid-template-columns: 1fr;          /* одна колонка */
+        gap: 16px;
     }
 
-    .how-cta { justify-content: stretch; }
+    .how-card {
+        aspect-ratio: 1 / 1;                 /* остаётся квадратом */
+        border-radius: 18px;
+    }
+
+    .how-cta {
+        justify-content: stretch;
+        margin-top: 32px;
+    }
     .how-cta .hero-cta-btn { width: 100%; }
 }
 
@@ -1155,7 +1180,6 @@
 </section>
 
 <!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
-<!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
 <section class="how-section">
     <div class="container">
 
@@ -1164,8 +1188,13 @@
             <h2 class="how-title how-title-accent">Обучение</h2>
         </header>
 
-        <div class="how-image-wrap">
-            <img src="../assets/images/cards.jpg" alt="Как проходит обучение">
+        <div class="how-cards">
+
+            <div class="how-card how-card--01" aria-label="Платформа"></div>
+            <div class="how-card how-card--02" aria-label="Чекинг"></div>
+            <div class="how-card how-card--03" aria-label="Результат"></div>
+            <div class="how-card how-card--04" aria-label="Сертификат"></div>
+
         </div>
 
         <div class="how-cta">
