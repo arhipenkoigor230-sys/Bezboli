@@ -412,217 +412,182 @@
         }
 
         /* ===== HOW IT WORKS ===== */
-        .how-section {
-            background: #ffffff;
-            padding: 96px 0;
-        }
+.how-section {
+    background: #ffffff;
+    padding: 96px 0;
+}
 
-        .how-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 40px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
+.how-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
 
-        .how-title {
-            font-size: clamp(28px, 3.6vw, 48px);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            text-transform: uppercase;
-            line-height: 1;
-            margin: 0;
-            color: #111118;
-        }
+.how-title {
+    font-size: clamp(28px, 3.6vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: #111118;
+}
 
-        .how-title-accent { color: #EE0519; }
+.how-title-accent { color: #EE0519; }
 
-        .how-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.15fr 1.15fr 1fr;
-            gap: 20px;
-            align-items: start;
-        }
+/* === СЕТКА 2×2 === */
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-        .how-col {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+/* === КАРТОЧКА (общая) === */
+.how-card {
+    background: #ececec;
+    color: #111118;
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+    cursor: pointer;
+    min-height: 440px;
+}
 
-        /* === КАРТОЧКА (общий стиль) === */
-        .how-card {
-            background: #ececec;
-            color: #111118;
-            border-radius: 24px;
-            padding: 24px 24px 28px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            position: relative;
-            overflow: hidden;
-            transition: transform .3s ease, background .3s ease, color .3s ease;
-            cursor: pointer;
-        }
+.how-card:hover {
+    transform: translateY(-6px);
+    background: #111118;
+    color: #ffffff;
+}
 
-        .how-card:hover {
-            transform: translateY(-6px);
-            background: #111118;
-            color: #ffffff;
-        }
+/* === НОМЕР === */
+.how-num {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: rgba(17, 17, 24, 0.30);
+    transition: color .3s ease;
+    flex-shrink: 0;
+}
+.how-card:hover .how-num { color: rgba(255, 255, 255, 0.5); }
 
-        /* Высоты */
-        .how-card--tall   { min-height: 560px; }
-        .how-card--medium { min-height: 340px; }
-        .how-card--short  { min-height: 180px; }
+/* === ФОТО === */
+.how-img {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #d9d9d9;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+}
+.how-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform .4s ease;
+}
+.how-card:hover .how-img img {
+    transform: scale(1.03);
+}
 
-        /* === НОМЕР === */
-        .how-num {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.04em;
-            color: rgba(17, 17, 24, 0.35);
-            transition: color .3s ease;
-            flex-shrink: 0;
-        }
-        .how-card:hover .how-num { color: rgba(255, 255, 255, 0.5); }
+/* === ТЕЛО (текст) === */
+.how-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
 
-        /* === БЛОК ФОТО (общий) === */
-        .how-img {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #d9d9d9;
-            flex-shrink: 0;
-            display: flex;
-        }
-        .how-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-            transition: filter .3s ease, transform .3s ease;
-        }
-        .how-card:hover .how-img img {
-            filter: brightness(0.85);
-            transform: scale(1.02);
-        }
+.how-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6b6b80;
+    margin: 0;
+    transition: color .3s ease;
+}
+.how-card:hover .how-desc { color: rgba(255, 255, 255, 0.75); }
 
-        /* === ТЕКСТ === */
-        .how-body {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: auto;
-        }
+.how-name {
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+    color: #111118;
+    margin: 0;
+    transition: color .3s ease;
+}
+.how-card:hover .how-name { color: #ffffff; }
 
-        .how-desc {
-            font-size: 13px;
-            line-height: 1.5;
-            color: #6b6b80;
-            margin: 0;
-            transition: color .3s ease;
-        }
-        .how-card:hover .how-desc { color: rgba(255, 255, 255, 0.75); }
+/* ==== КАРТОЧКА С ФОТО (01, 06) ==== */
+.how-card--photo .how-img {
+    flex: 0 0 auto;
+    aspect-ratio: 16 / 10;
+}
 
-        .how-name {
-            font-size: clamp(24px, 2.2vw, 34px);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            line-height: 1.0;
-            color: #111118;
-            margin: 0;
-            transition: color .3s ease;
-            word-break: normal;
-            overflow-wrap: normal;
-        }
-        .how-card:hover .how-name { color: #ffffff; }
+/* ==== КАРТОЧКА С ТЕКСТОМ (04, 05) ==== */
+.how-card--text {
+    justify-content: space-between;
+}
 
-        /* ==== КАРТОЧКА 01 — ПЛАТФОРМА ==== */
-        .how-card--01 .how-img {
-            width: 62%;
-            aspect-ratio: 4 / 3;
-            margin: 0;
-            align-self: flex-start;
-            border-radius: 12px;
-        }
-        .how-card--01 .how-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
+.how-card--text .how-body {
+    margin-top: 0;
+}
 
-        /* ==== КАРТОЧКА 06 — СЕРТИФИКАТ ==== */
-        .how-card--06 .how-img {
-            width: 62%;
-            aspect-ratio: 4 / 3;
-            margin: 0;
-            align-self: flex-start;
-            border-radius: 12px;
-        }
-        .how-card--06 .how-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
+.how-card--text .how-name {
+    font-size: clamp(28px, 3vw, 44px);
+}
 
-        /* === КНОПКА === */
-        .how-cta {
-            margin-top: 48px;
-            display: flex;
-            justify-content: flex-start;
-        }
+/* === КНОПКА === */
+.how-cta {
+    margin-top: 48px;
+    display: flex;
+    justify-content: flex-start;
+}
 
-        .how-cta .hero-cta-btn {
-            padding: 20px 48px;
-            font-size: 16px;
-        }
+.how-cta .hero-cta-btn {
+    padding: 20px 48px;
+    font-size: 16px;
+}
 
-        /* === АДАПТИВ === */
-        @media (max-width: 1100px) {
-            .how-grid { grid-template-columns: 1fr 1fr; }
-            .how-card--tall { min-height: 460px; }
-            .how-card--medium { min-height: 300px; }
-        }
+/* === АДАПТИВ === */
+@media (max-width: 900px) {
+    .how-section { padding: 64px 0; }
 
-        @media (max-width: 700px) {
-            .how-section { padding: 64px 0; }
+    .how-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 32px;
+    }
 
-            .how-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-                margin-bottom: 28px;
-            }
+    .how-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 
-            .how-grid { grid-template-columns: 1fr; gap: 16px; }
-            .how-col { gap: 16px; }
+    .how-card {
+        padding: 24px;
+        min-height: auto;
+        border-radius: 20px;
+    }
 
-            .how-card--tall,
-            .how-card--medium,
-            .how-card--short {
-                min-height: 200px;
-            }
-            .how-card--tall { min-height: 420px; }
+    .how-num { font-size: 32px; }
 
-            .how-card { padding: 20px; border-radius: 20px; }
-            .how-num { font-size: 26px; }
-
-            /* На мобильном фото — на всю ширину карточки */
-            .how-card--01 .how-img,
-            .how-card--06 .how-img {
-                width: 100%;
-            }
-
-            .how-cta { justify-content: stretch; }
-            .how-cta .hero-cta-btn { width: 100%; }
-        }
+    .how-cta { justify-content: stretch; }
+    .how-cta .hero-cta-btn { width: 100%; }
+}
 
         /* ===== PROGRAM / 3 УРОКА ===== */
         .program-section {
@@ -1294,6 +1259,7 @@
 </section>
 
 <!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
+<!-- ===== КАК ПРОХОДИТ ОБУЧЕНИЕ ===== -->
 <section class="how-section">
     <div class="container">
 
@@ -1304,67 +1270,47 @@
 
         <div class="how-grid">
 
-            <div class="how-col">
-                <article class="how-card how-card--tall how-card--01">
-                    <div class="how-num">01</div>
-                    <div class="how-img">
-                        <img src="../assets/images/mini-how-01.jpg" alt="Платформа с уроками">
-                    </div>
-                    <div class="how-body">
-                        <p class="how-desc">Открываем вам доступ к платформе с уроками и заданиями</p>
-                        <h3 class="how-name">Платфо&#8209;рма</h3>
-                    </div>
-                </article>
-            </div>
+            <!-- 01 ПЛАТФОРМА -->
+            <article class="how-card how-card--photo">
+                <div class="how-num">01</div>
+                <div class="how-img">
+                    <img src="../assets/images/mini-how-01.jpg" alt="Платформа с уроками">
+                </div>
+                <div class="how-body">
+                    <p class="how-desc">Открываем вам доступ к платформе с уроками и заданиями</p>
+                    <h3 class="how-name">Платформа</h3>
+                </div>
+            </article>
 
-            <div class="how-col">
-                <article class="how-card how-card--short">
-                    <div class="how-num">02</div>
-                    <div class="how-body">
-                        <p class="how-desc">Вас добавляют в чат, в котором вы находите единомышленников</p>
-                        <h3 class="how-name">Чат</h3>
-                    </div>
-                </article>
+            <!-- 04 ЧЕКИНГ -->
+            <article class="how-card how-card--text">
+                <div class="how-num">04</div>
+                <div class="how-body">
+                    <p class="how-desc">Разбор вашего выполнения массажа: исправляете ошибки, повышаете качество</p>
+                    <h3 class="how-name">Чекинг</h3>
+                </div>
+            </article>
 
-                <article class="how-card how-card--medium">
-                    <div class="how-num">03</div>
-                    <div class="how-body">
-                        <p class="how-desc">Выполняете задания и сдаёте на проверку куратору группы</p>
-                        <h3 class="how-name">Задания</h3>
-                    </div>
-                </article>
-            </div>
+            <!-- 05 РЕЗУЛЬТАТ -->
+            <article class="how-card how-card--text">
+                <div class="how-num">05</div>
+                <div class="how-body">
+                    <p class="how-desc">Полученные знания можете использовать на близких и в работе</p>
+                    <h3 class="how-name">Результат</h3>
+                </div>
+            </article>
 
-            <div class="how-col">
-                <article class="how-card how-card--medium">
-                    <div class="how-num">04</div>
-                    <div class="how-body">
-                        <p class="how-desc">Разбор вашего выполнения массажа: исправляете ошибки, повышаете качество</p>
-                        <h3 class="how-name">Чекинг</h3>
-                    </div>
-                </article>
-
-                <article class="how-card how-card--short">
-                    <div class="how-num">05</div>
-                    <div class="how-body">
-                        <p class="how-desc">Полученные знания можете использовать на близких и в работе</p>
-                        <h3 class="how-name">Результат</h3>
-                    </div>
-                </article>
-            </div>
-
-            <div class="how-col">
-                <article class="how-card how-card--tall how-card--06">
-                    <div class="how-num">06</div>
-                    <div class="how-img">
-                        <img src="../assets/images/mini-how-06.jpg" alt="Сертификат">
-                    </div>
-                    <div class="how-body">
-                        <p class="how-desc">Получение сертификата о прохождении программы</p>
-                        <h3 class="how-name">Сертификат</h3>
-                    </div>
-                </article>
-            </div>
+            <!-- 06 СЕРТИФИКАТ -->
+            <article class="how-card how-card--photo">
+                <div class="how-num">06</div>
+                <div class="how-img">
+                    <img src="../assets/images/mini-how-06.jpg" alt="Сертификат">
+                </div>
+                <div class="how-body">
+                    <p class="how-desc">Получение сертификата о прохождении программы</p>
+                    <h3 class="how-name">Сертификат</h3>
+                </div>
+            </article>
 
         </div>
 
