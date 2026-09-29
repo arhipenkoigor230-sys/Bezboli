@@ -320,7 +320,7 @@
 @media (max-width: 768px) {
 
     .hero-new {
-        padding: 0 0 48px;
+        padding: 0 0 24px;
         background: #EAEAEA;
     }
 
@@ -329,67 +329,73 @@
         display: none;
     }
 
-    /* Фото — на всю ширину сверху, с логотипом по центру */
     .hero-new-inner {
         display: flex;
         flex-direction: column;
         gap: 0;
     }
 
+    /* === ПРАВАЯ КОЛОНКА: ФОТО + ЛОГОТИП === */
     .hero-new-right {
         position: relative;
         width: 100%;
-        order: -1;                   /* фото идёт первым */
-        align-items: center;
+        order: -1;
         padding: 0;
         margin: 0;
         gap: 0;
+        align-items: stretch;
+        /* Край экрана — без отступов */
+        margin-left: calc(-1 * var(--container-pad, 24px));
+        margin-right: calc(-1 * var(--container-pad, 24px));
+        width: calc(100% + 2 * var(--container-pad, 24px));
     }
 
-    /* Скрываем текст «Формат обучения: в чат-боте» на мобильном */
+    /* Скрываем «Формат обучения: в чат-боте» */
     .hero-right-note {
         display: none;
     }
 
-    /* Фото — растянуто на всю ширину, высота ~ 55vh */
+    /* Фото — край в край, без скруглений, прижато к верхнему краю */
     .hero-new-right img {
         width: 100%;
         max-width: 100%;
-        height: 55vh;
-        min-height: 320px;
-        max-height: 520px;
+        height: 60vh;
+        min-height: 360px;
+        max-height: 560px;
         aspect-ratio: auto;
         object-fit: cover;
-        border-radius: 0;
+        border-radius: 0;                  /* БЕЗ скруглений — ровные края */
         margin: 0;
+        display: block;
     }
 
-    /* Логотип по центру поверх фото */
+    /* Логотип — середина на нижней кромке фото */
     .hero-new-right::after {
         content: '';
         position: absolute;
-        top: 50%;
+        bottom: -50px;                     /* половина логотипа выходит ниже фото */
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         width: 100px;
         height: 100px;
         background: url('../assets/images/logomini1.png') no-repeat center center / contain;
-        filter: none;                /* картинка уже прозрачная */
-        z-index: 2;
+        z-index: 3;
         pointer-events: none;
     }
 
-    /* Левая колонка — текст */
+    /* === ЛЕВАЯ КОЛОНКА: ТЕКСТ + КНОПКА === */
     .hero-new-left {
-        padding: 32px 20px 0;
         display: flex;
         flex-direction: column;
+        padding: 80px 20px 0;              /* отступ сверху — под логотип */
+        /* Отступ слева/справа от края экрана для контента */
     }
 
     .hero-title {
-        font-size: clamp(28px, 7vw, 38px);
-        line-height: 1.1;
+        font-size: clamp(28px, 7.5vw, 40px);
+        line-height: 1.12;
         text-align: center;
+        margin-top: 0;
     }
 
     .hero-title .hero-mark::before {
@@ -399,18 +405,20 @@
     }
 
     .hero-sub {
-        font-size: 16px;
-        margin-top: 20px;
+        font-size: 15px;
+        margin-top: 18px;
         text-align: center;
         max-width: 100%;
+        line-height: 1.5;
     }
 
     .hero-cta-row {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
         margin-top: 28px;
         padding-top: 0;
+        width: 100%;
     }
 
     .hero-cta-btn {
@@ -420,14 +428,14 @@
         font-size: 15px;
     }
 
-    /* Пояснение под кнопкой — по центру */
+    /* Пояснение под кнопкой — по центру, БОЛЬШЕ ОТСТУП */
     .hero-cta-note {
         max-width: 100%;
         justify-content: center;
-        text-align: left;
-        font-size: 11px;
-        padding-left: 10px;
-        padding-right: 10px;
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 16px;              /* Отступ снизу */
+        padding: 0 12px;
     }
 }
         /* ===== HOW IT WORKS ===== */
