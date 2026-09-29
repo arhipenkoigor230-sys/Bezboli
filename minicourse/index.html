@@ -470,6 +470,26 @@
     cursor: pointer;
 }
 
+/* Особый padding для карточки с фото — без боковых отступов у картинки */
+.how-card--tall {
+    min-height: 560px;
+    padding: 24px 24px 28px;
+}
+
+/* Фото в tall-карточке — от края до края (без левого/правого паддинга) */
+.how-card--tall .how-img {
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-top: 0;
+    width: calc(100% + 48px);
+    border-radius: 0;                     /* убираем скругление, чтобы прилипло к краям */
+}
+
+.how-card--tall .how-img img {
+    border-radius: 0;
+    object-position: center top;
+}
+
 .how-card:hover {
     transform: translateY(-6px);
     background: #111118;
@@ -537,15 +557,17 @@
 .how-card:hover .how-desc { color: rgba(255, 255, 255, 0.75); }
 
 .how-name {
-    font-size: clamp(22px, 2vw, 30px);
+    font-size: clamp(24px, 2.2vw, 36px);  /* было 22-30 — крупнее */
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    line-height: 1.02;
+    line-height: 1.0;
     color: #111118;
     margin: 0;
     transition: color .3s ease;
-    word-break: break-word;
+    word-break: normal;                   /* БЫЛО break-word — теперь обычный */
+    overflow-wrap: normal;
+    hyphens: manual;
 }
 .how-card:hover .how-name { color: #ffffff; }
 
@@ -1282,7 +1304,7 @@
                     </div>
                     <div class="how-body">
                         <p class="how-desc">Открываем вам доступ к платформе с уроками и заданиями</p>
-                        <h3 class="how-name">Платформа</h3>
+                        <h3 class="how-name">Платфо&#8209;рма</h3>
                     </div>
                 </article>
             </div>
