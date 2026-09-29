@@ -415,158 +415,184 @@
         }
 
         /* ===== HOW IT WORKS ===== */
-        .how-section {
-            background: #ffffff;
-            padding: 96px 0;
-        }
+.how-section {
+    background: #ffffff;
+    padding: 96px 0;
+}
 
-        .how-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 40px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
+.how-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
 
-        .how-title {
-            font-size: clamp(28px, 3.6vw, 48px);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            text-transform: uppercase;
-            line-height: 1;
-            margin: 0;
-            color: #111118;
-        }
+.how-title {
+    font-size: clamp(28px, 3.6vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: #111118;
+}
 
-        .how-title-accent { color: #EE0519; }
+.how-title-accent { color: #EE0519; }
 
-        .how-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.15fr 1.15fr 1fr;
-            gap: 20px;
-            align-items: start;
-        }
+/* === СЕТКА === */
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1.15fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
 
-        .how-col {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+.how-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-        .how-card {
-            background: #ececec;
-            color: #111118;
-            border-radius: 24px;
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            position: relative;
-            overflow: hidden;
-            transition: transform .3s ease, background .3s ease, color .3s ease;
-            cursor: pointer;
-        }
+/* === КАРТОЧКА === */
+.how-card {
+    background: #ececec;
+    color: #111118;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+    cursor: pointer;
+}
 
-        .how-card:hover {
-            transform: translateY(-6px);
-            background: #111118;
-            color: #ffffff;
-        }
+.how-card:hover {
+    transform: translateY(-6px);
+    background: #111118;
+    color: #ffffff;
+}
 
-        .how-card--tall   { height: 620px; }
-        .how-card--medium { height: 400px; }
-        .how-card--short  { height: 200px; }
+/* Высоты — компактнее */
+.how-card--tall   { min-height: 560px; }
+.how-card--medium { min-height: 340px; }
+.how-card--short  { min-height: 180px; }
 
-        .how-num {
-            font-size: 26px;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.04em;
-            color: #111118;
-            transition: color .3s ease;
-            flex-shrink: 0;
-        }
-        .how-card:hover .how-num { color: #ffffff; }
+/* === НОМЕР === */
+.how-num {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: rgba(17, 17, 24, 0.35);        /* приглушённый */
+    transition: color .3s ease;
+    flex-shrink: 0;
+}
+.how-card:hover .how-num { color: rgba(255, 255, 255, 0.5); }
 
-        .how-img {
-            width: 100%;
-            border-radius: 14px;
-            overflow: hidden;
-            background: #d9d9d9;
-            flex: 1 1 auto;
-            min-height: 0;
-            display: flex;
-        }
-        .how-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: filter .3s ease;
-        }
-        .how-card:hover .how-img img { filter: brightness(0.85); }
+/* === КАРТИНКА === */
+.how-img {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #d9d9d9;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.how-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;         /* выравниваем верх картинки */
+    display: block;
+    transition: filter .3s ease, transform .3s ease;
+}
+.how-card:hover .how-img img {
+    filter: brightness(0.85);
+    transform: scale(1.03);
+}
 
-        .how-body {
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+/* === ТЕКСТ === */
+.how-body {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-        .how-desc {
-            font-size: 13px;
-            line-height: 1.45;
-            color: #55555f;
-            margin: 0;
-            transition: color .3s ease;
-        }
-        .how-card:hover .how-desc { color: rgba(255, 255, 255, 0.8); }
+.how-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6b6b80;
+    margin: 0;
+    transition: color .3s ease;
+    max-width: 90%;
+}
+.how-card:hover .how-desc { color: rgba(255, 255, 255, 0.75); }
 
-        .how-name {
-            font-size: clamp(20px, 1.8vw, 26px);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            line-height: 1.05;
-            color: #111118;
-            margin: 0;
-            transition: color .3s ease;
-            word-break: break-word;
-        }
-        .how-card:hover .how-name { color: #ffffff; }
+.how-name {
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    color: #111118;
+    margin: 0;
+    transition: color .3s ease;
+    word-break: break-word;
+}
+.how-card:hover .how-name { color: #ffffff; }
 
-        .how-cta {
-            margin-top: 40px;
-            display: flex;
-            justify-content: flex-start;
-        }
+/* === КНОПКА === */
+.how-cta {
+    margin-top: 48px;
+    display: flex;
+    justify-content: flex-start;
+}
 
-        @media (max-width: 1100px) {
-            .how-grid { grid-template-columns: 1fr 1fr; }
-            .how-card--tall { height: 480px; }
-            .how-card--medium { height: 320px; }
-        }
+.how-cta .hero-cta-btn {
+    padding: 20px 48px;
+    font-size: 16px;
+}
 
-        @media (max-width: 700px) {
-            .how-section { padding: 64px 0; }
-            .how-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-                margin-bottom: 28px;
-            }
-            .how-grid { grid-template-columns: 1fr; gap: 16px; }
-            .how-col { gap: 16px; }
-            .how-card--tall,
-            .how-card--medium,
-            .how-card--short { height: auto; min-height: 180px; }
-            .how-card--tall { min-height: 380px; }
-            .how-card { padding: 20px; border-radius: 20px; }
-            .how-num { font-size: 22px; }
-            .how-cta { justify-content: stretch; }
-            .how-cta .hero-cta-btn { width: 100%; }
-        }
+/* === АДАПТИВ === */
+@media (max-width: 1100px) {
+    .how-grid { grid-template-columns: 1fr 1fr; }
+    .how-card--tall { min-height: 460px; }
+    .how-card--medium { min-height: 300px; }
+}
+
+@media (max-width: 700px) {
+    .how-section { padding: 64px 0; }
+
+    .how-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 28px;
+    }
+
+    .how-grid { grid-template-columns: 1fr; gap: 16px; }
+    .how-col { gap: 16px; }
+
+    .how-card--tall,
+    .how-card--medium,
+    .how-card--short {
+        min-height: 200px;
+    }
+    .how-card--tall { min-height: 420px; }
+
+    .how-card { padding: 20px; border-radius: 20px; }
+    .how-num { font-size: 26px; }
+    .how-cta { justify-content: stretch; }
+    .how-cta .hero-cta-btn { width: 100%; }
+}
 
         /* ===== PROGRAM / 3 УРОКА ===== */
         .program-section {
