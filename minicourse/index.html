@@ -84,7 +84,7 @@
 
 /* Логотип — крупнее */
 .hero-logo {
-    height: 34px;                    /* было 26px */
+    height: 68px;                    /* было 26px */
     display: block;
     margin-bottom: 36px;             /* было 48 — компактнее */
     filter: invert(1) hue-rotate(180deg) contrast(1.15) saturate(1.1);
@@ -94,8 +94,14 @@
 .hero-new-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;                       /* было 56 — плотнее */
-    align-items: start;
+    gap: 48px;
+    align-items: stretch;            /* было start — тянем обе колонки по высоте */
+}
+
+.hero-new-left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;                    /* растягиваем на всю высоту грида */
 }
 
 /* --- Заголовок --- */
@@ -153,12 +159,12 @@
     font-weight: 600;
 }
 
-/* --- CTA: кнопка + подпись --- */
 .hero-cta-row {
     display: flex;
     align-items: center;
     gap: 18px;
-    margin-top: 30px;                /* было 36 */
+    margin-top: auto;                /* было 30px — теперь авто = прижимает к низу */
+    padding-top: 30px;               /* страховочный отступ сверху */
 }
 
 .hero-cta-btn {
@@ -171,10 +177,10 @@
     color: #ffffff !important;
     text-decoration: none !important;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;                 /* было 15 — крупнее */
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 16px 32px;              /* было 18/36 — компактнее */
+    padding: 20px 42px;              /* было 16/32 — крупнее */
     border-radius: 999px;
     white-space: nowrap;
     flex-shrink: 0;
