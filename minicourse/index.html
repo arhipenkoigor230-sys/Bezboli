@@ -74,219 +74,191 @@
         img { max-width: 100%; }
 
         /* ===== HERO ===== */
-/* ===== HERO ===== */
-.hero-new {
-    background: #EAEAEA;
-    padding: 24px 0 56px;           /* было 32/80 — компактнее */
-    position: relative;
-    overflow: hidden;
-}
+        .hero-new {
+            background: #EAEAEA;
+            padding: 24px 0 56px;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Логотип — крупнее */
-.hero-logo {
-    height: 68px;                    /* было 26px */
-    display: block;
-    margin-bottom: 36px;             /* было 48 — компактнее */
-    filter: invert(1) hue-rotate(180deg) contrast(1.15) saturate(1.1);
-    mix-blend-mode: multiply;
-}
+        .hero-logo {
+            height: 68px;
+            display: block;
+            margin-bottom: 36px;
+            filter: invert(1) hue-rotate(180deg) contrast(1.15) saturate(1.1);
+            mix-blend-mode: multiply;
+        }
 
-.hero-new-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: stretch;            /* было start — тянем обе колонки по высоте */
-}
+        .hero-new-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: stretch;
+        }
 
-.hero-new-left {
-    display: flex;
-    flex-direction: column;
-    height: 100%;                    /* растягиваем на всю высоту грида */
-}
+        .hero-new-left {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-/* --- Заголовок --- */
-.hero-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(30px, 4vw, 52px);   /* чуть меньше, чем было */
-    line-height: 1.12;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    text-transform: uppercase;
-    color: #111118;
-    margin: 0;
-}
+        .hero-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(30px, 4vw, 52px);
+            line-height: 1.12;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            text-transform: uppercase;
+            color: #111118;
+            margin: 0;
+        }
 
-/* Плашка «БЕСПЛАТНЫЙ» — теперь МАЗОК, не овал */
-.hero-title .hero-mark {
-    position: relative;
-    display: inline-block;
-    padding: 2px 10px 10px;
-    color: #111118;
-    -webkit-text-fill-color: #111118;
-    z-index: 1;
-    line-height: 1;
-    /* Убираем фон и скругления — фон теперь через ::before */
-    background: none;
-    border-radius: 0;
-}
+        .hero-title .hero-mark {
+            position: relative;
+            display: inline-block;
+            padding: 2px 10px 10px;
+            color: #111118;
+            -webkit-text-fill-color: #111118;
+            z-index: 1;
+            line-height: 1;
+            background: none;
+            border-radius: 0;
+        }
 
-/* Красный мазок под словом (чуть выходит за края, слегка наклонён) */
-.hero-title .hero-mark::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    right: -6px;
-    top: 8px;
-    bottom: 0;
-    background: linear-gradient(135deg, #ff2a35 0%, #EE0519 45%, #b01018 100%);
-    border-radius: 8px 14px 10px 12px / 10px 8px 14px 8px;
-    transform: rotate(-1.2deg);
-    z-index: -1;
-    box-shadow: 0 6px 18px -6px rgba(238, 5, 25, 0.5);
-}
+        .hero-title .hero-mark::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            right: -6px;
+            top: 8px;
+            bottom: 0;
+            background: linear-gradient(135deg, #ff2a35 0%, #EE0519 45%, #b01018 100%);
+            border-radius: 8px 14px 10px 12px / 10px 8px 14px 8px;
+            transform: rotate(-1.2deg);
+            z-index: -1;
+            box-shadow: 0 6px 18px -6px rgba(238, 5, 25, 0.5);
+        }
 
-/* --- Подзаголовок --- */
-.hero-sub {
-    font-size: 16px;                 /* было 17 */
-    line-height: 1.5;
-    color: #55555f;
-    margin-top: 22px;
-    max-width: 440px;
-}
+        .hero-sub {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #55555f;
+            margin-top: 22px;
+            max-width: 440px;
+        }
 
-.hero-sub strong {
-    color: #111118;
-    font-weight: 600;
-}
+        .hero-sub strong {
+            color: #111118;
+            font-weight: 600;
+        }
 
-.hero-cta-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-top: auto;                /* было 30px — теперь авто = прижимает к низу */
-    padding-top: 30px;               /* страховочный отступ сверху */
-}
+        .hero-cta-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 30px;
+        }
 
-.hero-cta-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #ff5a63 0%, #ff2a35 25%, #EE0519 60%, #b01018 100%);
-    background-size: 200% 200%;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 20px 42px;
-    border-radius: 999px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(238, 5, 25, 0.45);
-    transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
+        .hero-cta-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff5a63 0%, #ff2a35 25%, #EE0519 60%, #b01018 100%);
+            background-size: 200% 200%;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 20px 42px;
+            border-radius: 999px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(238, 5, 25, 0.45);
+            transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-.hero-cta-btn::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 40%;
-    height: 200%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
-    transform: skewX(-20deg);
-    animation: btnShine 3.5s infinite;
-    pointer-events: none;
-}
+        .hero-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            transform: skewX(-20deg);
+            animation: btnShine 3.5s infinite;
+            pointer-events: none;
+        }
 
-@keyframes btnShine {
-    0%   { left: -60%; }
-    60%  { left: 160%; }
-    100% { left: 160%; }
-}
+        @keyframes btnShine {
+            0%   { left: -60%; }
+            60%  { left: 160%; }
+            100% { left: 160%; }
+        }
 
-.hero-cta-btn:hover {
-    background-position: 100% 100%;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(238, 5, 25, 0.65);
-}
+        .hero-cta-btn:hover {
+            background-position: 100% 100%;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(238, 5, 25, 0.65);
+        }
 
-.hero-cta-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-top: 30px;
-    /* margin-top: auto — убираем, если было для прижатия к низу */
-}
+        .hero-after-note {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #6b6b80;
+            text-align: left;
+            letter-spacing: 0.01em;
+            max-width: 460px;
+        }
 
-.hero-cta-note::before {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #EE0519;
-    flex-shrink: 0;
-    margin-top: 4px;
-}
+        .hero-after-note strong {
+            color: #111118;
+            font-weight: 600;
+        }
 
-/* --- Правая колонка: фото + подпись --- */
-.hero-new-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;                       /* было 18 */
-    width: 100%;
-}
+        /* --- Правая колонка --- */
+        .hero-new-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+            width: 100%;
+        }
 
-.hero-right-note {
-    font-size: 12px;                 /* было 13 */
-    line-height: 1.45;
-    color: #8a8a99;
-    text-align: right;
-    max-width: 340px;
-    letter-spacing: 0.01em;
-}
+        .hero-right-note {
+            font-size: 12px;
+            line-height: 1.45;
+            color: #8a8a99;
+            text-align: right;
+            max-width: 340px;
+            letter-spacing: 0.01em;
+        }
 
-/* Фото — компактнее, выравниваем верх с плашкой «БЕСПЛАТНЫЙ» */
-.hero-new-right img {
-    width: 100%;
-    max-width: 540px;                /* было 580 — чуть меньше */
-    aspect-ratio: 1.15 / 1;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border: none;
-    border-radius: 24px;             /* было 28 — мягче */
-    box-shadow: none;
-    margin-top: -6px;                /* микро-подъём, чтобы выровнять с плашкой */
-}
+        .hero-new-right img {
+            width: 100%;
+            max-width: 540px;
+            aspect-ratio: 1.15 / 1;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border: none;
+            border-radius: 24px;
+            box-shadow: none;
+            margin-top: -6px;
+        }
 
-/* Текст под кнопкой */
-.hero-after-note {
-    margin-top: 16px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #6b6b80;
-    text-align: left;
-    letter-spacing: 0.01em;
-    max-width: 460px;
-}
-
-.hero-after-note strong {
-    color: #111118;
-    font-weight: 600;
-}
-
+        /* ==== АДАПТИВ: планшет ==== */
         @media (max-width: 900px) {
             .hero-new { padding: 24px 0 56px; }
-            .hero-logo { margin-bottom: 28px; height: 22px; }
+            .hero-logo { margin-bottom: 28px; height: 50px; }
 
             .hero-new-inner {
                 grid-template-columns: 1fr;
@@ -322,132 +294,126 @@
                 width: 100%;
                 justify-content: center;
             }
-            .hero-cta-note {
+            .hero-after-note {
+                text-align: center;
                 max-width: 100%;
-                font-size: 11px;
+                margin-top: 14px;
             }
         }
-             
-            /* ===== HERO — МОБИЛЬНАЯ ВЕРСИЯ ===== */
-@media (max-width: 768px) {
 
-    .hero-new {
-        padding: 0 0 32px;
-        background: #EAEAEA;
-    }
+        /* ===== HERO — МОБИЛЬНАЯ ВЕРСИЯ ===== */
+        @media (max-width: 768px) {
 
-    .hero-logo {
-        display: none;
-    }
+            .hero-new {
+                padding: 0 0 32px;
+                background: #EAEAEA;
+            }
 
-    .hero-new-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
+            .hero-logo {
+                display: none;
+            }
 
-    /* === ПРАВАЯ КОЛОНКА: ФОТО + ЛОГОТИП === */
-    .hero-new-right {
-        position: relative;
-        width: calc(100% + 48px);
-        margin-left: -24px;
-        margin-right: -24px;
-        order: -1;
-        padding: 0;
-        gap: 0;
-        align-items: stretch;
-    }
+            .hero-new-inner {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
 
-    .hero-right-note {
-        display: none;
-    }
+            .hero-new-right {
+                position: relative;
+                width: calc(100% + 48px);
+                margin-left: -24px;
+                margin-right: -24px;
+                order: -1;
+                padding: 0;
+                gap: 0;
+                align-items: stretch;
+            }
 
-    /* ФОТО: короче по высоте + скругление снизу внутрь */
-    .hero-new-right img {
-        width: 100%;
-        max-width: 100%;
-        height: 42vh;                       /* было 60vh — сильно короче */
-        min-height: 280px;
-        max-height: 380px;
-        aspect-ratio: auto;
-        object-fit: cover;
-        border-radius: 0 0 50% 50% / 0 0 12% 12%;   /* нижний край — мягкая дуга внутрь */
-        margin: 0;
-        display: block;
-    }
+            .hero-right-note {
+                display: none;
+            }
 
-    /* ЛОГОТИП — по центру нижней дуги, чуть нависает на белый блок */
-    .hero-new-right::after {
-        content: '';
-        position: absolute;
-        bottom: -46px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 92px;
-        height: 92px;
-        background: url('../assets/images/logomini1.png') no-repeat center center / contain;
-        z-index: 3;
-        pointer-events: none;
-    }
+            .hero-new-right img {
+                width: 100%;
+                max-width: 100%;
+                height: 42vh;
+                min-height: 280px;
+                max-height: 380px;
+                aspect-ratio: auto;
+                object-fit: cover;
+                border-radius: 0 0 50% 50% / 0 0 12% 12%;
+                margin: 0;
+                display: block;
+            }
 
-    /* === ЛЕВАЯ КОЛОНКА: ТЕКСТ + КНОПКА + ПОДПИСЬ === */
-    .hero-new-left {
-        display: flex;
-        flex-direction: column;
-        padding: 64px 20px 0;               /* отступ сверху — под логотип */
-    }
+            .hero-new-right::after {
+                content: '';
+                position: absolute;
+                bottom: -46px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 92px;
+                height: 92px;
+                background: url('../assets/images/logomini1.png') no-repeat center center / contain;
+                z-index: 3;
+                pointer-events: none;
+            }
 
-    .hero-title {
-        font-size: clamp(26px, 6.8vw, 36px);
-        line-height: 1.12;
-        text-align: center;
-        margin-top: 0;
-    }
+            .hero-new-left {
+                display: flex;
+                flex-direction: column;
+                padding: 64px 20px 0;
+            }
 
-    .hero-title .hero-mark::before {
-        left: -4px;
-        right: -4px;
-        top: 6px;
-    }
+            .hero-title {
+                font-size: clamp(26px, 6.8vw, 36px);
+                line-height: 1.12;
+                text-align: center;
+                margin-top: 0;
+            }
 
-    .hero-sub {
-        font-size: 15px;
-        margin-top: 16px;
-        text-align: center;
-        max-width: 100%;
-        line-height: 1.5;
-    }
+            .hero-title .hero-mark::before {
+                left: -4px;
+                right: -4px;
+                top: 6px;
+            }
 
-    .hero-cta-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        margin-top: 24px;
-        padding-top: 0;
-        width: 100%;
-    }
+            .hero-sub {
+                font-size: 15px;
+                margin-top: 16px;
+                text-align: center;
+                max-width: 100%;
+                line-height: 1.5;
+            }
 
-    .hero-cta-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 18px 22px;
-        font-size: 15px;
-    }
+            .hero-cta-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                margin-top: 24px;
+                padding-top: 0;
+                width: 100%;
+            }
 
-    .hero-after-note {
-    margin-top: 14px;
-    font-size: 13px;
-    line-height: 1.5;
-    text-align: center;
-    max-width: 100%;
-    padding: 0 16px;
-    margin-bottom: 24px;
-}
+            .hero-cta-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 18px 22px;
+                font-size: 15px;
+            }
 
-.hero-after-note strong {
-    color: #111118;
-}
-}
+            .hero-after-note {
+                margin-top: 14px;
+                font-size: 13px;
+                line-height: 1.5;
+                text-align: center;
+                max-width: 100%;
+                padding: 0 16px;
+                margin-bottom: 24px;
+            }
+        }
+
         /* ===== HOW IT WORKS ===== */
         .how-section {
             background: #ffffff;
@@ -1252,13 +1218,12 @@
                 </p>
 
                 <div class="hero-cta-row">
-                   <a href="#" class="hero-cta-btn">Начать обучение</a>
+                    <a href="#" class="hero-cta-btn">Начать обучение</a>
                 </div>
 
-                   <p class="hero-after-note">
-                     Жмите на кнопку и получите доступ к 1-му уроку в <strong>чат-боте!</strong>
-                   </p>
-                </div>
+                <p class="hero-after-note">
+                    Жмите на кнопку и получите доступ к 1-му уроку в <strong>чат-боте!</strong>
+                </p>
             </div>
 
             <div class="hero-new-right">
@@ -1513,7 +1478,7 @@
 
         <div class="footer-top">
             <a href="/" class="footer-brand">
-                <img src="../assets/images/logo.png" alt="БезБоли — Школа массажа">
+                <img src="../assets/images/logomini.jpg" alt="БезБоли — Школа массажа">
             </a>
 
             <div class="footer-tag">
@@ -1564,11 +1529,9 @@
 (function() {
     'use strict';
 
-    /* ---------- Год в футере ---------- */
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    /* ---------- MODALS ---------- */
     var modalForm = document.getElementById('modalForm');
     var modalBots = document.getElementById('modalBots');
     var accessForm = document.getElementById('accessForm');
@@ -1584,7 +1547,6 @@
         document.body.style.overflow = '';
     }
 
-    /* Открытие модалки на любой CTA-кнопке */
     document.querySelectorAll('.hero-cta-btn').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -1592,7 +1554,6 @@
         });
     });
 
-    /* Закрытие: крестик, клик по оверлею, ESC */
     [modalForm, modalBots].forEach(function (overlay) {
         if (!overlay) return;
         overlay.addEventListener('click', function (e) {
@@ -1608,7 +1569,6 @@
         if (modalBots && !modalBots.hidden) closeModal(modalBots);
     });
 
-    /* Отправка формы → модалка выбора бота */
     if (accessForm) {
         accessForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -1623,23 +1583,11 @@
                 return;
             }
 
-            // TODO: отправка данных на бэкенд / GetCourse
-            // fetch('https://ваш-эндпоинт/lead', {
-            //     method: 'POST',
-            //     headers: {'Content-Type': 'application/json'},
-            //     body: JSON.stringify({
-            //         name: name.value,
-            //         phone: phone.value,
-            //         email: email.value
-            //     })
-            // });
-
             closeModal(modalForm);
             openModal(modalBots);
         });
     }
 
-    /* ===== DEEP LINKS ===== */
     document.querySelectorAll('[data-deep-link]').forEach(function(link) {
         link.addEventListener('click', function(e) {
             var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
