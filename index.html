@@ -486,11 +486,11 @@ body {
 /* -------- Контейнер формы GetCourse в модальном окне -------- */
 .call-gc-form {
     width: 100%;
-    min-height: 320px;
+    min-height: 260px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 8px;
+    margin-top: 0;
 }
 
 .call-gc-form iframe {
@@ -802,77 +802,90 @@ body.call-modal-open {
     .call-fab-label {
         display: none;
     }
-    .call-modal-window {
-    padding: 32px 20px 24px;
+    .call-modal {
+    padding: 10px;
+    align-items: flex-start;
+}
+
+.call-modal-window {
+    padding: 22px 18px 20px;
     border-radius: 20px;
     max-width: 100%;
-    max-height: calc(100vh - 24px);
-    max-height: calc(100dvh - 24px);
-    }
-    .call-modal-title {
-        font-size: 20px;
-    }
-    .call-modal-sub {
-        font-size: 14px;
-        margin-bottom: 22px;
-    }
-    .call-modal-icon {
-        width: 56px;
-        height: 56px;
-    }
-    .call-modal-icon svg {
-        width: 26px;
-        height: 26px;
-    }
-    .call-form-field input {
-        padding: 14px 16px;
-        font-size: 15px;
-    }
-    .call-form-btn {
-        padding: 16px 24px;
-        font-size: 16px;
-    }
-    .call-modal {
-    padding: 12px;                 /* уменьшаем внешние отступы */
-    align-items: flex-start;       /* модалка прилипает к верху */
-    }
+    max-height: calc(100dvh - 20px);
+}
 
-    .call-modal-icon {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 14px;           /* меньше отступ под иконкой */
-    }
-    .call-modal-icon svg {
-    width: 24px;
-    height: 24px;
-    }
+.call-modal-close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+}
 
-    .call-gc-form {
-    min-height: 260px;              /* меньше минимум у формы */
-    margin-top: 4px;
-    }
+.call-modal-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+}
+.call-modal-icon svg {
+    width: 22px;
+    height: 22px;
+}
 
-    .call-divider {
-    margin: 20px 0 14px;            /* компактнее разделитель */
-    }
+.call-modal-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
 
-    .call-contacts {
+.call-modal-sub {
+    font-size: 13px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.call-gc-form {
+    min-height: 200px;
+}
+
+/* GetCourse-форма тоже сжимается */
+.call-gc-form iframe {
+    max-height: 300px !important;
+}
+
+.call-divider {
+    margin: 14px 0 10px;
+}
+.call-divider span {
+    font-size: 11px;
+    padding: 0 12px;
+}
+
+.call-contacts {
+    gap: 8px;
+}
+
+.call-contact {
+    padding: 11px 14px;
     gap: 10px;
-    }
+    border-radius: 12px;
+}
 
-    .call-contact {
-    padding: 12px 14px;
-    gap: 10px;
-    }
+.call-contact-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+}
+.call-contact-icon svg {
+    width: 17px;
+    height: 17px;
+}
 
-    .call-contact-icon {
-    width: 36px;
-    height: 36px;
-    }
+.call-contact-label {
+    font-size: 10px;
+}
+.call-contact-value {
+    font-size: 13px;
+}
 
-    .call-contact-value {
-    font-size: 13.5px;
-    }
 }
 /* =====================================================
    КОМПАКТНЫЙ СПИСОК ПРЕИМУЩЕСТВ В HERO
