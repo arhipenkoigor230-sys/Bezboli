@@ -274,7 +274,6 @@ body {
    ПЛАВАЮЩАЯ КНОПКА ЗВОНКА + МОДАЛЬНОЕ ОКНО
    ===================================================== */
 
-/* -------- Плавающая кнопка -------- */
 .call-fab {
     position: fixed;
     right: 24px;
@@ -290,10 +289,7 @@ body {
     justify-content: center;
     border: none;
     cursor: pointer;
-    box-shadow:
-        0 14px 32px -10px rgba(227, 27, 35, .7),
-        inset 0 1px 1px rgba(255, 255, 255, .4),
-        inset 0 -2px 6px rgba(0, 0, 0, .25);
+    box-shadow: 0 14px 32px -10px rgba(227, 27, 35, .7);
     transition: transform .25s ease, box-shadow .25s ease;
     font-family: inherit;
 }
@@ -306,22 +302,13 @@ body {
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: transform .25s ease;
 }
 
 .call-fab:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow:
-        0 20px 40px -10px rgba(227, 27, 35, .85),
-        inset 0 1px 1px rgba(255, 255, 255, .4),
-        inset 0 -2px 6px rgba(0, 0, 0, .25);
+    box-shadow: 0 20px 40px -10px rgba(227, 27, 35, .85);
 }
 
-.call-fab:hover svg {
-    transform: rotate(-10deg);
-}
-
-/* Пульсация, чтобы привлекала внимание */
 .call-fab::after {
     content: "";
     position: absolute;
@@ -338,7 +325,6 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(227, 27, 35, 0); }
 }
 
-/* Подпись рядом с кнопкой (скрываем на мобильном) */
 .call-fab-label {
     position: fixed;
     right: 100px;
@@ -375,9 +361,7 @@ body {
     padding: 20px;
 }
 
-.call-modal.active {
-    display: flex;
-}
+.call-modal.active { display: flex; }
 
 .call-modal-overlay {
     position: absolute;
@@ -385,41 +369,28 @@ body {
     background: rgba(20, 8, 5, .55);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    animation: fadeIn .25s ease;
 }
 
 .call-modal-window {
     position: relative;
     background: #fff;
     border-radius: 24px;
-    padding: 40px 40px 36px;
-    max-width: 460px;
+    padding: 36px 36px 32px;
+    max-width: 440px;
     width: 100%;
-    max-height: calc(100vh - 40px);
     max-height: calc(100dvh - 40px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .5);
-    animation: modalSlide .35s cubic-bezier(.34, 1.3, .64, 1);
     z-index: 1;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-@keyframes modalSlide {
-    from { opacity: 0; transform: translateY(20px) scale(.96); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .call-modal-close {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: rgba(139, 0, 0, .06);
     border: none;
@@ -428,15 +399,14 @@ body {
     align-items: center;
     justify-content: center;
     transition: background .2s ease;
+    z-index: 2;
 }
 
-.call-modal-close:hover {
-    background: rgba(227, 27, 35, .15);
-}
+.call-modal-close:hover { background: rgba(227, 27, 35, .15); }
 
 .call-modal-close svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     stroke: #8b0000;
     stroke-width: 2.5;
     fill: none;
@@ -444,21 +414,21 @@ body {
 }
 
 .call-modal-icon {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 16px;
     box-shadow: 0 14px 32px -10px rgba(227, 27, 35, .6);
 }
 
 .call-modal-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     stroke: #fff;
     fill: none;
     stroke-width: 2;
@@ -467,45 +437,123 @@ body {
 }
 
 .call-modal-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     color: #111;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0 0 8px;
     letter-spacing: -0.015em;
     line-height: 1.2;
 }
 
 .call-modal-sub {
-    font-size: 15px;
-    color: #666;
-    text-align: center;
-    margin-bottom: 28px;
-    line-height: 1.5;
-}
-/* -------- Контейнер формы GetCourse в модальном окне -------- */
-.call-gc-form {
-    min-height: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.call-gc-form noscript {
-    display: block;
-    padding: 20px;
-    text-align: center;
-    color: #666;
     font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin: 0 0 20px;
+    line-height: 1.4;
 }
 
-.call-gc-form noscript a {
+/* -------- Форма -------- */
+.call-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.call-form-field { position: relative; }
+
+.call-form-field input {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #111;
+    background: #fafafa;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.call-form-field input::placeholder { color: #999; }
+.call-form-field input:focus {
+    background: #fff;
+    border-color: #e31b23;
+}
+
+.call-form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.45;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.call-form-check input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    accent-color: #e31b23;
+    cursor: pointer;
+}
+
+.call-form-check a {
     color: #e31b23;
+    text-decoration: none;
     font-weight: 600;
 }
 
-/* === Разделитель === */
+.call-form-check a:hover { text-decoration: underline; }
+
+.call-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 24px;
+    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 12px 28px -10px rgba(227, 27, 35, .55);
+    margin-top: 4px;
+}
+
+.call-form-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -10px rgba(227, 27, 35, .75);
+}
+
+.call-form-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.call-form-msg {
+    text-align: center;
+    font-size: 13px;
+    margin: 6px 0 0;
+    min-height: 16px;
+}
+.call-form-msg.ok  { color: #10b981; font-weight: 600; }
+.call-form-msg.err { color: #e31b23; font-weight: 600; }
+
+/* -------- Разделитель -------- */
 .call-divider {
-    margin: 8px 0 10px;               /* было 14px сверху — теперь 8px */
+    position: relative;
+    text-align: center;
+    margin: 22px 0 16px;
 }
 
 .call-divider::before {
@@ -518,56 +566,57 @@ body {
     background: rgba(139, 0, 0, .12);
     transform: translateY(-50%);
 }
+
 .call-divider span {
     position: relative;
     display: inline-block;
-    padding: 0 18px;
+    padding: 0 14px;
     background: #fff;
     color: #8a8a99;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
-/* === Контакты (телефон + ВК) === */
+/* -------- Контакты -------- */
 .call-contacts {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
 }
+
 .call-contact {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 18px;
+    gap: 10px;
+    padding: 12px 14px;
     border-radius: 14px;
     text-decoration: none;
     border: 1px solid rgba(139, 0, 0, .12);
     background: #fefaf6;
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    min-width: 0;
 }
+
 .call-contact:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 28px -12px rgba(139, 0, 0, .35);
 }
+
 .call-contact-icon {
     flex-shrink: 0;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    box-shadow:
-        0 6px 14px -6px rgba(0, 0, 0, .25),
-        inset 0 1px 1px rgba(255, 255, 255, .35);
 }
-.call-contact-icon svg {
-    width: 20px;
-    height: 20px;
-}
+
+.call-contact-icon svg { width: 18px; height: 18px; }
+
 .call-contact--phone .call-contact-icon {
     background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
 }
@@ -575,6 +624,7 @@ body {
     border-color: #e31b23;
     background: #fff;
 }
+
 .call-contact--vk .call-contact-icon {
     background: linear-gradient(135deg, #4a76a8 0%, #3a5c85 100%);
 }
@@ -582,22 +632,25 @@ body {
     border-color: #4a76a8;
     background: #fff;
 }
+
 .call-contact-text {
     display: flex;
     flex-direction: column;
     gap: 2px;
     min-width: 0;
 }
+
 .call-contact-label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     color: #8a8a99;
     line-height: 1;
 }
+
 .call-contact-value {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: #111;
     line-height: 1.2;
@@ -605,176 +658,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-@media (max-width: 480px) {
-    .call-contacts {
-        grid-template-columns: 1fr;
-    }
-    .call-contact-value {
-        font-size: 13.5px;
-    }
-}
 
-/* -------- Форма -------- */
-.call-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.call-form-field {
-    position: relative;
-}
-
-.call-form-field input {
-    width: 100%;
-    padding: 16px 18px;
-    font-family: inherit;
-    font-size: 16px;
-    color: #111;
-    background: #fafafa;
-    border: 2px solid transparent;
-    border-radius: 14px;
-    outline: none;
-    transition: border-color .2s ease, background .2s ease;
-}
-
-.call-form-field input::placeholder {
-    color: #999;
-}
-
-.call-form-field input:focus {
-    background: #fff;
-    border-color: #e31b23;
-}
-
-.call-form-check {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 12px;
-    color: #666;
-    line-height: 1.5;
-    margin-top: 4px;
-    cursor: pointer;
-}
-
-.call-form-check input[type="checkbox"] {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    margin-top: 2px;
-    accent-color: #e31b23;
-    cursor: pointer;
-}
-
-.call-form-check a {
-    color: #e31b23;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.call-form-check a:hover {
-    text-decoration: underline;
-}
-
-.call-form-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 18px 24px;
-    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
-    color: #fff;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 17px;
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    box-shadow: 0 14px 32px -10px rgba(227, 27, 35, .6);
-    margin-top: 6px;
-}
-
-.call-form-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px -10px rgba(227, 27, 35, .8);
-}
-
-.call-form-btn:disabled {
-    opacity: .6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.call-form-btn svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: transform .25s ease;
-}
-
-.call-form-btn:hover svg {
-    transform: translateX(4px);
-}
-
-.call-form-success {
-    display: none;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.call-form-success.active {
-    display: block;
-}
-
-.call-form-success-icon {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    box-shadow: 0 14px 32px -10px rgba(16, 185, 129, .55);
-}
-
-.call-form-success-icon svg {
-    width: 36px;
-    height: 36px;
-    stroke: #fff;
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.call-form-success h3 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #111;
-    margin-bottom: 10px;
-    letter-spacing: -0.01em;
-}
-
-.call-form-success p {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.55;
-    margin: 0;
-}
-
-/* -------- Блокируем скролл, когда открыто модальное окно -------- */
-body.call-modal-open {
-    overflow: hidden;
-}
+body.call-modal-open { overflow: hidden; }
 
 /* -------- Мобильный -------- */
 @media (max-width: 640px) {
@@ -784,100 +669,39 @@ body.call-modal-open {
         width: 58px;
         height: 58px;
     }
-    .call-fab svg {
-        width: 24px;
-        height: 24px;
-    }
-    .call-fab-label {
-        display: none;
-    }
+    .call-fab svg { width: 24px; height: 24px; }
+    .call-fab-label { display: none; }
+
     .call-modal {
-    padding: 10px;
-    align-items: flex-start;
+        padding: 12px;
+        align-items: center;
+    }
+
+    .call-modal-window {
+        padding: 28px 20px 24px;
+        border-radius: 20px;
+        max-width: 100%;
+        max-height: calc(100dvh - 24px);
+    }
+
+    .call-modal-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 14px;
+    }
+    .call-modal-icon svg { width: 24px; height: 24px; }
+
+    .call-modal-title { font-size: 19px; }
+    .call-modal-sub { font-size: 13px; margin-bottom: 16px; }
+
+    .call-form-field input { padding: 13px 15px; font-size: 15px; }
+    .call-form-btn { padding: 14px 22px; font-size: 15px; }
 }
 
-.call-modal-window {
-    padding: 20px 16px 16px;
-    border-radius: 20px;
-    max-width: 100%;
-    max-height: calc(100dvh - 20px);
-}
-
-.call-modal-close {
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-}
-
-.call-modal-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 12px;
-}
-.call-modal-icon svg {
-    width: 22px;
-    height: 22px;
-}
-
-.call-modal-title {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.call-modal-sub {
-    font-size: 13px;
-    margin-bottom: 16px;
-    line-height: 1.4;
-}
-
-.call-gc-form {
-    min-height: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.call-gc-form iframe {
-    max-height: none !important;
-    height: auto !important;
-}
-
-.call-divider {
-    margin: 16px 0 12px;
-}
-
-.call-divider span {
-    font-size: 11px;
-    padding: 0 12px;
-}
-
-.call-contacts {
-    gap: 8px;
-}
-
-.call-contact {
-    padding: 11px 14px;
-    gap: 10px;
-    border-radius: 12px;
-}
-
-.call-contact-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-}
-.call-contact-icon svg {
-    width: 17px;
-    height: 17px;
-}
-
-.call-contact-label {
-    font-size: 10px;
-}
-.call-contact-value {
-    font-size: 13px;
-}
-
+@media (max-width: 420px) {
+    .call-contacts {
+        grid-template-columns: 1fr;
+    }
 }
 /* =====================================================
    КОМПАКТНЫЙ СПИСОК ПРЕИМУЩЕСТВ В HERO
