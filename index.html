@@ -485,8 +485,9 @@ body {
 }
 /* -------- Контейнер формы GetCourse в модальном окне -------- */
 .call-gc-form {
-    min-height: 0;                    /* убрали минимум — форма сама себя задаёт */
-    margin-bottom: -8px;              /* подтягиваем разделитель вверх */
+    min-height: 0;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .call-gc-form noscript {
@@ -831,17 +832,20 @@ body.call-modal-open {
 }
 
 .call-gc-form {
-    min-height: 200px;
+    min-height: 0;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
-/* GetCourse-форма тоже сжимается */
 .call-gc-form iframe {
-    max-height: 300px !important;
+    max-height: none !important;
+    height: auto !important;
 }
 
 .call-divider {
-    margin: 14px 0 10px;
+    margin: 16px 0 12px;
 }
+
 .call-divider span {
     font-size: 11px;
     padding: 0 12px;
