@@ -508,6 +508,119 @@ body {
     color: #e31b23;
     font-weight: 600;
 }
+
+/* === Разделитель === */
+.call-divider {
+    position: relative;
+    text-align: center;
+    margin: 28px 0 18px;
+}
+.call-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(139, 0, 0, .12);
+    transform: translateY(-50%);
+}
+.call-divider span {
+    position: relative;
+    display: inline-block;
+    padding: 0 18px;
+    background: #fff;
+    color: #8a8a99;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* === Контакты (телефон + ВК) === */
+.call-contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.call-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    border: 1px solid rgba(139, 0, 0, .12);
+    background: #fefaf6;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.call-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -12px rgba(139, 0, 0, .35);
+}
+.call-contact-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow:
+        0 6px 14px -6px rgba(0, 0, 0, .25),
+        inset 0 1px 1px rgba(255, 255, 255, .35);
+}
+.call-contact-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.call-contact--phone .call-contact-icon {
+    background: linear-gradient(135deg, #e31b23 0%, #b01018 100%);
+}
+.call-contact--phone:hover {
+    border-color: #e31b23;
+    background: #fff;
+}
+.call-contact--vk .call-contact-icon {
+    background: linear-gradient(135deg, #4a76a8 0%, #3a5c85 100%);
+}
+.call-contact--vk:hover {
+    border-color: #4a76a8;
+    background: #fff;
+}
+.call-contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.call-contact-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #8a8a99;
+    line-height: 1;
+}
+.call-contact-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media (max-width: 480px) {
+    .call-contacts {
+        grid-template-columns: 1fr;
+    }
+    .call-contact-value {
+        font-size: 13.5px;
+    }
+}
+
 /* -------- Форма -------- */
 .call-form {
     display: flex;
@@ -1156,6 +1269,192 @@ body.call-modal-open {
     color: #fff;
     letter-spacing: -0.005em;
     margin-top: 2px;
+}
+
+/* =====================================================
+   БЛОК «ЭТОТ КУРС ДЛЯ ВАС» (перенос с сайта курса)
+   ===================================================== */
+.for-you {
+    padding: 90px 0 100px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.for-you .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.for-you-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    text-align: center;
+    color: #111;
+    margin-bottom: 70px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.for-you-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 36px;
+    align-items: center;
+    position: relative;
+}
+
+.for-you-col {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    z-index: 2;
+}
+
+.for-you-card {
+    background: #fff;
+    border: 1px solid #a8d5e0;
+    border-radius: 14px;
+    padding: 24px 26px;
+    text-align: center;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    position: relative;
+}
+
+.for-you-card:hover {
+    transform: translateY(-3px);
+    border-color: #e31b23;
+    box-shadow: 0 14px 32px -14px rgba(227, 27, 35, .3);
+}
+
+.for-you-card h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.for-you-card p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.for-you-photo {
+    position: relative;
+    width: 420px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border-radius: 40px;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    mask-composite: intersect;
+}
+
+.for-you-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.for-you-final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 80px;
+    padding: 0 40px;
+}
+
+.for-you-final-line {
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(139, 0, 0, .35) 50%, transparent 100%);
+}
+
+.for-you-final-text {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.for-you-final-text span {
+    color: #e31b23;
+    font-weight: 800;
+}
+
+/* ============ АДАПТИВ ============ */
+@media (max-width: 1200px) {
+    .for-you-photo { width: 340px; }
+}
+
+@media (max-width: 992px) {
+    .for-you { padding: 60px 0 70px; }
+    .for-you .container { padding: 0 24px; }
+    .for-you-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .for-you-photo {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        order: -1;
+    }
+    .for-you-title { margin-bottom: 40px; }
+    .for-you-final {
+        margin-top: 60px;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    .for-you-final-line { max-width: 80px; }
+    .for-you-final-text { white-space: normal; }
+}
+
+@media (max-width: 640px) {
+    .for-you { padding: 50px 0 60px; }
+    .for-you .container { padding: 0 20px; }
+    .for-you-title { font-size: 26px; margin-bottom: 30px; }
+    .for-you-card { padding: 20px 20px; border-radius: 12px; }
+    .for-you-card h3 { font-size: 16px; }
+    .for-you-card p { font-size: 13.5px; }
+    .for-you-photo { max-width: 280px; }
+    .for-you-col { gap: 18px; }
+    .for-you-final {
+        margin-top: 40px;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+    }
+    .for-you-final-line {
+        width: 60px;
+        max-width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(139, 0, 0, .4) 50%, transparent 100%);
+    }
+    .for-you-final-text {
+        font-size: 18px;
+        line-height: 1.35;
+    }
 }
 
 /* =====================================================
@@ -2396,6 +2695,7 @@ body.call-modal-open {
             rgba(255, 255, 255, 0) 100%
         );
     }
+     
 
     .formats { padding: 90px 0 100px; }
     .formats-container { padding: 0 24px; }
@@ -2806,6 +3106,60 @@ body.call-modal-open {
     </div>
 </section>
 
+<!-- ============ ЭТОТ КУРС ДЛЯ ВАС ============ -->
+<section class="for-you">
+    <div class="container">
+        <h2 class="for-you-title">Наша школа для Вас, если вы хотите:</h2>
+
+        <div class="for-you-grid">
+
+            <div class="for-you-col">
+                <div class="for-you-card">
+                    <h3>Помогать людям</h3>
+                    <p>Очень заряжает слышать от клиентов: «Я никогда так хорошо себя не чувствовал(а)», «Я обошёл множество специалистов и только Вы мне помогли», «Я много лет жил с болью, а Вы мне её за сеанс убрали» и т.д.</p>
+                </div>
+                <div class="for-you-card">
+                    <h3>Быть свободным</h3>
+                    <p>Для того, чтобы зарабатывать 100 000 ₽ в массаже, достаточно работать 3–3,5 дня в неделю — остальное время можно уделять себе. Хотите больше — повысьте стоимость или добавьте дней, наймите сотрудников.</p>
+                </div>
+                <div class="for-you-card">
+                    <h3>Перспективы</h3>
+                    <p>Будете всегда повышать навык общения и коммуникации, по мере развития которых будет увеличиваться и доход.</p>
+                </div>
+            </div>
+
+            <div class="for-you-photo">
+                <img src="assets/images/hero-couple1.png" alt="БезБоли">
+            </div>
+
+            <div class="for-you-col">
+                <div class="for-you-card">
+                    <h3>Стабильный заработок</h3>
+                    <p>К хорошему специалисту, владеющему особенной техникой, очередь выстраивается на несколько недель или даже месяцев вперёд.</p>
+                </div>
+                <div class="for-you-card">
+                    <h3>Гибкие возможности реализации</h3>
+                    <p>Можно работать в клинике или салоне, а можно заниматься предпринимательством — нанимать сотрудников или создать свою сеть.</p>
+                </div>
+                <div class="for-you-card">
+                    <h3>Широкий спектр знакомств</h3>
+                    <p>Массажист постоянно общается с людьми и может обзавестись полезными связями.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="for-you-final">
+            <span class="for-you-final-line"></span>
+            <p class="for-you-final-text">
+                Профессия <span>массажист</span> — никогда не утратит актуальности
+            </p>
+            <span class="for-you-final-line"></span>
+        </div>
+
+    </div>
+</section>
+
 <!-- ============ ТРИ ФОРМАТА ОБУЧЕНИЯ ============ -->
 <section class="formats">
     <div class="formats-container">
@@ -3174,45 +3528,9 @@ body.call-modal-open {
                 </button>
 
             </div>
-            <div class="reviews-dots"></div>
+           <div class="reviews-dots"></div>
         </div>
-<!-- ============ ПЛАВАЮЩАЯ КНОПКА ЗВОНКА ============ -->
-<button class="call-fab" type="button" id="callFab" aria-label="Заказать звонок">
-    <svg viewBox="0 0 24 24">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-    </svg>
-</button>
-<span class="call-fab-label">Заказать звонок</span>
 
-<!-- ============ МОДАЛЬНОЕ ОКНО ============ -->
-<div class="call-modal" id="callModal" role="dialog" aria-modal="true" aria-labelledby="callModalTitle">
-    <div class="call-modal-overlay" data-call-close></div>
-    <div class="call-modal-window">
-
-        <button class="call-modal-close" type="button" aria-label="Закрыть" data-call-close>
-            <svg viewBox="0 0 24 24">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-        </button>
-
-        <!-- Форма GetCourse -->
-<div class="call-form-wrap">
-    <div class="call-modal-icon">
-        <svg viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-    </div>
-
-
-    <div class="call-gc-form">
-        <!-- ВСТАВЬ СЮДА СВОЙ СКРИПТ GETCOURSE -->
-        <script id="5f11893ba72c57ae671fcca3c26a87e5be7872c0" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657609"></script>
-    </div>
-</div>
-
-    </div>
-</div>
         <!-- ===== КАРУСЕЛЬ 2: ОТЗЫВЫ КЛИЕНТОВ УЧЕНИКОВ ===== -->
         <div class="reviews-sub">
             <h3 class="reviews-subtitle">Такие отзывы получают наши выпускники</h3>
@@ -3323,6 +3641,105 @@ body.call-modal-open {
     </div>
 </footer>
 
+
+<button class="call-fab" type="button" id="callFab" aria-label="Заказать звонок">
+    <svg viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+</button>
+<span class="call-fab-label">Заказать звонок</span>
+
+<!-- ============ МОДАЛЬНОЕ ОКНО ============ -->
+<div class="call-modal" id="callModal" role="dialog" aria-modal="true" aria-labelledby="callModalTitle">
+    <div class="call-modal-overlay" data-call-close></div>
+    <div class="call-modal-window">
+
+        <button class="call-modal-close" type="button" aria-label="Закрыть" data-call-close>
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+
+        <!-- Иконка телефона -->
+        <div class="call-modal-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+        </div>
+
+        <!-- Форма GetCourse -->
+        <div class="call-gc-form">
+            <script id="5f11893ba72c57ae671fcca3c26a87e5be7872c0" src="https://bezbolimassage.getcourse.ru/pl/lite/widget/script?id=1657609"></script>
+            <noscript>
+                <p>Для отправки заявки включите JavaScript или позвоните: <a href="tel:+79787511623">+7 (978) 751-16-23</a></p>
+            </noscript>
+        </div>
+
+        <!-- Разделитель -->
+        <div class="call-divider">
+            <span>или свяжитесь напрямую</span>
+        </div>
+
+        <!-- Телефон + ВК -->
+        <div class="call-contacts">
+
+            <a href="tel:+79787511623" class="call-contact call-contact--phone">
+                <span class="call-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                </span>
+                <span class="call-contact-text">
+                    <span class="call-contact-label">Позвонить</span>
+                    <span class="call-contact-value">+7 (978) 751-16-23</span>
+                </span>
+            </a>
+
+            <a href="https://vk.me/bezboli_school" target="_blank" rel="noopener" class="call-contact call-contact--vk">
+                <span class="call-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.16 17.5c-5.5 0-8.84-3.86-8.97-10.27h2.73c.09 4.72 2.23 6.72 3.86 7.13V7.23h2.6v4.06c1.6-.17 3.29-1.99 3.86-4.06h2.6c-.44 2.54-2.24 4.36-3.51 5.11 1.27.61 3.32 2.2 4.1 5.16h-2.86c-.61-1.93-2.17-3.42-4.19-3.62v3.62h-.22z"/>
+                    </svg>
+                </span>
+                <span class="call-contact-text">
+                    <span class="call-contact-label">Написать</span>
+                    <span class="call-contact-value">ВКонтакте</span>
+                </span>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+<script>
+(function () {
+    var fab = document.getElementById('callFab');
+    var modal = document.getElementById('callModal');
+    if (!fab || !modal) return;
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.classList.add('call-modal-open');
+    }
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('call-modal-open');
+    }
+
+    fab.addEventListener('click', openModal);
+
+    modal.querySelectorAll('[data-call-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+})();
+</script>
 <script>
 (function () {
     document.querySelectorAll('.reviews-slider').forEach(function (slider) {
@@ -3378,37 +3795,6 @@ body.call-modal-open {
         update();
     });
 })();
-</script>
-<script>
-(function () {
-    const fab = document.getElementById('callFab');
-    const modal = document.getElementById('callModal');
-
-    if (!fab || !modal) return;
-
-    function openModal() {
-        modal.classList.add('active');
-        document.body.classList.add('call-modal-open');
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.classList.remove('call-modal-open');
-    }
-
-    fab.addEventListener('click', openModal);
-
-    modal.querySelectorAll('[data-call-close]').forEach(function (el) {
-        el.addEventListener('click', closeModal);
-    });
-
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-})();
-
 </script>
 </body>
 </html>
