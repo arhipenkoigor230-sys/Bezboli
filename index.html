@@ -14,13 +14,32 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/113222572" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
- <script>
+
+<!-- Top.Mail.Ru counter (VK Pixel) -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3798461", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+</script>
+<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3798461;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+<!-- /Top.Mail.Ru counter -->
+
+<!-- Отслеживание кликов — VK Pixel goals -->
+<script>
 document.addEventListener('DOMContentLoaded', function () {
 
     var PIXEL_ID = 3798461;
 
     function track(goal) {
-        _tmr.push({ type: 'reachGoal', id: PIXEL_ID, goal: goal });
+        if (typeof _tmr !== 'undefined') {
+            _tmr.push({ type: 'reachGoal', id: PIXEL_ID, goal: goal });
+        }
     }
 
     // === Telegram + VK (модалка и футер) ===
@@ -31,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
         a.addEventListener('click', function () { track('VK_CLICK'); });
     });
 
-    // === Кнопки «Начать обучение» (все hero-cta-btn) ===
+    // === Кнопки «Начать обучение» ===
     document.querySelectorAll('.hero-cta-btn').forEach(function (btn) {
         btn.addEventListener('click', function () { track('START_LEARNING'); });
     });
 
-    // === Форматы обучения (блок «Выберите свой формат») ===
+    // === Форматы обучения ===
     document.querySelectorAll('.formats-card-btn').forEach(function (btn) {
         var text = (btn.textContent || '').toLowerCase();
         if (text.indexOf('онлайн') !== -1) {
@@ -47,45 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.addEventListener('click', function () { track('CLICK_FREE'); });
         }
     });
-
-    // === Кнопки тарифов (только на странице курса) ===
-    var tariffCards = document.querySelectorAll('.tariff');
-    tariffCards.forEach(function (card) {
-        var isBasic = card.classList.contains('tariff') && !card.classList.contains('featured');
-        var isPro = card.classList.contains('featured');
-
-        // «Оплатить сейчас»
-        var payBtn = card.querySelector('.tariff-btn-primary');
-        if (payBtn) {
-            payBtn.addEventListener('click', function () {
-                if (isPro) {
-                    track('CLICK_BUY_PRO');
-                } else {
-                    // Различаем basic и VIP по цене
-                    var priceEl = card.querySelector('.tariff-price');
-                    var price = priceEl ? priceEl.textContent : '';
-                    if (price.indexOf('139') !== -1) {
-                        track('CLICK_BUY_VIP');
-                    } else {
-                        track('CLICK_BUY_BASIC');
-                    }
-                }
-            });
-        }
-
-        // «Связаться с менеджером»
-        var contactBtn = card.querySelector('.tariff-btn-secondary');
-        if (contactBtn) {
-            contactBtn.addEventListener('click', function () { track('CLICK_MANAGER'); });
-        }
-    });
-
-    // === Кнопка «Связаться с менеджером» в FAQ ===
-    var faqContactBtn = document.querySelector('.faq-cta-btn');
-    if (faqContactBtn) {
-        faqContactBtn.addEventListener('click', function () { track('CLICK_MANAGER'); });
-    }
-
 });
 </script>
 
