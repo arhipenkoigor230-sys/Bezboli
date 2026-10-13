@@ -1368,15 +1368,15 @@ _tmr.push({id: "3798461", type: "pageView", start: (new Date()).getTime()});
         <h3 class="modal-title" id="modalBotsTitle">Выберите удобный мессенджер<br>для прохождения курса</h3>
 
         <div class="bot-list">
-            <a href="https://t.me/Bezbolimassage_bot"
-               data-deep-link="tg://resolve?domain=Bezbolimassage_bot"
+            <a href="https://t.me/Bezbolimassage_bot" 
+               id="botLinkTg"
                target="_blank" rel="noopener noreferrer"
                class="bot-btn bot-btn-tg">
                 <span>Перейти в Telegram</span>
                 <span class="bot-icon">TG</span>
             </a>
-            <a href="https://vk.com/im?sel=-198807271"
-               data-deep-link="vk://vk.com/im?sel=-198807271"
+            <a href="https://vk.com/im?sel=-198807271" 
+               id="botLinkVk"
                target="_blank" rel="noopener noreferrer"
                class="bot-btn bot-btn-vk">
                 <span>Перейти в ВКонтакте</span>
@@ -1442,7 +1442,13 @@ _tmr.push({id: "3798461", type: "pageView", start: (new Date()).getTime()});
 <script>
 (function() {
     'use strict';
-
+    // 🆕 Считываем UTM из URL и сохраняем в переменную
+    var urlParams = new URLSearchParams(window.location.search);
+    var utmSource = urlParams.get('utm_source') || '';
+    var utmCampaign = urlParams.get('utm_campaign') || '';
+    var utmContent = urlParams.get('utm_content') || '';
+    var refParam = [utmSource, utmCampaign, utmContent].filter(Boolean).join('_') || '';
+    console.log('[UTM] source=' + utmSource + ', campaign=' + utmCampaign + ', content=' + utmContent);
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -1502,21 +1508,27 @@ _tmr.push({id: "3798461", type: "pageView", start: (new Date()).getTime()});
         });
     }
 
-    document.querySelectorAll('[data-deep-link]').forEach(function(link) {
+        // 🆕 Подставляем UTM в ссылки на ботов
+    var botLinkTg = document.getElementById('botLinkTg');
+    var botLinkVk = document.getElementById('botLinkVk');
+
+    if (refParam) {
+        if (botLinkTg) {
+            botLinkTg.href = 'https://t.me/Bezbolimassage_bot?start=' + encodeURIComponent(refParam);
+        }
+        if (botLinkVk) {
+            // VK использует параметр ref в ссылке на бота
+            botLinkVk.href = 'https://vk.com/im?sel=-198807271&ref=' + encodeURIComponent(refParam);
+        }
+        console.log('[UTM] Ссылки на ботов обновлены с ref=' + refParam);
+    }
+
+    // Обработка перехода по deep-link (мобильные)
+    document.querySelectorAll('.bot-btn').forEach(function(link) {
         link.addEventListener('click', function(e) {
             var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
             if (!isMobile) return;
-
-            e.preventDefault();
-
-            var deepLink = this.dataset.deepLink;
-            var webLink = this.href;
-
-            window.location.href = deepLink;
-
-            setTimeout(function() {
-                window.location.href = webLink;
-            }, 1500);
+            // Не блокируем, пусть открывается обычная ссылка
         });
     });
 })();
