@@ -1490,10 +1490,9 @@ _tmr.push({id: "3798461", type: "pageView", start: (new Date()).getTime()});
 
             var name  = accessForm.querySelector('[name="name"]');
             var phone = accessForm.querySelector('[name="phone"]');
-            var email = accessForm.querySelector('[name="email"]');
             var pd    = accessForm.querySelector('input[type="checkbox"][required]');
 
-            if (!name.value.trim() || !phone.value.trim() || !email.value.trim() || (pd && !pd.checked)) {
+            if (!name.value.trim() || !phone.value.trim() || (pd && !pd.checked)) {
                 alert('Заполните все поля и подтвердите согласие на обработку данных');
                 return;
             }
