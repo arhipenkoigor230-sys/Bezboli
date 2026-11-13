@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://kinescope.io">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site-header.css">
 
 <!-- Структурированные данные JSON-LD -->
 <script type="application/ld+json">
@@ -3707,6 +3708,21 @@ body.call-modal-open { overflow: hidden; }
 </head>
 <body>
 
+<header class="topbar">
+    <div class="topbar-inner">
+        <a class="topbar-brand" href="/" aria-label="БезБоли — на главную">
+            <img src="/assets/images/logo.png" alt="БезБоли">
+        </a>
+        <div class="topbar-actions">
+            <a href="https://cabinet.bezbolischool.online/" class="topbar-btn topbar-btn-ghost">Личный кабинет</a>
+            <div class="topbar-cta">
+                <a href="https://vk.ru/im?sel=-198807271" target="_blank" rel="noopener" class="topbar-btn topbar-btn-red">Записаться</a>
+                <a href="tel:+79787511623" class="topbar-phone">+7 (978) 751-16-23</a>
+            </div>
+        </div>
+    </div>
+</header>
+
 <!-- ============ HERO ============ -->
 <section class="hero">
     <div class="hero-inner">
@@ -3714,9 +3730,6 @@ body.call-modal-open { overflow: hidden; }
         <div class="hero-left">
 
             <div class="hero-top">
-                <a href="/" class="hero-logo">
-                    <img src="../assets/images/logo.png" alt="БезБоли">
-                </a>
                 <div class="hero-school-name">Школа НЕклассического массажа</div>
             </div>
 

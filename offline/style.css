@@ -195,7 +195,7 @@ h1 { font-size: clamp(2.5rem, 7.5vw, 6.4rem); }
     background-position: center;
     color: var(--calm);
     overflow: hidden;
-    min-height: calc(100svh - 70px);
+    min-height: calc(100svh - 71px);
     display: flex;
     align-items: center;
     padding: clamp(40px, 6vw, 90px) 0;
@@ -209,10 +209,13 @@ h1 { font-size: clamp(2.5rem, 7.5vw, 6.4rem); }
     pointer-events: none;
 }
 
+.hero > .container { width: 100%; min-width: 0; }
+
 .hero-inner {
     position: relative;
     z-index: 2;
     width: 100%;
+    min-width: 0;
 }
 
 .hero-copy { max-width: 840px; position: relative; z-index: 3; }
@@ -682,7 +685,7 @@ h1 { font-size: clamp(2.5rem, 7.5vw, 6.4rem); }
     body { font-size: 16px; }
     .site-nav { display: none; }
     .hero h1 { font-size: 1.9rem; }
-    .hero { min-height: calc(100svh - 64px); background-image: linear-gradient(180deg, rgba(18,13,14,.94) 0%, rgba(18,13,14,.78) 60%, rgba(18,13,14,.55) 100%), url('../assets/images/offline-collage.jpg'); }
+    .hero { min-height: calc(100svh - 70px); background-image: linear-gradient(180deg, rgba(18,13,14,.94) 0%, rgba(18,13,14,.78) 60%, rgba(18,13,14,.55) 100%), url('../assets/images/offline-collage.jpg'); }
     .pain-line { bottom: 34%; opacity: .35; }
     .header-actions { gap: 6px; }
     .header-phone { font-size: 10px; }
