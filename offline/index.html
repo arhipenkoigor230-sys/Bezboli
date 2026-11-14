@@ -87,6 +87,10 @@
 
 <!-- HERO -->
 <section class="hero">
+    <div class="hero-video-layer" aria-hidden="true">
+        <video class="hero-video" muted loop playsinline preload="metadata" poster="../assets/images/hero-video-poster.jpg"></video>
+    </div>
+
     <div class="pain-line" aria-hidden="true">
         <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
             <path class="pain-ghost" d="M0 150 Q60 40 120 170 Q180 90 240 190 Q300 70 360 180 Q420 60 480 170 Q540 100 600 190 Q660 80 720 170 Q780 60 840 180 Q900 90 960 170 Q1020 50 1080 160 Q1140 100 1200 150"></path>
@@ -716,5 +720,43 @@
 })();
 </script>
 
+<script>
+(function () {
+    var layer = document.querySelector('.hero-video-layer');
+    if (!layer) return;
+    var video = layer.querySelector('.hero-video');
+    var small = window.matchMedia('(max-width: 640px)');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+
+    function source() {
+        return small.matches ? '../assets/video/hero-mobile.mp4' : '../assets/video/hero.mp4';
+    }
+
+    function start() {
+        var src = source();
+        if (video.getAttribute('src') !== src) {
+            video.src = src;
+            video.load();
+        }
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+    }
+
+    function retry() {
+        if (!document.hidden) start();
+    }
+
+    video.addEventListener('canplay', function () { layer.classList.add('is-ready'); });
+    video.addEventListener('playing', function () { layer.classList.add('is-ready'); });
+    start();
+    if (small.addEventListener) small.addEventListener('change', start);
+    document.addEventListener('visibilitychange', retry);
+    document.addEventListener('pointerdown', retry, { once: true });
+    if (reduce.addEventListener) reduce.addEventListener('change', function () {
+        if (reduce.matches) layer.classList.remove('is-ready');
+    });
+})();
+</script>
 </body>
 </html>

@@ -2937,6 +2937,74 @@ body.call-modal-open { overflow: hidden; }
     .footer-contacts li a { font-size: 15px; }
     .footer-menu a { font-size: 14.5px; }
 }
+
+/* === Видео-фон первого экрана === */
+.hero-main--video { background: #120d0e; }
+
+.hero-video-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+.hero-video-layer.is-ready { opacity: 1; }
+
+.hero-video-bg {
+    position: absolute;
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    filter: blur(46px) brightness(.38) saturate(1.2);
+}
+
+.hero-video-main {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: auto;
+    max-width: none;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+.hero-main--video .hero-overlay {
+    background:
+        radial-gradient(ellipse 70% 70% at 50% 45%, rgba(18, 13, 14, .55) 0%, rgba(18, 13, 14, .38) 55%, rgba(18, 13, 14, .72) 100%),
+        linear-gradient(180deg, rgba(18, 13, 14, .55) 0%, rgba(18, 13, 14, .42) 45%, rgba(18, 13, 14, .78) 100%);
+}
+
+.hero-main--video .hero-main-title { color: #f6efe6; text-shadow: 0 2px 24px rgba(0, 0, 0, .35); }
+.hero-main--video .hero-main-title .medium { color: #f6efe6; }
+.hero-main--video .hero-main-title .accent {
+    background: linear-gradient(135deg, #ff6b70 0%, #e31b23 45%, #ff2a32 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+.hero-main--video .hero-main-list li { color: rgba(255, 250, 242, .94); text-shadow: 0 1px 12px rgba(0, 0, 0, .5); }
+.hero-main--video .hero-main-badge {
+    background: rgba(18, 13, 14, .55);
+    border-color: rgba(255, 250, 242, .24);
+    color: #fffaf2;
+    box-shadow: 0 12px 30px -12px rgba(0, 0, 0, .5);
+}
+
+@media (max-width: 768px) {
+    .hero-video-bg { display: none; }
+    .hero-video-main { left: 0; width: 100%; height: 100%; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-video-layer { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -2957,9 +3025,15 @@ body.call-modal-open { overflow: hidden; }
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero-main">
+<section class="hero-main hero-main--video">
 
     <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-video-layer" aria-hidden="true">
+        <video class="hero-video-bg" muted loop playsinline preload="none" poster="assets/images/hero-video-poster.jpg"></video>
+        <video class="hero-video-main" muted loop playsinline preload="metadata" poster="assets/images/hero-video-poster.jpg"></video>
+    </div>
+
     <div class="hero-overlay"></div>
 
     <div class="hero-main-inner">
@@ -3772,6 +3846,57 @@ body.call-modal-open { overflow: hidden; }
         }, { passive: true });
 
         update();
+    });
+})();
+</script>
+<script>
+(function () {
+    var layer = document.querySelector('.hero-video-layer');
+    if (!layer) return;
+    var main = layer.querySelector('.hero-video-main');
+    var bg = layer.querySelector('.hero-video-bg');
+    var small = window.matchMedia('(max-width: 768px)');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+
+    function source() {
+        return small.matches ? 'assets/video/hero-mobile.mp4' : 'assets/video/hero.mp4';
+    }
+
+    function start() {
+        var src = source();
+        if (main.getAttribute('src') !== src) {
+            main.src = src;
+            main.load();
+            if (small.matches) {
+                bg.removeAttribute('src');
+                bg.load();
+            } else {
+                bg.src = src;
+                bg.load();
+            }
+        }
+        var p = main.play();
+        if (p && p.catch) p.catch(function () {});
+        if (!small.matches) {
+            var q = bg.play();
+            if (q && q.catch) q.catch(function () {});
+        }
+    }
+
+    function retry() {
+        if (document.hidden) return;
+        start();
+    }
+
+    main.addEventListener('canplay', function () { layer.classList.add('is-ready'); });
+    main.addEventListener('playing', function () { layer.classList.add('is-ready'); });
+    start();
+    if (small.addEventListener) small.addEventListener('change', start);
+    document.addEventListener('visibilitychange', retry);
+    document.addEventListener('pointerdown', retry, { once: true });
+    if (reduce.addEventListener) reduce.addEventListener('change', function () {
+        if (reduce.matches) layer.classList.remove('is-ready');
     });
 })();
 </script>
