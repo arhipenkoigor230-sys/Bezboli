@@ -22,7 +22,7 @@
 .topbar-brand { display: flex; align-items: center; text-decoration: none; }
 .topbar-brand img { height: 44px; width: 44px; display: block; }
 .topbar-actions { display: flex; align-items: center; gap: 12px; }
-.topbar-cta { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.topbar-cta { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .topbar-btn {
     display: inline-flex;
     align-items: center;
@@ -46,7 +46,9 @@
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
     font-weight: 700;
-    line-height: 1;
+    line-height: 24px;
+    margin: -6px 0;
+    display: inline-block;
     color: #fff;
     text-decoration: none;
     white-space: nowrap;
@@ -59,6 +61,6 @@
     .topbar-brand img { height: 36px; width: 36px; }
     .topbar-actions { gap: 8px; }
     .topbar-cta { gap: 3px; }
-    .topbar-btn { padding: 9px 12px; font-size: 12px; }
-    .topbar-phone { font-size: 10.5px; }
+    .topbar-btn { min-height: 40px; padding: 0 12px; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; }
+    .topbar-phone { font-size: 11.5px; line-height: 16px; padding: 4px 0; margin: 0; display: inline-block; }
 }

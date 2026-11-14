@@ -173,7 +173,7 @@ body {
 /* ============ HERO ============ */
 .hero-main {
     position: relative;
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 74px);
     overflow: hidden;
     background: #1a0d08;
     display: flex;
@@ -2329,20 +2329,32 @@ body.call-modal-open { overflow: hidden; }
 }
 
 .reviews-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
     border: none;
-    background: rgba(139, 0, 0, .25);
+    background: transparent;
     cursor: pointer;
     padding: 0;
     transition: all .25s ease;
 }
 
-.reviews-dot:hover { background: rgba(227, 27, 35, .5); }
+.reviews-dot::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: rgba(139, 0, 0, .65);
+    transition: background .25s ease, border-radius .25s ease;
+}
 
-.reviews-dot.active {
-    width: 28px;
+.reviews-dot:hover::before { background: rgba(227, 27, 35, .85); }
+
+.reviews-dot.active { width: 44px; }
+
+.reviews-dot.active::before {
+    inset: 8px;
     border-radius: 4px;
     background: #e31b23;
 }
@@ -2480,6 +2492,8 @@ body.call-modal-open { overflow: hidden; }
     text-decoration: none;
     transition: color .2s;
     line-height: 1.4;
+    display: inline-block;
+    padding: 4px 0;
 }
 
 .footer-contacts li a:hover {
@@ -2537,6 +2551,7 @@ body.call-modal-open { overflow: hidden; }
     transition: color .2s, transform .2s;
     display: inline-block;
     line-height: 1.4;
+    padding: 4px 0;
 }
 
 .footer-menu a:hover {
@@ -2929,7 +2944,7 @@ body.call-modal-open { overflow: hidden; }
 <header class="topbar">
     <div class="topbar-inner">
         <a class="topbar-brand" href="/" aria-label="БезБоли — на главную">
-            <img src="/assets/images/logo.png" alt="БезБоли">
+            <img src="/assets/images/logo-192.png" alt="БезБоли">
         </a>
         <div class="topbar-actions">
             <a href="https://cabinet.bezbolischool.online/" class="topbar-btn topbar-btn-ghost">Личный кабинет</a>
@@ -3556,7 +3571,7 @@ body.call-modal-open { overflow: hidden; }
 
             <div class="footer-brand">
                 <a href="/" class="footer-logo">
-                    <img src="assets/images/logo.png" alt="БезБоли — школа массажа">
+                    <img src="assets/images/logo-192.png" alt="БезБоли — школа массажа">
                 </a>
                 <div class="footer-legal">
                     <p>2020–2026</p>
