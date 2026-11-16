@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Твой результат — БЕЗБОЛИ</title>
+<meta name="description" content="Результат теста: какое направление в массаже тебе подходит. Школа массажа БезБоли.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113222572', 'ym');
+    ym(113222572, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3798461", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+</script>
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #17110e;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: #17110e;
+    -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible, button:focus-visible { outline: 2px solid #e31b23; outline-offset: 2px; }
+
+.result-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+    min-height: 100vh;
+}
+
+.result-panel {
+    background: #fff8f3;
+    border-radius: 32px;
+    padding: clamp(24px, 3vw, 44px) clamp(20px, 3.4vw, 52px) clamp(28px, 3vw, 44px);
+}
+
+.result-logo { display: inline-block; }
+.result-logo img { display: block; height: 44px; width: auto; }
+
+.result-card {
+    margin-top: clamp(28px, 5vh, 56px);
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(20px, 3vw, 44px);
+    padding: clamp(24px, 3vw, 40px);
+    border-radius: 24px;
+    color: #17110e;
+    background: linear-gradient(100deg, #ff2d3a 0%, #ff7a6b 40%, #ffe4de 74%, #fff8f3 100%);
+    box-shadow: 0 24px 60px -30px rgba(227, 27, 35, .45);
+}
+
+.result-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    background: #fff;
+    border: 1px solid rgba(23, 17, 14, .08);
+    box-shadow: 0 2px 8px rgba(23, 17, 14, .10);
+    font-size: 13px;
+    font-weight: 600;
+    color: #17110e;
+}
+
+.result-pill svg { width: 15px; height: 15px; color: #e31b23; }
+
+.result-name {
+    margin: 18px 0 0;
+    font-size: clamp(26px, 2.8vw, 34px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.result-pct {
+    margin: 6px 0 16px;
+    font-size: clamp(64px, 7.6vw, 104px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.result-bar {
+    height: 10px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, .55);
+    overflow: hidden;
+}
+
+.result-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #c2161d, #e31b23);
+}
+
+.result-traits {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.result-traits li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(23, 17, 14, .14);
+    font-size: 15px;
+    line-height: 1.5;
+    color: #2b211c;
+}
+
+.result-traits li:first-child { padding-top: 0; }
+.result-traits li:last-child { padding-bottom: 0; border-bottom: 0; }
+
+.result-others { margin-top: 22px; display: grid; gap: 12px; }
+
+.result-other {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) minmax(120px, 220px) 52px 24px;
+    grid-template-areas: "icon name bar pct info";
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px 10px 10px;
+    background: #fff;
+    border: 1px solid #f0dfd4;
+    border-radius: 20px;
+}
+
+.result-other-icon {
+    grid-area: icon;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3e4da;
+    color: #c2161d;
+}
+
+.result-other-icon svg { width: 20px; height: 20px; }
+
+.result-other-name { grid-area: name; font-size: 15px; font-weight: 600; color: #2b211c; }
+
+.result-other-bar {
+    grid-area: bar;
+    height: 8px;
+    border-radius: 100px;
+    background: #f3e4da;
+    overflow: hidden;
+}
+
+.result-other-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ff8a8f, #e31b23);
+}
+
+.result-other-pct { grid-area: pct; font-size: 15px; font-weight: 700; text-align: right; }
+
+.result-other-info {
+    grid-area: info;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5d3c6;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+    color: #a8968a;
+    cursor: help;
+}
+
+.result-actions { margin-top: 26px; }
+
+.result-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 56px;
+    padding: 7px 7px 7px 28px;
+    border: 0;
+    border-radius: 100px;
+    background: linear-gradient(135deg, #ff2d3a 0%, #e31b23 100%);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 5px rgba(227, 27, 35, .14), 0 16px 40px -16px rgba(227, 27, 35, .75);
+    transition: background .25s ease, transform .2s ease, box-shadow .25s ease;
+}
+
+.result-cta:hover {
+    background: linear-gradient(135deg, #ff4550 0%, #ff2d3a 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 6px rgba(227, 27, 35, .18), 0 18px 44px -16px rgba(227, 27, 35, .85);
+}
+
+.result-cta-arrow {
+    flex: none;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    color: #e31b23;
+}
+
+.result-cta-arrow svg { width: 18px; height: 18px; }
+
+.result-photo {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 420px;
+    background: #2b211c;
+}
+
+.result-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.result-detail {
+    margin: 0 12px 12px;
+    background: #fff8f3;
+    border-radius: 32px;
+    padding: clamp(20px, 2.6vw, 36px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: clamp(16px, 2vw, 28px);
+}
+
+.detail-card {
+    background: linear-gradient(135deg, #8b0000 0%, #c2161d 52%, #ff6b5e 100%);
+    border-radius: 24px;
+    padding: clamp(24px, 3vw, 40px);
+    color: #fff;
+    box-shadow: 0 26px 60px -34px rgba(107, 12, 16, .62);
+}
+
+.detail-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.detail-head h2 {
+    margin: 0;
+    font-size: clamp(26px, 2.8vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.detail-bonus {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    background: #fff;
+    color: #c2161d;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px -8px rgba(23, 17, 14, .35);
+}
+
+.detail-bonus svg { width: 16px; height: 16px; }
+
+.detail-tagline { margin: 10px 0 0; font-size: 15.5px; line-height: 1.5; color: rgba(255, 248, 243, .85); }
+
+.detail-learn-title {
+    margin: 28px 0 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255, 248, 243, .7);
+}
+
+.detail-learn { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+.detail-learn-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 18px;
+    color: #2b211c;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: 0 10px 26px -18px rgba(23, 17, 14, .4);
+}
+
+.detail-learn-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e31b23;
+    color: #fff;
+    margin-bottom: 14px;
+}
+
+.detail-learn-icon svg { width: 20px; height: 20px; }
+
+.detail-others { display: grid; gap: 14px; align-content: start; }
+
+.detail-other {
+    background: #fff;
+    border: 1px solid #f0dfd4;
+    border-radius: 20px;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 20px;
+}
+
+.detail-other-name { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+
+.detail-other-desc { margin: 6px 0 0; font-size: 13.5px; line-height: 1.55; color: #6b5d54; }
+
+.detail-other-stat {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    border-left: 1px solid #f0dfd4;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.detail-other-stat span { font-size: 12px; font-weight: 500; color: #8a7a6e; }
+
+.detail-other-stat b { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #c2161d; }
+
+@media (max-width: 980px) {
+    .result-wrap { grid-template-columns: 1fr; }
+    .result-photo { order: 2; min-height: 0; height: 360px; }
+    .result-card { grid-template-columns: 1fr; }
+    .result-traits { justify-content: flex-start; }
+    .result-other {
+        grid-template-columns: 44px minmax(0, 1fr) 48px 24px;
+        grid-template-areas: "icon name pct info" "icon bar bar bar";
+        row-gap: 8px;
+    }
+    .result-detail { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .result-wrap { padding: 8px; gap: 8px; }
+    .result-panel { border-radius: 24px; padding: 22px 18px 26px; }
+    .result-photo { border-radius: 24px; height: 300px; }
+    .result-logo img { height: 38px; }
+    .result-card { margin-top: 22px; padding: 22px 18px; }
+    .result-pct { font-size: 64px; }
+    .result-traits li { padding: 12px 0; font-size: 14px; }
+    .result-cta { font-size: 15px; padding-left: 22px; }
+    .result-detail { margin: 0 8px 8px; border-radius: 24px; padding: 18px 14px; }
+    .detail-learn { grid-template-columns: 1fr; }
+    .detail-other { grid-template-columns: 1fr; padding: 18px; }
+    .detail-other-stat {
+        grid-column: 1;
+        grid-row: auto;
+        border-left: 0;
+        padding-left: 0;
+        border-top: 1px solid #f0dfd4;
+        padding-top: 10px;
+        margin-top: 10px;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 8px;
+    }
+}
+
+/* ---------- Блок 3: направления школы ---------- */
+.result-dirs {
+    margin: 0 12px 12px;
+    background: #fff8f3;
+    border-radius: 32px;
+    padding: clamp(36px, 5vw, 76px) clamp(22px, 4.5vw, 72px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+    overflow: hidden;
+}
+
+.dirs-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 18px 7px 8px;
+    border-radius: 100px;
+    background: #fff;
+    border: 1px solid rgba(23, 17, 14, .09);
+    box-shadow: 0 10px 26px -20px rgba(74, 30, 12, .5);
+    font-size: 13px;
+    font-weight: 600;
+    color: #3b2b25;
+}
+
+.dirs-pill-icon {
+    flex: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3e4da;
+    color: #c2161d;
+}
+
+.dirs-pill-icon svg { width: 14px; height: 14px; }
+
+.dirs-title {
+    margin: 24px 0 0;
+    font-size: clamp(30px, 3.8vw, 52px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.dirs-sub {
+    display: inline-block;
+    position: relative;
+    margin: clamp(26px, 4vh, 44px) 0 0;
+    font-size: clamp(19px, 1.9vw, 25px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.dirs-sub::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #e31b23, #ff8a8f);
+}
+
+.dirs-text {
+    margin: 20px 0 0;
+    max-width: 480px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: #6b5d54;
+}
+
+.dirs-copy .result-cta { margin-top: 30px; }
+
+.dirs-stage { position: relative; min-height: 540px; }
+
+.dirs-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: min(560px, 98%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px dashed rgba(194, 22, 29, .22);
+}
+
+.dirs-blob {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: min(480px, 86%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 36% 30%, #f8f1ea 0%, #eae1d8 58%, #d9cdc2 100%);
+    box-shadow: inset 0 -18px 40px rgba(120, 90, 70, .12);
+}
+
+.dirs-dot {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #e31b23;
+    opacity: .35;
+}
+
+.dirs-dot--1 { left: 5%; top: 40%; }
+.dirs-dot--2 { right: 7%; bottom: 28%; width: 6px; height: 6px; opacity: .25; }
+
+.dirs-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow:
+        0 0 0 12px rgba(227, 27, 35, .08),
+        0 0 60px rgba(227, 27, 35, .28),
+        0 24px 48px -22px rgba(74, 30, 12, .4);
+}
+
+.dirs-core img { width: 84px; height: 84px; border-radius: 50%; display: block; }
+
+.dir-chip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px 12px 12px;
+    border-radius: 20px;
+    background: linear-gradient(150deg, #ffffff 0%, #f6efe8 100%);
+    border: 1px solid rgba(23, 17, 14, .06);
+    box-shadow: 0 20px 44px -24px rgba(74, 30, 12, .4);
+    text-decoration: none;
+    color: #2b211c;
+    transform: rotate(var(--rz, 0deg));
+    animation: dirFloat 6.5s ease-in-out infinite;
+    animation-delay: var(--fd, 0s);
+    transition: translate .25s ease, box-shadow .25s ease;
+}
+
+.dir-chip:hover {
+    translate: 0 -6px;
+    box-shadow: 0 30px 56px -26px rgba(74, 30, 12, .5);
+}
+
+.dir-chip-icon {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3e4da;
+    color: #c2161d;
+}
+
+.dir-chip-icon svg { width: 20px; height: 20px; }
+
+.dir-chip-text { display: flex; flex-direction: column; }
+
+.dir-chip-name {
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    max-width: 150px;
+}
+
+.dir-chip-sub {
+    display: none;
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .85);
+}
+
+.dir-chip--win {
+    background: linear-gradient(135deg, #ff2d3a 0%, #e31b23 100%);
+    border-color: rgba(255, 255, 255, .25);
+    color: #fff;
+    box-shadow: 0 0 0 5px rgba(227, 27, 35, .14), 0 24px 50px -22px rgba(227, 27, 35, .65);
+}
+
+.dir-chip--win .dir-chip-icon { background: rgba(255, 255, 255, .18); color: #fff; }
+.dir-chip--win .dir-chip-sub { display: block; }
+
+.dir-chip--figure { left: 0; top: 2%; --rz: -2deg; --fd: 0s; }
+.dir-chip--spa { right: 0; top: 9%; --rz: 2deg; --fd: .9s; }
+.dir-chip--medical { right: 1%; bottom: 9%; --rz: -1.5deg; --fd: 1.8s; }
+.dir-chip--family { left: 5%; bottom: 1%; --rz: 1.5deg; --fd: 2.7s; }
+
+@keyframes dirFloat {
+    0%, 100% { transform: rotate(var(--rz, 0deg)) translateY(0); }
+    50% { transform: rotate(var(--rz, 0deg)) translateY(-9px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dir-chip { animation: none; }
+}
+
+@media (max-width: 980px) {
+    .result-dirs { grid-template-columns: 1fr; }
+    .dirs-stage { min-height: 480px; }
+    .dirs-text { max-width: none; }
+}
+
+@media (max-width: 640px) {
+    .result-dirs { margin: 0 8px 8px; border-radius: 24px; padding: 28px 18px 32px; }
+    .dirs-stage { min-height: 420px; }
+    .dirs-core { width: 92px; height: 92px; }
+    .dirs-core img { width: 64px; height: 64px; }
+    .dir-chip { padding: 10px 16px 10px 10px; gap: 10px; border-radius: 16px; }
+    .dir-chip-icon { width: 36px; height: 36px; border-radius: 10px; }
+    .dir-chip-icon svg { width: 17px; height: 17px; }
+    .dir-chip-name { font-size: 13.5px; max-width: 104px; }
+    .dir-chip-sub { font-size: 11px; }
+    .dir-chip--figure { top: 0; left: 0; }
+    .dir-chip--spa { top: 15%; right: 0; }
+    .dir-chip--medical { bottom: 15%; right: 0; }
+    .dir-chip--family { bottom: 0; left: 0; }
+}
+
+/* ---------- Блок 4: заявка на скидку ---------- */
+.result-lead {
+    margin: 0 12px 12px;
+    background: #fff8f3;
+    border-radius: 32px;
+    padding: clamp(32px, 4.5vw, 68px) clamp(22px, 4.5vw, 72px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+}
+
+.lead-copy { grid-column: 1; grid-row: 1; }
+
+.lead-title {
+    margin: 0;
+    font-size: clamp(30px, 3.6vw, 50px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+}
+
+.lead-pct { position: relative; display: inline-block; }
+
+.lead-pct::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #e31b23, #ff8a8f);
+}
+
+.lead-text {
+    margin: 20px 0 0;
+    max-width: 420px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: #6b5d54;
+}
+
+.lead-form { grid-column: 2; grid-row: 1; display: grid; gap: 14px; }
+
+.lead-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.lead-input {
+    width: 100%;
+    padding: 17px 24px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    background: #f3e4da;
+    font-family: inherit;
+    font-size: 15px;
+    color: #17110e;
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.lead-input::placeholder { color: #8a7a6e; }
+
+.lead-input:focus {
+    outline: none;
+    background: #fff;
+    border-color: #e31b23;
+    box-shadow: 0 0 0 4px rgba(227, 27, 35, .12);
+}
+
+.lead-input[aria-invalid="true"] { border-color: #e31b23; background: #fff; }
+
+.lead-error { display: none; margin: 6px 0 0 24px; font-size: 12.5px; color: #c2161d; }
+.lead-field.invalid .lead-error { display: block; }
+
+.lead-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6b5d54;
+}
+
+.lead-consent input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+
+.lead-check {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 50%;
+    border: 1px solid #e5d3c6;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.lead-check svg { width: 12px; height: 12px; opacity: 0; transition: opacity .2s ease; }
+.lead-consent input:checked + .lead-check { background: #e31b23; border-color: #e31b23; }
+.lead-consent input:checked + .lead-check svg { opacity: 1; }
+.lead-consent input:focus-visible + .lead-check { outline: 2px solid #e31b23; outline-offset: 2px; }
+.lead-consent.invalid .lead-check { border-color: #e31b23; box-shadow: 0 0 0 4px rgba(227, 27, 35, .12); }
+.lead-consent a { color: #c2161d; }
+
+.lead-submit { margin-top: 6px; justify-self: start; }
+.lead-submit:disabled { opacity: .7; cursor: default; transform: none; }
+
+.lead-offer { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: #8a7a6e; }
+.lead-offer a { color: #c2161d; }
+
+.lead-success {
+    grid-column: 2;
+    grid-row: 1;
+    display: none;
+    gap: 14px;
+    justify-items: start;
+    background: #fff;
+    border: 1px solid #f0dfd4;
+    border-radius: 24px;
+    padding: 28px;
+}
+
+.lead-fallback {
+    grid-column: 2;
+    grid-row: 1;
+    display: none;
+    gap: 14px;
+    justify-items: start;
+    background: #fff;
+    border: 1px solid #f0dfd4;
+    border-radius: 24px;
+    padding: 28px;
+}
+
+.result-lead.sent .lead-form { display: none; }
+.result-lead.sent .lead-success { display: grid; }
+.result-lead.failed .lead-form { display: none; }
+.result-lead.failed .lead-fallback { display: grid; }
+
+.lead-success-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff2d3a, #c2161d);
+    color: #fff;
+    box-shadow: 0 0 0 6px rgba(227, 27, 35, .12);
+}
+
+.lead-success-icon svg { width: 22px; height: 22px; }
+.lead-success h3, .lead-fallback h3 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.lead-success p, .lead-fallback p { margin: 0; font-size: 14.5px; line-height: 1.6; color: #6b5d54; }
+
+.lead-textarea {
+    width: 100%;
+    min-height: 118px;
+    resize: vertical;
+    border-radius: 16px;
+    border: 1px solid #f0dfd4;
+    background: #fff8f3;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #4a3c34;
+}
+
+.lead-edit {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #a99c92;
+    transition: color .2s ease;
+}
+
+.lead-edit:hover { color: #e31b23; }
+
+@media (max-width: 980px) {
+    .result-lead { grid-template-columns: 1fr; }
+    .lead-form, .lead-success, .lead-fallback { grid-column: 1; grid-row: 2; }
+}
+
+@media (max-width: 640px) {
+    .result-lead { margin: 0 8px 8px; border-radius: 24px; padding: 28px 18px 30px; }
+    .lead-row { grid-template-columns: 1fr; }
+    .lead-success, .lead-fallback { padding: 22px 18px; }
+}
+
+/* ---------- Блок 5: частые вопросы ---------- */
+.result-faq {
+    margin: 0 12px 12px;
+    background: #fff8f3;
+    border-radius: 32px;
+    padding: clamp(30px, 4.5vw, 64px) clamp(20px, 4vw, 64px);
+}
+
+.faq-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: clamp(18px, 2.6vw, 32px);
+}
+
+.faq-head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3.2vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.faq-vk {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    border-radius: 100px;
+    background: #fff;
+    border: 1px solid #f0dfd4;
+    color: #c2161d;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 26px -20px rgba(74, 30, 12, .5);
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.faq-vk svg { width: 18px; height: 18px; }
+.faq-vk:hover { background: #e31b23; border-color: #e31b23; color: #fff; }
+
+.faq-item { border-top: 1px solid #f0dfd4; }
+.faq-item:last-child { border-bottom: 1px solid #f0dfd4; }
+
+.faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 4px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: clamp(16px, 1.6vw, 19px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #17110e;
+    text-align: left;
+}
+
+.faq-icon {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #e5d3c6;
+    color: #c2161d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+.faq-icon svg { width: 14px; height: 14px; }
+
+.faq-q[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+    background: #e31b23;
+    border-color: #e31b23;
+    color: #fff;
+}
+
+.faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+.faq-a > div { overflow: hidden; }
+.faq-a p { margin: 0; padding: 0 54px 24px 4px; font-size: 15px; line-height: 1.65; color: #6b5d54; }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+
+@media (max-width: 640px) {
+    .result-faq { margin: 0 8px 8px; border-radius: 24px; }
+    .faq-q { padding: 18px 2px; }
+    .faq-a p { padding: 0 4px 20px; }
+}
+</style>
+</head>
+<body>
+
+<main class="result-wrap">
+    <section class="result-panel">
+        <a class="result-logo" href="/" aria-label="БезБоли — на главную">
+            <img src="assets/images/logo-192.png" alt="БезБоли — школа массажа">
+        </a>
+
+        <div class="result-card">
+            <div>
+                <span class="result-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+                    Твоя совместимость
+                </span>
+                <h1 class="result-name" id="winName"></h1>
+                <div class="result-pct" id="winPct"></div>
+                <div class="result-bar"><span id="winBar"></span></div>
+            </div>
+            <ul class="result-traits" id="winTraits"></ul>
+        </div>
+
+        <div class="result-others" id="others"></div>
+
+        <div class="result-actions">
+            <a class="result-cta" id="ctaLink" href="course/">
+                <span>Подобрать обучение</span>
+                <span class="result-cta-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <aside class="result-photo">
+        <img id="photoImg" src="" alt="">
+    </aside>
+</main>
+
+<section class="result-detail">
+    <div class="detail-card">
+        <div class="detail-head">
+            <h2 id="dirName"></h2>
+            <span class="detail-bonus">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5v6A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-6"/><path d="M12 8.5V20"/><path d="M12 8.5S10.8 4 8 4a2.2 2.2 0 0 0 0 4.5"/><path d="M12 8.5S13.2 4 16 4a2.2 2.2 0 0 1 0 4.5"/></svg>
+                −10% на онлайн-курс за тест
+            </span>
+        </div>
+        <p class="detail-tagline" id="dirTagline"></p>
+        <p class="detail-learn-title">Чему ты научишься</p>
+        <div class="detail-learn" id="dirLearn"></div>
+    </div>
+    <div class="detail-others" id="detailOthers"></div>
+</section>
+
+<section class="result-dirs">
+    <div class="dirs-copy">
+        <span class="dirs-pill">
+            <span class="dirs-pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4Z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg>
+            </span>
+            Направления школы
+        </span>
+        <h2 class="dirs-title">Какое направление выбрать?</h2>
+        <p class="dirs-sub">Не выбирай — попробуй всё</p>
+        <p class="dirs-text">В БЕЗБОЛИ четыре направления, и они отлично сочетаются. Онлайн-курс «Профессиональный массажист» даёт базу по всем сразу, а интенсивы и офлайн-программы прокачивают то, что ближе именно тебе. Тест уже подсказал твоё — начни с него, остальное подключай по мере роста.</p>
+        <a class="result-cta" href="course/">
+            <span>Смотреть онлайн-курс</span>
+            <span class="result-cta-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+        </a>
+    </div>
+
+    <div class="dirs-stage" id="dirsStage">
+        <span class="dirs-ring" aria-hidden="true"></span>
+        <span class="dirs-blob" aria-hidden="true"></span>
+        <span class="dirs-dot dirs-dot--1" aria-hidden="true"></span>
+        <span class="dirs-dot dirs-dot--2" aria-hidden="true"></span>
+        <span class="dirs-core" aria-hidden="true"><img src="assets/images/logo-192.png" alt=""></span>
+
+        <a class="dir-chip dir-chip--figure" data-dir="figure" href="offline/intensives/figure-correction/">
+            <span class="dir-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20c.6-4 3.2-6 6.5-6s5.9 2 6.5 6"/></svg>
+            </span>
+            <span class="dir-chip-text"><span class="dir-chip-name">Коррекция фигуры</span><span class="dir-chip-sub"></span></span>
+        </a>
+
+        <a class="dir-chip dir-chip--spa" data-dir="spa" href="course/">
+            <span class="dir-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z"/><path d="M4 20C9 15 14 10 20 4"/></svg>
+            </span>
+            <span class="dir-chip-text"><span class="dir-chip-name">СПА-массажист</span><span class="dir-chip-sub"></span></span>
+        </a>
+
+        <a class="dir-chip dir-chip--medical" data-dir="medical" href="course/">
+            <span class="dir-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+            <span class="dir-chip-text"><span class="dir-chip-name">Лечебное направление</span><span class="dir-chip-sub"></span></span>
+        </a>
+
+        <a class="dir-chip dir-chip--family" data-dir="family" href="offline/family-massage/">
+            <span class="dir-chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-8.5-5.2-8.5-11A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.5 2.8c0 5.8-8.5 11-8.5 11Z"/></svg>
+            </span>
+            <span class="dir-chip-text"><span class="dir-chip-name">Массаж для близких</span><span class="dir-chip-sub"></span></span>
+        </a>
+    </div>
+</section>
+
+<section class="result-lead" id="leadBlock">
+    <div class="lead-copy">
+        <h2 class="lead-title">Забирай скидку<br>на обучение — <span class="lead-pct">10%</span></h2>
+        <p class="lead-text">За прохождение теста дарим скидку, чтобы войти в новую профессию было проще.</p>
+    </div>
+
+    <form class="lead-form" id="leadForm" novalidate>
+        <div class="lead-field" id="fieldName">
+            <input class="lead-input" id="leadName" name="name" type="text" placeholder="Как к вам обращаться?*" autocomplete="name" aria-label="Как к вам обращаться?" aria-describedby="errName">
+            <p class="lead-error" id="errName">Напиши, как к тебе обращаться</p>
+        </div>
+        <div class="lead-row">
+            <div class="lead-field" id="fieldPhone">
+                <input class="lead-input" id="leadPhone" name="phone" type="tel" inputmode="tel" placeholder="+7 999 000-00-00*" autocomplete="tel" aria-label="Телефон" aria-describedby="errPhone">
+                <p class="lead-error" id="errPhone">Введи номер полностью: +7 и 10 цифр</p>
+            </div>
+            <div class="lead-field" id="fieldEmail">
+                <input class="lead-input" id="leadEmail" name="email" type="email" placeholder="Электронная почта" autocomplete="email" aria-label="Электронная почта" aria-describedby="errEmail">
+                <p class="lead-error" id="errEmail">Похоже, в адресе опечатка</p>
+            </div>
+        </div>
+        <label class="lead-consent" id="consentPd">
+            <input type="checkbox" id="leadPd">
+            <span class="lead-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>
+            <span>Я даю согласие на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a> в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой защиты и обработки персональных данных</a></span>
+        </label>
+        <label class="lead-consent">
+            <input type="checkbox" id="leadAd">
+            <span class="lead-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>
+            <span>Я даю согласие на получение рекламных материалов</span>
+        </label>
+        <button class="result-cta lead-submit" type="submit" id="leadSubmit">
+            <span id="leadSubmitLabel">Записаться</span>
+            <span class="result-cta-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+        </button>
+        <p class="lead-offer">Нажимая на кнопку «Записаться», я соглашаюсь с <a href="offer.html" target="_blank" rel="noopener">публичной офертой</a></p>
+    </form>
+
+    <div class="lead-success" id="leadSuccess" role="status">
+        <span class="lead-success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5 12.5 9.5 17.5 19.5 6.5"/></svg>
+        </span>
+        <h3>Заявка готова!</h3>
+        <p>Мы получили твою заявку и скоро свяжемся с тобой.</p>
+    </div>
+
+    <div class="lead-fallback" id="leadFallback" role="status">
+        <span class="lead-success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5 12.5 9.5 17.5 19.5 6.5"/></svg>
+        </span>
+        <h3>Заявка почти готова!</h3>
+        <p id="leadCopyNote">Автоматически отправить не получилось. Скопируй текст заявки и отправь нам в ВКонтакте — менеджер закрепит скидку 10% и подберёт обучение.</p>
+        <textarea class="lead-textarea" id="leadText" readonly rows="5" aria-label="Текст заявки"></textarea>
+        <a class="result-cta" href="https://vk.me/bezboli_school" target="_blank" rel="noopener">
+            <span>Открыть ВКонтакте</span>
+            <span class="result-cta-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+        </a>
+        <button class="lead-edit" id="leadEdit" type="button">Изменить заявку</button>
+    </div>
+</section>
+
+<section class="result-faq">
+    <div class="faq-head">
+        <h2>Ответы на частые вопросы</h2>
+        <a class="faq-vk" href="https://vk.me/bezboli_school" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.3-4.1-.9L3 20l1.2-4.1A8.3 8.3 0 1 1 21 11.5Z"/></svg>
+            Задать свой вопрос
+        </a>
+    </div>
+
+    <div class="faq-item open">
+        <button class="faq-q" type="button" aria-expanded="true" aria-controls="faqA1">
+            Я никогда не делал массаж — получится ли у меня?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faqA1"><div><p>Да. Курс «Профессиональный массажист» построен с нуля: практика начинается с первого занятия, а учителя поддерживают и во время обучения, и после него. Большинство наших студентов приходят без опыта — и уже с первых клиентов получают хорошие отзывы.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA2">
+            Нужны ли кушетка и кабинет для старта?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faqA2"><div><p>Для направления «Массаж для близких» — нет: безопасные домашние техники работают без кушетки и кабинета. Для профессиональной практики кушетка желательна, но начать можно с массажа для своих, а оборудование докупить по мере роста.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA3">
+            Можно ли совмещать несколько направлений?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faqA3"><div><p>Да, и это сильная стратегия: база онлайн-курса охватывает все четыре направления, а интенсивы добавляют глубину в том, что ближе именно тебе. Тест показывает твоё ведущее направление — с него удобно начать, остальное подключать постепенно.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA4">
+            Выдаёте ли вы документы после обучения?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faqA4"><div><p>Да, выпускники получают сертификат и диплом установленного образца. Диплом выдаётся при наличии среднего специального или высшего образования, в остальных случаях ученик получает сертификат.</p></div></div>
+    </div>
+</section>
+
+<noscript><p style="color:#fff8f3;text-align:center;padding:20px;">Включи JavaScript, чтобы увидеть результат, или <a href="index.html#test" style="color:#ff8a8f;">пройди тест на главной</a>.</p></noscript>
+
+<script>
+(function () {
+    var DIRS = {
+        figure: {
+            name: 'Коррекция фигуры',
+            tagline: 'Помогает людям любить своё отражение',
+            photo: 'assets/images/test-figure.jpg',
+            traits: [
+                'Ты любишь видимый результат «до/после»',
+                'Ты мыслишь системно: цель, план, прогресс',
+                'Тебе важно помогать людям любить своё тело'
+            ],
+            desc: 'Ты любишь видеть результат сразу: было — стало. В коррекции фигуры ты работаешь с силуэтом, лимфой и качеством тела — и видишь, как клиенты начинают любить своё отражение. Это направление для тех, кто мыслит системно: цель, курс процедур, измеримый прогресс.',
+            learn: [
+                'Техники коррекции фигуры и лимфодренажа',
+                'Как составить курс процедур под цель клиента',
+                'Работа с силуэтом и видимый результат «до/после»'
+            ]
+        },
+        spa: {
+            name: 'СПА-массажист',
+            tagline: 'Создаёт атмосферу, в которой отдыхает душа',
+            photo: 'assets/images/test-spa.jpg',
+            traits: [
+                'Ты создаёшь атмосферу, в которой отдыхает душа',
+                'Тебе близки ритуалы и забота через детали',
+                'Ты умеешь замедлять и расслаблять людей'
+            ],
+            desc: 'Твоя стихия — атмосфера: тишина, аромамасла, мягкий свет и человек, который впервые за месяц выдохнул. СПА-направление — про ритуалы и глубокое расслабление, после которого клиенты возвращаются не только за техникой, но и за состоянием.',
+            learn: [
+                'СПА-протоколы и ритуалы расслабления',
+                'Ароматерапия и создание атмосферы',
+                'Техники, после которых клиенты засыпают на сеансе'
+            ]
+        },
+        medical: {
+            name: 'Лечебное направление',
+            tagline: 'Возвращает людям жизнь без боли',
+            photo: 'assets/images/test-medical.jpg',
+            traits: [
+                'Ты всегда ищешь причину, а не симптом',
+                'Тебе важно видеть настоящее восстановление',
+                'Ты любишь понимать, как всё устроено изнутри'
+            ],
+            desc: 'Тебе мало «просто размять» — ты хочешь понимать, откуда берётся боль и как её убрать. Лечебное направление — это анатомия, триггерные точки и настоящее восстановление: когда человек снова свободно двигается и забывает про таблетки.',
+            learn: [
+                'Анатомия и биомеханика: откуда берётся боль',
+                'Работа с триггерными точками и зажимами',
+                'Восстановление после нагрузок и сидячей работы'
+            ]
+        },
+        family: {
+            name: 'Массаж для близких',
+            tagline: 'Забота о близких своими руками — каждый день',
+            photo: 'assets/images/test-family.jpg',
+            traits: [
+                'Забота о своих — твоя главная мотивация',
+                'Ты хочешь быть полезным каждый день',
+                'Ты веришь: забота начинается дома'
+            ],
+            desc: 'Для тебя массаж — это способ заботиться о своих: снять боль в спине после работы, помочь расслабиться после тяжёлого дня, вернуть лёгкость перед сном. Это направление даёт безопасные домашние техники, которые работают каждый день — без кушетки и кабинета.',
+            learn: [
+                'Безопасные базовые техники для дома',
+                'Массаж спины, шеи и ног за 10–15 минут',
+                'Как помогать близким при усталости и стрессе'
+            ]
+        }
+    };
+
+    var ICONS = {
+        figure: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20c.6-4 3.2-6 6.5-6s5.9 2 6.5 6"/></svg>',
+        spa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z"/><path d="M4 20C9 15 14 10 20 4"/></svg>',
+        medical: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+        family: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-8.5-5.2-8.5-11A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.5 2.8c0 5.8-8.5 11-8.5 11Z"/></svg>'
+    };
+
+    var LEARN_ICONS = [
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-1.5-4.5-2-8-2v14c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2V4c-3.5 0-6 .5-8 2Z"/><path d="M12 6v14"/></svg>',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-6"/><path d="M12 20V8"/><path d="M19 20v-10"/><path d="M3 20h18"/></svg>'
+    ];
+
+    var LINKS = {
+        figure: 'offline/intensives/figure-correction/',
+        spa: 'course/',
+        medical: 'course/',
+        family: 'offline/family-massage/'
+    };
+
+    var KEYS = ['figure', 'spa', 'medical', 'family'];
+    var params = new URLSearchParams(window.location.search);
+    var win = params.get('win');
+    var pct = {};
+    var ok = Object.prototype.hasOwnProperty.call(DIRS, win);
+    KEYS.forEach(function (k) {
+        pct[k] = parseInt(params.get(k), 10);
+        if (!isFinite(pct[k]) || pct[k] < 0 || pct[k] > 100) ok = false;
+    });
+    if (!ok) { window.location.replace('index.html#test'); return; }
+
+    document.title = 'Твой результат: ' + DIRS[win].name + ' — БЕЗБОЛИ';
+    document.getElementById('winName').textContent = DIRS[win].name;
+    document.getElementById('winPct').textContent = pct[win] + '%';
+    document.getElementById('winBar').style.width = pct[win] + '%';
+    document.getElementById('ctaLink').href = LINKS[win];
+
+    var traitsEl = document.getElementById('winTraits');
+    DIRS[win].traits.forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = t;
+        traitsEl.appendChild(li);
+    });
+
+    var others = KEYS.filter(function (k) { return k !== win; })
+        .sort(function (a, b) { return pct[b] - pct[a]; });
+
+    var othersEl = document.getElementById('others');
+    others.forEach(function (k) {
+        var row = document.createElement('div');
+        row.className = 'result-other';
+        var icon = document.createElement('span');
+        icon.className = 'result-other-icon';
+        icon.innerHTML = ICONS[k];
+        var name = document.createElement('span');
+        name.className = 'result-other-name';
+        name.textContent = DIRS[k].name;
+        var bar = document.createElement('div');
+        bar.className = 'result-other-bar';
+        var fill = document.createElement('span');
+        fill.style.width = pct[k] + '%';
+        bar.appendChild(fill);
+        var val = document.createElement('span');
+        val.className = 'result-other-pct';
+        val.textContent = pct[k] + '%';
+        var info = document.createElement('span');
+        info.className = 'result-other-info';
+        info.title = DIRS[k].desc;
+        info.textContent = 'i';
+        row.appendChild(icon);
+        row.appendChild(name);
+        row.appendChild(bar);
+        row.appendChild(val);
+        row.appendChild(info);
+        othersEl.appendChild(row);
+    });
+
+    var photo = document.getElementById('photoImg');
+    photo.src = DIRS[win].photo;
+    photo.alt = DIRS[win].name;
+
+    document.getElementById('dirName').textContent = DIRS[win].name;
+    document.getElementById('dirTagline').textContent = DIRS[win].tagline;
+    var learnEl = document.getElementById('dirLearn');
+    DIRS[win].learn.forEach(function (t, i) {
+        var card = document.createElement('div');
+        card.className = 'detail-learn-card';
+        var icon = document.createElement('span');
+        icon.className = 'detail-learn-icon';
+        icon.innerHTML = LEARN_ICONS[i];
+        var span = document.createElement('span');
+        span.textContent = t;
+        card.appendChild(icon);
+        card.appendChild(span);
+        learnEl.appendChild(card);
+    });
+
+    var detailOthersEl = document.getElementById('detailOthers');
+    others.forEach(function (k) {
+        var card = document.createElement('div');
+        card.className = 'detail-other';
+        var body = document.createElement('div');
+        var name = document.createElement('div');
+        name.className = 'detail-other-name';
+        name.textContent = DIRS[k].name;
+        var desc = document.createElement('p');
+        desc.className = 'detail-other-desc';
+        desc.textContent = DIRS[k].desc;
+        body.appendChild(name);
+        body.appendChild(desc);
+        var stat = document.createElement('div');
+        stat.className = 'detail-other-stat';
+        var label = document.createElement('span');
+        label.textContent = 'Совместимость';
+        var val = document.createElement('b');
+        val.textContent = pct[k] + '%';
+        stat.appendChild(label);
+        stat.appendChild(val);
+        card.appendChild(body);
+        card.appendChild(stat);
+        detailOthersEl.appendChild(card);
+    });
+
+    var stage = document.getElementById('dirsStage');
+    KEYS.forEach(function (k) {
+        var chip = stage.querySelector('.dir-chip--' + k);
+        chip.href = LINKS[k];
+        if (k === win) {
+            chip.classList.add('dir-chip--win');
+            chip.querySelector('.dir-chip-sub').textContent = 'Твоё · ' + pct[win] + '%';
+        }
+    });
+
+    var leadBlock = document.getElementById('leadBlock');
+    var LEAD_API = 'https://panel.bezbolischool.online/api/lead';
+    var leadForm = document.getElementById('leadForm');
+    var leadName = document.getElementById('leadName');
+    var leadPhone = document.getElementById('leadPhone');
+    var leadEmail = document.getElementById('leadEmail');
+    var leadPd = document.getElementById('leadPd');
+    var leadAd = document.getElementById('leadAd');
+    var leadText = document.getElementById('leadText');
+    var leadCopyNote = document.getElementById('leadCopyNote');
+
+    leadPhone.addEventListener('input', function () {
+        var d = leadPhone.value.replace(/\D/g, '');
+        if (d[0] === '8') d = '7' + d.slice(1);
+        if (d && d[0] !== '7') d = '7' + d;
+        d = d.slice(0, 11);
+        var out = '+7';
+        if (d.length > 1) out += ' (' + d.slice(1, 4);
+        if (d.length >= 4) out += ') ' + d.slice(4, 7);
+        if (d.length >= 7) out += '-' + d.slice(7, 9);
+        if (d.length >= 9) out += '-' + d.slice(9, 11);
+        leadPhone.value = d ? out : '';
+    });
+
+    function setInvalid(fieldId, input, bad) {
+        document.getElementById(fieldId).classList.toggle('invalid', bad);
+        input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    }
+    [leadName, leadPhone, leadEmail].forEach(function (inp) {
+        inp.addEventListener('input', function () {
+            inp.closest('.lead-field').classList.remove('invalid');
+            inp.setAttribute('aria-invalid', 'false');
+        });
+    });
+    leadPd.addEventListener('change', function () {
+        document.getElementById('consentPd').classList.remove('invalid');
+    });
+
+    leadForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var badName = leadName.value.trim().length < 2;
+        var badPhone = leadPhone.value.replace(/\D/g, '').length !== 11;
+        var badEmail = leadEmail.value.trim() !== '' && !/^\S+@\S+\.\S+$/.test(leadEmail.value.trim());
+        var badPd = !leadPd.checked;
+        setInvalid('fieldName', leadName, badName);
+        setInvalid('fieldPhone', leadPhone, badPhone);
+        setInvalid('fieldEmail', leadEmail, badEmail);
+        document.getElementById('consentPd').classList.toggle('invalid', badPd);
+        if (badName || badPhone || badEmail || badPd) {
+            (badName ? leadName : badPhone ? leadPhone : badEmail ? leadEmail : leadPd).focus();
+            return;
+        }
+        var msg = 'Заявка с результата теста БЕЗБОЛИ\n' +
+            'Имя: ' + leadName.value.trim() + '\n' +
+            'Телефон: ' + leadPhone.value + '\n' +
+            (leadEmail.value.trim() ? 'Email: ' + leadEmail.value.trim() + '\n' : '') +
+            'Направление: ' + DIRS[win].name + ' — ' + pct[win] + '%\n' +
+            (leadAd.checked ? 'Согласие на рекламные материалы: да\n' : '') +
+            'Прошу закрепить скидку 10% за тест.';
+
+        function showFallback() {
+            leadText.value = msg;
+            function note(copied) {
+                leadCopyNote.textContent = copied
+                    ? 'Мы скопировали текст заявки. Открой ВКонтакте, вставь его в сообщение и отправь — менеджер закрепит скидку 10% и подберёт обучение.'
+                    : 'Автоматически отправить не получилось. Скопируй текст заявки из поля ниже и отправь нам в ВКонтакте — менеджер закрепит скидку 10% и подберёт обучение.';
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(msg).then(function () { note(true); }, function () { note(false); });
+            } else {
+                note(false);
+            }
+            leadBlock.classList.remove('sent');
+            leadBlock.classList.add('failed');
+            document.getElementById('leadFallback').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        var submitBtn = document.getElementById('leadSubmit');
+        var submitLabel = document.getElementById('leadSubmitLabel');
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Отправляем…';
+        var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 8000) : null;
+
+        fetch(LEAD_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: leadName.value.trim(),
+                phone: leadPhone.value,
+                email: leadEmail.value.trim(),
+                ad: leadAd.checked,
+                win: win,
+                pct: pct,
+                page: location.href
+            }),
+            signal: ctrl ? ctrl.signal : undefined
+        }).then(function (res) {
+            if (!res.ok) throw new Error('bad status');
+            return res.json();
+        }).then(function (data) {
+            if (timer) clearTimeout(timer);
+            if (!data || data.ok !== true) throw new Error('not ok');
+            leadBlock.classList.remove('failed');
+            leadBlock.classList.add('sent');
+            document.getElementById('leadSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }).catch(function () {
+            if (timer) clearTimeout(timer);
+            showFallback();
+        }).then(function () {
+            submitBtn.disabled = false;
+            submitLabel.textContent = 'Записаться';
+        });
+    });
+
+    document.getElementById('leadEdit').addEventListener('click', function () {
+        leadBlock.classList.remove('failed');
+        leadName.focus();
+    });
+
+    var faqItems = [].slice.call(document.querySelectorAll('.faq-item'));
+    faqItems.forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        btn.addEventListener('click', function () {
+            var wasOpen = item.classList.contains('open');
+            faqItems.forEach(function (other) {
+                other.classList.remove('open');
+                other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+})();
+</script>
+</body>
+</html>
