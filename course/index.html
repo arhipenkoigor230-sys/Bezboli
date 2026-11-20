@@ -805,105 +805,6 @@ body {
     font-weight: 600;
 }
 
-/* === Окно оплаты === */
-.pay-window { max-width: 460px; padding: 30px 30px 26px; }
-
-.pay-kicker {
-    font-size: 11px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: #b01018;
-    margin-bottom: 12px;
-}
-
-.pay-title {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.02em;
-    color: #17110e;
-    margin: 0 0 6px;
-}
-
-.pay-sub {
-    font-size: 14px;
-    line-height: 1.45;
-    color: #6d5f54;
-    margin: 0 0 18px;
-}
-
-.pay-price {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -.04em;
-    color: #17110e;
-}
-
-.pay-note { font-size: 13px; color: #6d5f54; margin-top: 8px; }
-
-.pay-divider { height: 1px; background: rgba(23, 17, 14, .12); margin: 22px 0; }
-
-.pay-qr {
-    background: #f6ede4;
-    border-radius: 16px;
-    padding: 18px;
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.pay-qr[hidden] { display: none; }
-
-.pay-qr img {
-    display: block;
-    width: 190px;
-    height: 190px;
-    object-fit: contain;
-    margin: 0 auto 10px;
-    border-radius: 8px;
-    background: #fff;
-}
-
-.pay-qr p { margin: 0; font-size: 12.5px; color: #6d5f54; line-height: 1.45; }
-
-.pay-primary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    min-height: 54px;
-    padding: 14px 20px;
-    border-radius: 100px;
-    background: #e31b23;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background .2s ease, transform .2s ease;
-}
-
-.pay-primary:hover { background: #ff2a32; transform: translateY(-1px); }
-.pay-primary[hidden] { display: none; }
-.pay-primary .arr { font-size: 17px; line-height: 1; }
-
-.pay-hint { margin: 16px 0 0; font-size: 12.5px; line-height: 1.5; color: #6d5f54; }
-
-.pay-foot {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-    margin-top: 18px;
-    font-size: 13px;
-}
-
-.pay-foot a { color: #8b0000; font-weight: 700; text-decoration: none; }
-.pay-foot a:hover { color: #e31b23; }
-
 /* === Разделитель "или свяжитесь напрямую" === */
 .call-divider {
     position: relative;
@@ -1052,9 +953,6 @@ body.call-modal-open { overflow: hidden; }
     }
     .call-modal-icon { width: 56px; height: 56px; margin-bottom: 12px; }
     .call-modal-icon svg { width: 26px; height: 26px; }
-    .pay-window { padding: 26px 20px 22px; }
-    .pay-price { font-size: 31px; }
-    .pay-title { font-size: 20px; }
 }
 /* =====================================================
    ПРОГРАММА КУРСА
@@ -3965,46 +3863,6 @@ body.call-modal-open { overflow: hidden; }
     </div>
 </div>
 
-<!-- ============ ОКНО ОПЛАТЫ ============ -->
-<div class="call-modal pay-modal" id="payModal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
-    <div class="call-modal-overlay" data-pay-close></div>
-    <div class="call-modal-window pay-window">
-        <button class="call-modal-close" type="button" aria-label="Закрыть" data-pay-close>
-            <svg viewBox="0 0 24 24">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-        </button>
-
-        <div class="pay-kicker">Оплата обучения</div>
-        <h3 class="pay-title" id="payTitle">Тариф</h3>
-        <p class="pay-sub" id="paySub"></p>
-        <div class="pay-price" id="payPrice"></div>
-        <div class="pay-note" id="payNote"></div>
-
-        <div class="pay-divider"></div>
-
-        <div class="pay-qr" id="payQr" hidden>
-            <img id="payQrImg" src="" alt="QR-код для оплаты по СБП" width="190" height="190">
-            <p>Отсканируйте камерой телефона или в приложении банка</p>
-        </div>
-
-        <a class="pay-primary" id="payLink" href="#" target="_blank" rel="noopener">
-            Перейти к оплате <span class="arr" aria-hidden="true">→</span>
-        </a>
-        <a class="pay-primary" id="payVk" href="https://vk.ru/im?sel=-198807271" target="_blank" rel="noopener">
-            Получить ссылку на оплату <span class="arr" aria-hidden="true">→</span>
-        </a>
-
-        <p class="pay-hint">Оплата по СБП или картой. После оплаты пришлите чек нам — откроем доступ в личном кабинете в течение рабочего дня.</p>
-
-        <div class="pay-foot">
-            <a href="https://vk.ru/im?sel=-198807271" target="_blank" rel="noopener">Написать в ВК</a>
-            <a href="tel:+79787511623">+7 (978) 751-16-23</a>
-        </div>
-    </div>
-</div>
-
 <!-- ============ ЭТОТ КУРС ДЛЯ ВАС ============ -->
 <section class="for-you">
     <div class="container">
@@ -4474,7 +4332,7 @@ body.call-modal-open { overflow: hidden; }
                         <li class="off">Диплом установленного образца</li>
                     </ul>
                     <div class="tariff-actions">
-    <a href="#" data-pay="basic" class="tariff-btn-primary">Приобрести</a>
+    <a href="https://cabinet.bezbolischool.online/pay?tariff=praktik" class="tariff-btn-primary">Приобрести</a>
     <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
 </div>
                 </div>
@@ -4506,7 +4364,7 @@ body.call-modal-open { overflow: hidden; }
                         <li><strong>Диплом установленного образца</strong></li>
                     </ul>
                     <div class="tariff-actions">
-    <a href="#" data-pay="pro" class="tariff-btn-primary">Приобрести</a>
+    <a href="https://cabinet.bezbolischool.online/pay?tariff=praktik-plus" class="tariff-btn-primary">Приобрести</a>
     <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
 </div>
                 </div>
@@ -4540,7 +4398,7 @@ body.call-modal-open { overflow: hidden; }
                         <li><strong>Диплом установленного образца</strong></li>
                     </ul>
                     <div class="tariff-actions">
-    <a href="#" data-pay="vip" class="tariff-btn-primary">Приобрести</a>
+    <a href="https://cabinet.bezbolischool.online/pay?tariff=vip" class="tariff-btn-primary">Приобрести</a>
     <a href="#" class="tariff-btn-secondary">Связаться с менеджером</a>
 </div>
                 </div>
@@ -5196,101 +5054,6 @@ body.call-modal-open { overflow: hidden; }
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-    });
-})();
-</script>
-<script>
-(function () {
-    // Ссылки на оплату и QR по тарифам.
-    // Вставьте сюда ссылку из ЮKassa/Robokassa и путь к картинке QR (например '../assets/images/sbp-praktik.png').
-    var PAY = {
-        basic: {
-            title: 'Массажист — практик',
-            sub: 'Базовый курс для тех, кто хочет помогать людям',
-            price: '52 000 ₽',
-            note: 'Доступ к курсу 9 месяцев',
-            link: '',
-            qr: ''
-        },
-        pro: {
-            title: 'Массажист — практик+',
-            sub: 'Расширенный курс для уверенного старта в профессии',
-            price: '74 500 ₽',
-            note: 'Доступ к курсу 12 месяцев',
-            link: '',
-            qr: ''
-        },
-        vip: {
-            title: 'Мастер Группа VIP',
-            sub: 'Персональное сопровождение от автора курса',
-            price: '139 500 ₽',
-            note: 'Доступ навсегда',
-            link: '',
-            qr: ''
-        }
-    };
-
-    var modal = document.getElementById('payModal');
-    var titleEl = document.getElementById('payTitle');
-    var subEl = document.getElementById('paySub');
-    var priceEl = document.getElementById('payPrice');
-    var noteEl = document.getElementById('payNote');
-    var qrWrap = document.getElementById('payQr');
-    var qrImg = document.getElementById('payQrImg');
-    var linkBtn = document.getElementById('payLink');
-    var vkBtn = document.getElementById('payVk');
-
-    function fill(key) {
-        var t = PAY[key];
-        if (!t) return false;
-        titleEl.textContent = t.title;
-        subEl.textContent = t.sub;
-        priceEl.textContent = t.price;
-        noteEl.textContent = t.note;
-
-        if (t.qr) {
-            qrImg.src = t.qr;
-            qrWrap.hidden = false;
-        } else {
-            qrImg.removeAttribute('src');
-            qrWrap.hidden = true;
-        }
-
-        if (t.link) {
-            linkBtn.href = t.link;
-            linkBtn.hidden = false;
-            vkBtn.hidden = true;
-        } else {
-            linkBtn.hidden = true;
-            vkBtn.hidden = false;
-        }
-        return true;
-    }
-
-    function openPay(key) {
-        if (!modal || !fill(key)) return;
-        modal.classList.add('active');
-        document.body.classList.add('call-modal-open');
-    }
-
-    function closePay() {
-        modal.classList.remove('active');
-        document.body.classList.remove('call-modal-open');
-    }
-
-    document.querySelectorAll('[data-pay]').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            openPay(btn.getAttribute('data-pay'));
-        });
-    });
-
-    modal.querySelectorAll('[data-pay-close]').forEach(function (el) {
-        el.addEventListener('click', closePay);
-    });
-
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closePay();
     });
 })();
 </script>
